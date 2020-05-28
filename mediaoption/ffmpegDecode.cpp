@@ -286,6 +286,27 @@ void FFmpegDecoder::GetRGBAFrame(AVFrame *pFrameYuv, cv::Mat &pCvMat)
 
 }
 
+void FFmpegDecoder::GetRGBAFrame(AVFrame* pFrameYuv, QImage& image)
+{
+	AVFrame* frame = NULL;
+	int width = pVideoCodecCtx->width;
+	int height = pVideoCodecCtx->height;
+	int bufferImgSize = avpicture_get_size(AV_PIX_FMT_RGBA, width, height);
+	frame = av_frame_alloc();
+	uint8_t* buffer = (uint8_t*)av_mallocz(bufferImgSize);
+	if (frame)
+	{
+		avpicture_fill((AVPicture*)frame, buffer, AV_PIX_FMT_BGR24, width, height);
+		//frame->width  = width;
+		//frame->height = height;
+		//frame->data[0] = buffer;
+
+		sws_scale(pImgConvertCtx, pFrameYuv->data, pFrameYuv->linesize, 0, height, frame->data, frame->linesize);
+		//av_free(frame->data[0]);
+		av_frame_free(&frame);
+	}
+}
+
 
 shared_ptr<AVPacket> FFmpegDecoder::ReadPacketFromSource()
 {

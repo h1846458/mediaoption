@@ -3,6 +3,7 @@
 
 #include "ffmpegInclude.h"
 #include <string>
+#include <QtGui\qimage.h>
 
 class FFmpegDecoder
 { 
@@ -63,6 +64,8 @@ class FFmpegDecoder
 
   // return rgb image 
   private: void GetRGBAFrame(AVFrame *pFrameYuv, cv::Mat &pCvMat);
+
+  private: void GetRGBAFrame(AVFrame* pFrameYuv, QImage &image);
 
   // Decode audio from packet.
   private: int DecodeAudio(int nStreamIndex, const AVPacket *avpkt, uint8_t* pOutBuffer, size_t nOutBufferSize);

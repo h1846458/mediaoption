@@ -101,6 +101,7 @@
   <ItemGroup>
     <ClInclude Include="ffmpegDecode.h" />
     <ClInclude Include="ffmpegInclude.h" />
+    <ClInclude Include="ui_mediaoption.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Condition="Exists('$(QtMsBuild)\qt.targets')">

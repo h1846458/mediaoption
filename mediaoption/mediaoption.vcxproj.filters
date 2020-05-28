@@ -52,5 +52,8 @@
     <ClInclude Include="ffmpegInclude.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="ui_mediaoption.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>

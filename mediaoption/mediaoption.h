@@ -2,6 +2,7 @@
 
 #include <QtWidgets/QMainWindow>
 #include "ui_mediaoption.h"
+#include <qtimer.h>
 
 class mediaoption : public QMainWindow
 {
@@ -9,7 +10,14 @@ class mediaoption : public QMainWindow
 
 public:
     mediaoption(QWidget *parent = Q_NULLPTR);
+    virtual ~mediaoption();
 
 private:
     Ui::mediaoptionClass ui;
+    void initWindow(void);
+private:
+    QTimer* timer, * timer1;
+    double Capturetime;
+private slots:
+    void opencvdisplay(void);
 };
