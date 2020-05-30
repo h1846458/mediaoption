@@ -31,6 +31,8 @@ class FFmpegDecoder
   // Return next frame FFmpeg.
   public: virtual void GetNextFrame(cv::Mat &res);
 
+  public: virtual void GetNextFrame(QImage& image);
+
   public:  shared_ptr<AVPacket> ReadPacketFromSource();
   
   public:  int WritePacket(shared_ptr<AVPacket> packet);
