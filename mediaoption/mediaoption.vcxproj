@@ -57,7 +57,7 @@
     <QtBuildConfig>debug</QtBuildConfig>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x64'" Label="QtSettings">
-    <QtInstall>msvc2017</QtInstall>
+    <QtInstall>mcsv2017</QtInstall>
     <QtModules>core;gui;widgets</QtModules>
     <QtBuildConfig>release</QtBuildConfig>
   </PropertyGroup>
@@ -101,6 +101,7 @@
   <ItemGroup>
     <ClInclude Include="ffmpegDecode.h" />
     <ClInclude Include="ffmpegInclude.h" />
+    <ClInclude Include="ui_mediaoption.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Condition="Exists('$(QtMsBuild)\qt.targets')">
