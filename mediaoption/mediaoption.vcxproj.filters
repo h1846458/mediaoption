@@ -41,6 +41,12 @@
     <ClCompile Include="ffmpegDecode.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="SplitScreen.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="PlayQlabel.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <QtRcc Include="mediaoption.qrc" />
@@ -55,5 +61,13 @@
     <ClInclude Include="ui_mediaoption.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="SplitScreen.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <QtMoc Include="PlayQlabel.h">
+      <Filter>Header Files</Filter>
+    </QtMoc>
   </ItemGroup>
 </Project>

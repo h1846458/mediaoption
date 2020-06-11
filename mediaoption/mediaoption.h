@@ -1,7 +1,7 @@
 #pragma once
 
 #include <QtWidgets/QMainWindow>
-#include "ui_mediaoption.h"
+#include "SplitScreen.h"
 #include <qtimer.h>
 #include "ffmpegDecode.h"
 
@@ -16,12 +16,17 @@ public:
 private:
     Ui::mediaoptionClass ui;
     void initWindow(void);
+    void setScreen(int check);
 private:
     QTimer* timer;
     //double Capturetime;
     string url;
     FFmpegDecoder decoder;
     QImage image;
+    SplitScreen* scr;
+    int scrindex;
+    PlayQlabel* playlabel;
 private slots:
     void opencvdisplay(void);
+
 };

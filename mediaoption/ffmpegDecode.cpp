@@ -280,7 +280,6 @@ void FFmpegDecoder::GetNextFrame(QImage& image)
 					bool isDecodeComplite = DecodeVideo(&packet, pVideoYuv);
 					if (isDecodeComplite)
 					{
-						cout << "jemamamammam" << endl;
 						GetRGBAFrame(pVideoYuv, image);
 						
 					}
@@ -372,16 +371,16 @@ void FFmpegDecoder::GetRGBAFrame(AVFrame* pFrameYuv, QImage& image)
 {
 	AVFrame* frame = NULL;
 	pImgConvertCtx  = sws_getContext(pVideoCodecCtx->width, pVideoCodecCtx->height, pVideoCodecCtx->pix_fmt, 
-		pVideoCodecCtx->width, pVideoCodecCtx->height, AV_PIX_FMT_RGBA, SWS_BICUBIC, NULL, NULL, NULL);
+		pVideoCodecCtx->width, pVideoCodecCtx->height, AV_PIX_FMT_RGB24, SWS_BICUBIC, NULL, NULL, NULL);
 	int width = pVideoCodecCtx->width;
 	int height = pVideoCodecCtx->height;
-	int bufferImgSize = avpicture_get_size(AV_PIX_FMT_RGBA, width, height);
+	int bufferImgSize = avpicture_get_size(AV_PIX_FMT_RGB24, width, height);
 	frame = av_frame_alloc();
 	//uint8_t* buffer = (uint8_t*)av_malloc(bufferImgSize * sizeof(uint8_t));
 	uint8_t* buffer = (uint8_t*)av_mallocz(bufferImgSize);
 	if (frame)
 	{
-		avpicture_fill((AVPicture*)frame, buffer, AV_PIX_FMT_RGBA, width, height);
+		avpicture_fill((AVPicture*)frame, buffer, AV_PIX_FMT_RGB24, width, height);
 		//frame->width  = width;
 		//frame->height = height;
 		//frame->data[0] = buffer;
@@ -390,11 +389,11 @@ void FFmpegDecoder::GetRGBAFrame(AVFrame* pFrameYuv, QImage& image)
 		//av_free(frame->data[0]);
 		av_frame_free(&frame);
 	}
-	cout << "heheh=============" << endl;
-	QImage tmpImg(buffer, pVideoCodecCtx->width, pVideoCodecCtx->height, QImage::Format_RGB32);
+	QImage tmpImg(buffer, pVideoCodecCtx->width, pVideoCodecCtx->height, QImage::Format_RGB888);
 	image = tmpImg.copy();
 	av_freep(&buffer);
-	av_freep(pImgConvertCtx);
+	sws_freeContext(pImgConvertCtx);
+
 	
 }
 

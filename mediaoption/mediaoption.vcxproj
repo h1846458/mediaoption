@@ -45,7 +45,7 @@
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <Link>
-      <AdditionalDependencies>avcodec.lib;avutil.lib;swscale.lib;avformat.lib;avfilter.lib;opencv_core412.lib;opencv_highgui412.lib;opencv_imgcodecs412.lib;opencv_videoio412.lib;opencv_imgproc412.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>avcodec.lib;avutil.lib;swscale.lib;avformat.lib;avfilter.lib;opencv_core411.lib;opencv_highgui411.lib;opencv_imgcodecs411.lib;opencv_videoio411.lib;opencv_imgproc411.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
   <ImportGroup Condition="Exists('$(QtMsBuild)\qt_defaults.props')">
@@ -91,6 +91,8 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="PlayQlabel.cpp" />
+    <ClCompile Include="SplitScreen.cpp" />
     <QtRcc Include="mediaoption.qrc" />
     <QtUic Include="mediaoption.ui" />
     <QtMoc Include="mediaoption.h" />
@@ -101,6 +103,8 @@
   <ItemGroup>
     <ClInclude Include="ffmpegDecode.h" />
     <ClInclude Include="ffmpegInclude.h" />
+    <QtMoc Include="PlayQlabel.h" />
+    <ClInclude Include="SplitScreen.h" />
     <ClInclude Include="ui_mediaoption.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
