@@ -255,6 +255,88 @@ void FFmpegDecoder::GetNextFrame(cv::Mat &res)
 	}
 }
 
+void FFmpegDecoder::GetNextFrame(QImage& image)
+{
+	if (videoStreamIndex != -1)
+	{
+		AVFrame* pVideoYuv = av_frame_alloc();
+		//shared_ptr<AVPacket> packet = nullptr;
+		AVPacket packet;
+
+		if (isOpen)
+		{
+			// Read packet.
+			if (av_read_frame(pFormatCtx, &packet) >= 0)
+			{
+				int64_t pts = 0;
+				pts = (packet.dts != AV_NOPTS_VALUE) ? packet.dts : 0;
+
+				if (packet.stream_index == videoStreamIndex)
+				{
+					// Convert ffmpeg frame timestamp to real frame number.
+					int64_t numberFrame = (double)((int64_t)pts - pFormatCtx->streams[videoStreamIndex]->start_time) * videoBaseTime * videoFramePerSecond;
+
+					// Decode frame
+					bool isDecodeComplite = DecodeVideo(&packet, pVideoYuv);
+					if (isDecodeComplite)
+					{
+						cout << "jemamamammam" << endl;
+						GetRGBAFrame(pVideoYuv, image);
+						
+					}
+					//break;
+				}
+				else if (packet.stream_index == audioStreamIndex)
+				{
+					if (packet.dts != AV_NOPTS_VALUE)
+					{
+						int audioFrameSize = MAX_AUDIO_PACKET;
+						uint8_t* pFrameAudio = new uint8_t[audioFrameSize];
+						if (pFrameAudio)
+						{
+							double fCurrentTime = (double)(pts - pFormatCtx->streams[videoStreamIndex]->start_time) * audioBaseTime;
+							double fCurrentDuration = (double)packet.duration * audioBaseTime;
+
+							// Decode audio
+							int nDecodedSize = DecodeAudio(audioStreamIndex, &packet, pFrameAudio, audioFrameSize);
+
+							if (nDecodedSize > 0 && pAudioCodecCtx->sample_fmt == AV_SAMPLE_FMT_FLTP)
+							{
+								// Process audio here.
+								/* Uncommend sample if you want write raw data to file.
+								{
+									int size = nDecodedSize / sizeof(float);
+									signed short * ar = new signed short[nDecodedSize / sizeof(float)];
+									float* pointer = (float*)pFrameAudio;
+									// Convert float to S16.
+									for (int i = 0; i < size / 2; i ++)
+									{
+										ar[i] = pointer[i] * 32767.0f;
+									}
+
+									FILE* file = fopen("c:\\temp\\AudioRaw.raw", "ab");
+									fwrite(ar, 1, size * sizeof (signed short) / 2, file);
+									fclose(file);
+								}
+								*/
+							}
+
+							// Delete buffer.
+							delete[] pFrameAudio;
+							pFrameAudio = NULL;
+						}
+					}
+				}
+				av_free_packet(&packet);
+				av_freep(&pVideoYuv);
+				packet = AVPacket();
+			}
+
+			av_free(pVideoYuv);
+		}
+	}
+}
+
 
 void FFmpegDecoder::GetRGBAFrame(AVFrame *pFrameYuv, cv::Mat &pCvMat)
 {
@@ -284,6 +366,36 @@ void FFmpegDecoder::GetRGBAFrame(AVFrame *pFrameYuv, cv::Mat &pCvMat)
 	av_freep(&buffer);
 	
 
+}
+
+void FFmpegDecoder::GetRGBAFrame(AVFrame* pFrameYuv, QImage& image)
+{
+	AVFrame* frame = NULL;
+	pImgConvertCtx  = sws_getContext(pVideoCodecCtx->width, pVideoCodecCtx->height, pVideoCodecCtx->pix_fmt, 
+		pVideoCodecCtx->width, pVideoCodecCtx->height, AV_PIX_FMT_RGBA, SWS_BICUBIC, NULL, NULL, NULL);
+	int width = pVideoCodecCtx->width;
+	int height = pVideoCodecCtx->height;
+	int bufferImgSize = avpicture_get_size(AV_PIX_FMT_RGBA, width, height);
+	frame = av_frame_alloc();
+	//uint8_t* buffer = (uint8_t*)av_malloc(bufferImgSize * sizeof(uint8_t));
+	uint8_t* buffer = (uint8_t*)av_mallocz(bufferImgSize);
+	if (frame)
+	{
+		avpicture_fill((AVPicture*)frame, buffer, AV_PIX_FMT_RGBA, width, height);
+		//frame->width  = width;
+		//frame->height = height;
+		//frame->data[0] = buffer;
+
+		sws_scale(pImgConvertCtx, pFrameYuv->data, pFrameYuv->linesize, 0, height, frame->data, frame->linesize);
+		//av_free(frame->data[0]);
+		av_frame_free(&frame);
+	}
+	cout << "heheh=============" << endl;
+	QImage tmpImg(buffer, pVideoCodecCtx->width, pVideoCodecCtx->height, QImage::Format_RGB32);
+	image = tmpImg.copy();
+	av_freep(&buffer);
+	av_freep(pImgConvertCtx);
+	
 }
 
 
