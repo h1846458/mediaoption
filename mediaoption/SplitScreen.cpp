@@ -26,7 +26,7 @@ bool SplitScreen::changeScreen(Ui::mediaoptionClass ws)
 			//label[0]->setText(QApplication::translate("mediaoptionClass", "TextLabel", Q_NULLPTR));
 			//label[0]->setGeometry(QRect(153, 131, 291, 261));
 			label[0]->setStyleSheet("border-width: 1px;border-style: solid;border-color: rgb(255, 170, 0);");
-			label[0]->setStyleSheet("background-color: rgb(0, 0, 0);");        
+			label[0]->setStyleSheet("background-color: rgb(62, 62, 62);");      
 			label[0]->setScaledContents(false);
 			layout->addWidget(label[0]);
 			//qDebug() << "fgasdfasdfasdfdasfadfad";

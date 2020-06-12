@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>1226</width>
-    <height>681</height>
+    <width>1420</width>
+    <height>737</height>
    </rect>
   </property>
   <property name="font">
@@ -53,7 +53,7 @@
        <string notr="true"/>
       </property>
       <property name="currentIndex">
-       <number>1</number>
+       <number>0</number>
       </property>
       <widget class="QWidget" name="Play">
        <property name="accessibleName">
@@ -353,7 +353,7 @@ QSlider::sub-page:horizontal{
         <item row="0" column="1">
          <layout class="QVBoxLayout" name="verticalLayout" stretch="5,0,0">
           <item>
-           <widget class="QLabel" name="label">
+           <widget class="QLabel" name="vodqlabel">
             <property name="styleSheet">
              <string notr="true">background-color: rgb(62, 62, 62);</string>
             </property>
@@ -361,7 +361,7 @@ QSlider::sub-page:horizontal{
              <string/>
             </property>
             <property name="scaledContents">
-             <bool>true</bool>
+             <bool>false</bool>
             </property>
            </widget>
           </item>

@@ -67,7 +67,7 @@ public:
     QGridLayout *gridLayout_6;
     QTreeView *treeView_3;
     QVBoxLayout *verticalLayout;
-    QLabel *label;
+    QLabel *vodqlabel;
     QSlider *horizontalSlider_2;
     QHBoxLayout *horizontalLayout;
     QSpacerItem *horizontalSpacer_35;
@@ -189,7 +189,7 @@ public:
     {
         if (mediaoptionClass->objectName().isEmpty())
             mediaoptionClass->setObjectName(QStringLiteral("mediaoptionClass"));
-        mediaoptionClass->resize(1226, 681);
+        mediaoptionClass->resize(1420, 737);
         QFont font;
         font.setFamily(QStringLiteral("Microsoft YaHei UI"));
         font.setPointSize(10);
@@ -377,12 +377,12 @@ public:
         verticalLayout = new QVBoxLayout();
         verticalLayout->setSpacing(6);
         verticalLayout->setObjectName(QStringLiteral("verticalLayout"));
-        label = new QLabel(Voplay);
-        label->setObjectName(QStringLiteral("label"));
-        label->setStyleSheet(QStringLiteral("background-color: rgb(62, 62, 62);"));
-        label->setScaledContents(true);
+        vodqlabel = new QLabel(Voplay);
+        vodqlabel->setObjectName(QStringLiteral("vodqlabel"));
+        vodqlabel->setStyleSheet(QStringLiteral("background-color: rgb(62, 62, 62);"));
+        vodqlabel->setScaledContents(false);
 
-        verticalLayout->addWidget(label);
+        verticalLayout->addWidget(vodqlabel);
 
         horizontalSlider_2 = new QSlider(Voplay);
         horizontalSlider_2->setObjectName(QStringLiteral("horizontalSlider_2"));
@@ -1052,7 +1052,7 @@ public:
 
         retranslateUi(mediaoptionClass);
 
-        tabWidget->setCurrentIndex(1);
+        tabWidget->setCurrentIndex(0);
 
 
         QMetaObject::connectSlotsByName(mediaoptionClass);
@@ -1082,7 +1082,7 @@ public:
         pushButton->setText(QApplication::translate("mediaoptionClass", "Play", Q_NULLPTR));
         pushButton_2->setText(QApplication::translate("mediaoptionClass", "Stop", Q_NULLPTR));
         tabWidget->setTabText(tabWidget->indexOf(Play), QApplication::translate("mediaoptionClass", "\346\222\255\346\224\276", Q_NULLPTR));
-        label->setText(QString());
+        vodqlabel->setText(QString());
         pushButton_20->setText(QString());
         pushButton_6->setText(QString());
         pushButton_9->setText(QString());
