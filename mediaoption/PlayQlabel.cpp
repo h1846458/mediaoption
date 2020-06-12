@@ -10,12 +10,7 @@ void PlayQlabel::mousePressEvent(QMouseEvent* ev)
 	if (ev->button() == Qt::LeftButton)
 	{
 		emit leftclick();
-		//int x = ev->x();
-		//int y = ev->y();
-		//qDebug() << x << y;
 		qDebug() << this->objectName();
-		
-		//sendclick();
 	}
 	
 }

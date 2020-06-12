@@ -4,11 +4,12 @@ mediaoption::mediaoption(QWidget* parent) :QMainWindow(parent), scrindex(0)
 {
 	initWindow();
 }
+
 void mediaoption::initWindow(void)
 {
 	ui.setupUi(this);
 	//url = "rtsp://admin:admin123@10.135.128.8:554/cam/realmonitor?channel=1&subtype=0";
-	url = "D:\\code\\C++code\\FFMpegsdk\\001.avi";
+	url = "D:\\CodeC++\\decode\\MyVideo_1-H264.avi";
 	scr = new SplitScreen();
 	QString ind = ui.comboBox->currentText();
 	int index = ind.mid(0, ind.length() - 2).toInt();
@@ -23,7 +24,7 @@ void mediaoption::initWindow(void)
 		
 		if (decoder.Open(url))
 		{
-			QObject::connect(timer, SIGNAL(timeout()), SLOT(opencvdisplay()));
+			QObject::connect(timer, &QTimer::timeout,this, &mediaoption::opencvdisplay);
 		}
 		else
 		{
@@ -39,12 +40,11 @@ void mediaoption::opencvdisplay(void)
 	decoder.GetNextFrame(image);
 	QPixmap pixmap = QPixmap::fromImage(image);
 	int tmp = scr->getScrnum() - 1;
-	qDebug() << "===================================" << tmp;
 	if (scrindex <= tmp)
 	{
-		qDebug() << "===================================+++++++" << scrindex;
-		QPixmap fitpixmap = pixmap.scaled(scr->label[scrindex]->size(), Qt::IgnoreAspectRatio, Qt::SmoothTransformation);
-		//QPixmap fitpixmap = pixmap.scaled(width, height, Qt::KeepAspectRatio, Qt::SmoothTransformation);
+		qDebug() << "===================================+++++++" << scr->label[scrindex]->height();
+		//QPixmap fitpixmap = pixmap.scaled(scr->label[scrindex]->size(), Qt::IgnoreAspectRatio, Qt::SmoothTransformation);
+		QPixmap fitpixmap = pixmap.scaled(scr->label[scrindex]->size(), Qt::KeepAspectRatio, Qt::SmoothTransformation);
 		scr->label[scrindex]->setPixmap(fitpixmap);
 	}
 	else
