@@ -2,6 +2,10 @@
 
 mediaoption::mediaoption(QWidget* parent) :QMainWindow(parent), scrindex(0)
 {
+	for (int i = 0; i < MAXSCREEN; i++)
+	{
+		decoder[i] = nullptr;
+	}
 	initWindow();
 }
 
@@ -9,7 +13,7 @@ void mediaoption::initWindow(void)
 {
 	ui.setupUi(this);
 	//url = "rtsp://admin:admin123@10.135.128.8:554/cam/realmonitor?channel=1&subtype=0";
-	url = "D:\\CodeC++\\decode\\MyVideo_1-H264.avi";
+	//url = "D:\\code\\C++code\\videopusher\\mediaoption\\001.avi";
 	scr = new SplitScreen();
 	QString ind = ui.comboBox->currentText();
 	int index = ind.mid(0, ind.length() - 2).toInt();
@@ -19,44 +23,43 @@ void mediaoption::initWindow(void)
 	void(QComboBox:: * pcomboBox)(int) = &QComboBox::currentIndexChanged;
 	QObject::connect(ui.comboBox, pcomboBox, this, &mediaoption::setScreen);
 	QObject::connect(ui.pushButton, &QPushButton::clicked, this, [=]() mutable {
-		
-		timer->start(15);
-		
-		if (decoder.Open(url))
-		{
-			QObject::connect(timer, &QTimer::timeout,this, &mediaoption::opencvdisplay);
-		}
-		else
-		{
-			std::cout << "Cannot open file " << url << std::endl;
-		}
+			if (scr->label[scrindex] != nullptr)
+			{
+				decoder[scrindex] = new FFmpegDecoder();
+				scr->label[scrindex]->setlabelindex();
+				string  url = ui.UrllineEdit->text().toStdString();
+				timer->start(15);
 
+				if (decoder[scrindex]->Open(url))
+				{
+					QObject::connect(timer, &QTimer::timeout, this, &mediaoption::opencvdisplay);
+				}
+				else
+				{
+					std::cout << "Cannot open file " << url << std::endl;
+				}
+			}	
 		});
-	//QObject::connect(ui.playwidget, &PlayQlabel::leftclick, this, [=]() {playlabel = })
 }
 
 void mediaoption::opencvdisplay(void)
 {
-	decoder.GetNextFrame(image);
+	decoder[scrindex]->GetNextFrame(image);
 	QPixmap pixmap = QPixmap::fromImage(image);
 	int tmp = scr->getScrnum() - 1;
 	if (scrindex <= tmp)
 	{
-		qDebug() << "===================================+++++++" << scr->label[scrindex]->height();
 		//QPixmap fitpixmap = pixmap.scaled(scr->label[scrindex]->size(), Qt::IgnoreAspectRatio, Qt::SmoothTransformation);
 		QPixmap fitpixmap = pixmap.scaled(scr->label[scrindex]->size(), Qt::KeepAspectRatio, Qt::SmoothTransformation);
 		scr->label[scrindex]->setPixmap(fitpixmap);
 	}
 	else
 	{
-		
 		if (scr->label[tmp] != nullptr) 
 		{
-			QPixmap fitpixmap = pixmap.scaled(scr->label[tmp]->size(), Qt::IgnoreAspectRatio, Qt::SmoothTransformation);
-			//QPixmap fitpixmap = pixmap.scaled(width, height, Qt::KeepAspectRatio, Qt::SmoothTransformation);
+			QPixmap fitpixmap = pixmap.scaled(scr->label[tmp]->size(), Qt::KeepAspectRatio, Qt::SmoothTransformation);
 			scr->label[tmp]->setPixmap(fitpixmap);
 		}
-		
 	}
 	
 	

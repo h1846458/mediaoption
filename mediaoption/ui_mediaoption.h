@@ -49,17 +49,12 @@ public:
     QSpacerItem *horizontalSpacer_9;
     QCheckBox *checkBox_3;
     QSpacerItem *horizontalSpacer_10;
-    QPushButton *pushButton_3;
-    QSlider *horizontalSlider;
-    QPushButton *pushButton_4;
-    QSpacerItem *horizontalSpacer_11;
     QComboBox *comboBox;
     QSpacerItem *horizontalSpacer_12;
     QPushButton *pushButton_5;
-    QLineEdit *lineEdit;
+    QLineEdit *UrllineEdit;
     QComboBox *comboBox_2;
     QPushButton *pushButton;
-    QPushButton *pushButton_2;
     QGridLayout *gridLayout_2;
     QTreeView *treeView_2;
     QWidget *playwidget;
@@ -250,57 +245,6 @@ public:
 
         horizontalLayout_2->addItem(horizontalSpacer_10);
 
-        pushButton_3 = new QPushButton(Play);
-        pushButton_3->setObjectName(QStringLiteral("pushButton_3"));
-        pushButton_3->setStyleSheet(QStringLiteral("selection-background-color: rgb(255, 251, 253);"));
-        QIcon icon;
-        icon.addFile(QStringLiteral("res/vol/jian.png"), QSize(), QIcon::Normal, QIcon::Off);
-        pushButton_3->setIcon(icon);
-
-        horizontalLayout_2->addWidget(pushButton_3);
-
-        horizontalSlider = new QSlider(Play);
-        horizontalSlider->setObjectName(QStringLiteral("horizontalSlider"));
-        horizontalSlider->setAutoFillBackground(false);
-        horizontalSlider->setStyleSheet(QLatin1String("QSlider{\n"
-"border-color: #bcbcbc;\n"
-"}\n"
-"QSlider::groove:horizontal {                                \n"
-"     border: 1px solid #999999;                             \n"
-"     height: 1px;                                           \n"
-"    margin: 0px 0;                                         \n"
-"     left: 5px; right: 5px; \n"
-" }\n"
-"\n"
-"\n"
-"QSlider::handle:horizontal {                               \n"
-"     border: 0px ;                           \n"
-"     border-image:  url(:/res/vol/p.png);\n"
-"     width: 15px;                                           \n"
-"     margin: -7px -7px -7px -7px;                  \n"
-"} \n"
-"QSlider::sub-page:horizontal{                               \n"
-" background: qlineargradient(spread:pad, x1:0, y1:1, x2:0, y2:0, stop:0 #439cf3, stop:0.25 #439cf3, stop:0.5 #439cf3, stop:1 #439cf3);                     \n"
-"}\n"
-""));
-        horizontalSlider->setMinimum(10);
-        horizontalSlider->setMaximum(100);
-        horizontalSlider->setOrientation(Qt::Horizontal);
-
-        horizontalLayout_2->addWidget(horizontalSlider);
-
-        pushButton_4 = new QPushButton(Play);
-        pushButton_4->setObjectName(QStringLiteral("pushButton_4"));
-        QIcon icon1;
-        icon1.addFile(QStringLiteral("res/vol/jia.png"), QSize(), QIcon::Normal, QIcon::Off);
-        pushButton_4->setIcon(icon1);
-
-        horizontalLayout_2->addWidget(pushButton_4);
-
-        horizontalSpacer_11 = new QSpacerItem(40, 20, QSizePolicy::Expanding, QSizePolicy::Minimum);
-
-        horizontalLayout_2->addItem(horizontalSpacer_11);
-
         comboBox = new QComboBox(Play);
         comboBox->setObjectName(QStringLiteral("comboBox"));
         comboBox->setEditable(true);
@@ -316,10 +260,10 @@ public:
 
         horizontalLayout_2->addWidget(pushButton_5);
 
-        lineEdit = new QLineEdit(Play);
-        lineEdit->setObjectName(QStringLiteral("lineEdit"));
+        UrllineEdit = new QLineEdit(Play);
+        UrllineEdit->setObjectName(QStringLiteral("UrllineEdit"));
 
-        horizontalLayout_2->addWidget(lineEdit);
+        horizontalLayout_2->addWidget(UrllineEdit);
 
         comboBox_2 = new QComboBox(Play);
         comboBox_2->setObjectName(QStringLiteral("comboBox_2"));
@@ -328,17 +272,16 @@ public:
 
         pushButton = new QPushButton(Play);
         pushButton->setObjectName(QStringLiteral("pushButton"));
+        pushButton->setStyleSheet(QStringLiteral("QPushButton { background-color:transparent}"));
+        QIcon icon;
+        icon.addFile(QStringLiteral("res/start.jpg"), QSize(), QIcon::Normal, QIcon::Off);
+        pushButton->setIcon(icon);
+        pushButton->setIconSize(QSize(25, 25));
 
         horizontalLayout_2->addWidget(pushButton);
 
-        pushButton_2 = new QPushButton(Play);
-        pushButton_2->setObjectName(QStringLiteral("pushButton_2"));
-
-        horizontalLayout_2->addWidget(pushButton_2);
-
         horizontalLayout_2->setStretch(6, 1);
-        horizontalLayout_2->setStretch(8, 1);
-        horizontalLayout_2->setStretch(14, 1);
+        horizontalLayout_2->setStretch(10, 1);
 
         gridLayout_16->addLayout(horizontalLayout_2, 0, 0, 1, 1);
 
@@ -400,9 +343,9 @@ public:
         pushButton_20 = new QPushButton(Voplay);
         pushButton_20->setObjectName(QStringLiteral("pushButton_20"));
         pushButton_20->setStyleSheet(QStringLiteral("QPushButton { background-color:transparent}"));
-        QIcon icon2;
-        icon2.addFile(QStringLiteral("res/last.jpg"), QSize(), QIcon::Normal, QIcon::Off);
-        pushButton_20->setIcon(icon2);
+        QIcon icon1;
+        icon1.addFile(QStringLiteral("res/last.jpg"), QSize(), QIcon::Normal, QIcon::Off);
+        pushButton_20->setIcon(icon1);
         pushButton_20->setIconSize(QSize(25, 25));
 
         horizontalLayout->addWidget(pushButton_20);
@@ -414,9 +357,9 @@ public:
         pushButton_6 = new QPushButton(Voplay);
         pushButton_6->setObjectName(QStringLiteral("pushButton_6"));
         pushButton_6->setStyleSheet(QStringLiteral("QPushButton { background-color:transparent}"));
-        QIcon icon3;
-        icon3.addFile(QStringLiteral("res/x-2.jpg"), QSize(), QIcon::Normal, QIcon::Off);
-        pushButton_6->setIcon(icon3);
+        QIcon icon2;
+        icon2.addFile(QStringLiteral("res/x-2.jpg"), QSize(), QIcon::Normal, QIcon::Off);
+        pushButton_6->setIcon(icon2);
         pushButton_6->setIconSize(QSize(30, 25));
 
         horizontalLayout->addWidget(pushButton_6);
@@ -428,9 +371,7 @@ public:
         pushButton_9 = new QPushButton(Voplay);
         pushButton_9->setObjectName(QStringLiteral("pushButton_9"));
         pushButton_9->setStyleSheet(QStringLiteral("QPushButton { background-color:transparent}"));
-        QIcon icon4;
-        icon4.addFile(QStringLiteral("res/start.jpg"), QSize(), QIcon::Normal, QIcon::Off);
-        pushButton_9->setIcon(icon4);
+        pushButton_9->setIcon(icon);
         pushButton_9->setIconSize(QSize(25, 25));
 
         horizontalLayout->addWidget(pushButton_9);
@@ -442,9 +383,9 @@ public:
         pushButton_7 = new QPushButton(Voplay);
         pushButton_7->setObjectName(QStringLiteral("pushButton_7"));
         pushButton_7->setStyleSheet(QStringLiteral("QPushButton { background-color:transparent}"));
-        QIcon icon5;
-        icon5.addFile(QStringLiteral("res/stop.jpg"), QSize(), QIcon::Normal, QIcon::Off);
-        pushButton_7->setIcon(icon5);
+        QIcon icon3;
+        icon3.addFile(QStringLiteral("res/stop.jpg"), QSize(), QIcon::Normal, QIcon::Off);
+        pushButton_7->setIcon(icon3);
         pushButton_7->setIconSize(QSize(25, 25));
 
         horizontalLayout->addWidget(pushButton_7);
@@ -456,9 +397,9 @@ public:
         pushButton_19 = new QPushButton(Voplay);
         pushButton_19->setObjectName(QStringLiteral("pushButton_19"));
         pushButton_19->setStyleSheet(QStringLiteral("QPushButton { background-color:transparent}"));
-        QIcon icon6;
-        icon6.addFile(QStringLiteral("res/x2.jpg"), QSize(), QIcon::Normal, QIcon::Off);
-        pushButton_19->setIcon(icon6);
+        QIcon icon4;
+        icon4.addFile(QStringLiteral("res/x2.jpg"), QSize(), QIcon::Normal, QIcon::Off);
+        pushButton_19->setIcon(icon4);
         pushButton_19->setIconSize(QSize(30, 25));
 
         horizontalLayout->addWidget(pushButton_19);
@@ -470,9 +411,9 @@ public:
         pushButton_10 = new QPushButton(Voplay);
         pushButton_10->setObjectName(QStringLiteral("pushButton_10"));
         pushButton_10->setStyleSheet(QStringLiteral("QPushButton { background-color:transparent}"));
-        QIcon icon7;
-        icon7.addFile(QStringLiteral("res/next.jpg"), QSize(), QIcon::Normal, QIcon::Off);
-        pushButton_10->setIcon(icon7);
+        QIcon icon5;
+        icon5.addFile(QStringLiteral("res/next.jpg"), QSize(), QIcon::Normal, QIcon::Off);
+        pushButton_10->setIcon(icon5);
         pushButton_10->setIconSize(QSize(25, 25));
 
         horizontalLayout->addWidget(pushButton_10);
@@ -484,9 +425,9 @@ public:
         pushButton_8 = new QPushButton(Voplay);
         pushButton_8->setObjectName(QStringLiteral("pushButton_8"));
         pushButton_8->setStyleSheet(QStringLiteral("QPushButton { background-color:transparent}"));
-        QIcon icon8;
-        icon8.addFile(QStringLiteral("res/vol.jpg"), QSize(), QIcon::Normal, QIcon::Off);
-        pushButton_8->setIcon(icon8);
+        QIcon icon6;
+        icon6.addFile(QStringLiteral("res/vol.jpg"), QSize(), QIcon::Normal, QIcon::Off);
+        pushButton_8->setIcon(icon6);
         pushButton_8->setIconSize(QSize(25, 25));
 
         horizontalLayout->addWidget(pushButton_8);
@@ -498,9 +439,9 @@ public:
         pushButton_21 = new QPushButton(Voplay);
         pushButton_21->setObjectName(QStringLiteral("pushButton_21"));
         pushButton_21->setStyleSheet(QStringLiteral("QPushButton { background-color:transparent}"));
-        QIcon icon9;
-        icon9.addFile(QStringLiteral("res/quanping.jpg"), QSize(), QIcon::Normal, QIcon::Off);
-        pushButton_21->setIcon(icon9);
+        QIcon icon7;
+        icon7.addFile(QStringLiteral("res/quanping.jpg"), QSize(), QIcon::Normal, QIcon::Off);
+        pushButton_21->setIcon(icon7);
         pushButton_21->setIconSize(QSize(25, 25));
 
         horizontalLayout->addWidget(pushButton_21);
@@ -1067,8 +1008,6 @@ public:
         checkBox->setText(QApplication::translate("mediaoptionClass", "TCP", Q_NULLPTR));
         checkBox_2->setText(QApplication::translate("mediaoptionClass", "UDP", Q_NULLPTR));
         checkBox_3->setText(QApplication::translate("mediaoptionClass", "\344\272\272\350\204\270\346\243\200\346\265\213", Q_NULLPTR));
-        pushButton_3->setText(QString());
-        pushButton_4->setText(QString());
         comboBox->clear();
         comboBox->insertItems(0, QStringList()
          << QApplication::translate("mediaoptionClass", "1\345\210\206\345\261\217", Q_NULLPTR)
@@ -1079,8 +1018,11 @@ public:
         );
         comboBox->setCurrentText(QApplication::translate("mediaoptionClass", "1\345\210\206\345\261\217", Q_NULLPTR));
         pushButton_5->setText(QApplication::translate("mediaoptionClass", "\346\222\255\346\224\276\345\234\260\345\235\200:", Q_NULLPTR));
-        pushButton->setText(QApplication::translate("mediaoptionClass", "Play", Q_NULLPTR));
-        pushButton_2->setText(QApplication::translate("mediaoptionClass", "Stop", Q_NULLPTR));
+        comboBox_2->clear();
+        comboBox_2->insertItems(0, QStringList()
+         << QApplication::translate("mediaoptionClass", "\351\200\211\346\213\251\345\234\260\345\235\200", Q_NULLPTR)
+        );
+        pushButton->setText(QString());
         tabWidget->setTabText(tabWidget->indexOf(Play), QApplication::translate("mediaoptionClass", "\346\222\255\346\224\276", Q_NULLPTR));
         vodqlabel->setText(QString());
         pushButton_20->setText(QString());

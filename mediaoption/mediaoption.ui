@@ -79,7 +79,7 @@
          <number>0</number>
         </property>
         <item row="0" column="0">
-         <layout class="QHBoxLayout" name="horizontalLayout_2" stretch="0,0,0,0,0,0,1,0,1,0,0,0,0,0,1,0,0,0">
+         <layout class="QHBoxLayout" name="horizontalLayout_2" stretch="0,0,0,0,0,0,1,0,0,0,1,0,0">
           <item>
            <spacer name="horizontalSpacer_7">
             <property name="orientation">
@@ -154,83 +154,6 @@
            </spacer>
           </item>
           <item>
-           <widget class="QPushButton" name="pushButton_3">
-            <property name="styleSheet">
-             <string notr="true">selection-background-color: rgb(255, 251, 253);</string>
-            </property>
-            <property name="text">
-             <string/>
-            </property>
-            <property name="icon">
-             <iconset>
-              <normaloff>res/vol/jian.png</normaloff>res/vol/jian.png</iconset>
-            </property>
-           </widget>
-          </item>
-          <item>
-           <widget class="QSlider" name="horizontalSlider">
-            <property name="autoFillBackground">
-             <bool>false</bool>
-            </property>
-            <property name="styleSheet">
-             <string notr="true">QSlider{
-border-color: #bcbcbc;
-}
-QSlider::groove:horizontal {                                
-     border: 1px solid #999999;                             
-     height: 1px;                                           
-    margin: 0px 0;                                         
-     left: 5px; right: 5px; 
- }
-
-
-QSlider::handle:horizontal {                               
-     border: 0px ;                           
-     border-image:  url(:/res/vol/p.png);
-     width: 15px;                                           
-     margin: -7px -7px -7px -7px;                  
-} 
-QSlider::sub-page:horizontal{                               
- background: qlineargradient(spread:pad, x1:0, y1:1, x2:0, y2:0, stop:0 #439cf3, stop:0.25 #439cf3, stop:0.5 #439cf3, stop:1 #439cf3);                     
-}
-</string>
-            </property>
-            <property name="minimum">
-             <number>10</number>
-            </property>
-            <property name="maximum">
-             <number>100</number>
-            </property>
-            <property name="orientation">
-             <enum>Qt::Horizontal</enum>
-            </property>
-           </widget>
-          </item>
-          <item>
-           <widget class="QPushButton" name="pushButton_4">
-            <property name="text">
-             <string/>
-            </property>
-            <property name="icon">
-             <iconset>
-              <normaloff>res/vol/jia.png</normaloff>res/vol/jia.png</iconset>
-            </property>
-           </widget>
-          </item>
-          <item>
-           <spacer name="horizontalSpacer_11">
-            <property name="orientation">
-             <enum>Qt::Horizontal</enum>
-            </property>
-            <property name="sizeHint" stdset="0">
-             <size>
-              <width>40</width>
-              <height>20</height>
-             </size>
-            </property>
-           </spacer>
-          </item>
-          <item>
            <widget class="QComboBox" name="comboBox">
             <property name="editable">
              <bool>true</bool>
@@ -286,22 +209,34 @@ QSlider::sub-page:horizontal{
            </widget>
           </item>
           <item>
-           <widget class="QLineEdit" name="lineEdit"/>
+           <widget class="QLineEdit" name="UrllineEdit"/>
           </item>
           <item>
-           <widget class="QComboBox" name="comboBox_2"/>
-          </item>
-          <item>
-           <widget class="QPushButton" name="pushButton">
-            <property name="text">
-             <string>Play</string>
-            </property>
+           <widget class="QComboBox" name="comboBox_2">
+            <item>
+             <property name="text">
+              <string>选择地址</string>
+             </property>
+            </item>
            </widget>
           </item>
           <item>
-           <widget class="QPushButton" name="pushButton_2">
+           <widget class="QPushButton" name="pushButton">
+            <property name="styleSheet">
+             <string notr="true">QPushButton { background-color:transparent}</string>
+            </property>
             <property name="text">
-             <string>Stop</string>
+             <string/>
+            </property>
+            <property name="icon">
+             <iconset>
+              <normaloff>res/start.jpg</normaloff>res/start.jpg</iconset>
+            </property>
+            <property name="iconSize">
+             <size>
+              <width>25</width>
+              <height>25</height>
+             </size>
             </property>
            </widget>
           </item>

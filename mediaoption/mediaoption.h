@@ -19,13 +19,10 @@ private:
     void setScreen(int check);
 private:
     QTimer* timer;
-    //double Capturetime;
-    string url;
-    FFmpegDecoder decoder;
+    FFmpegDecoder *decoder[MAXSCREEN];
     QImage image;
     SplitScreen* scr;
     int scrindex;
-    PlayQlabel* playlabel;
 private slots:
     void opencvdisplay(void);
 
