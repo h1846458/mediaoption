@@ -3,7 +3,7 @@
 #include <QtWidgets/QMainWindow>
 #include "SplitScreen.h"
 #include <qtimer.h>
-#include "ffmpegDecode.h"
+#include "DecoderThread.h"
 
 class mediaoption : public QMainWindow
 {
@@ -18,9 +18,8 @@ private:
     void initWindow(void);
     void setScreen(int check);
 private:
-    QTimer* timer;
-    FFmpegDecoder *decoder[MAXSCREEN];
-    QImage image;
+    QTimer* timer[MAXSCREEN];
+    DecoderThread* decoderthread[MAXSCREEN];
     SplitScreen* scr;
     int scrindex;
 private slots:

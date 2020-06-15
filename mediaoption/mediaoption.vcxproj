@@ -91,6 +91,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="DecoderThread.cpp" />
     <ClCompile Include="PlayQlabel.cpp" />
     <ClCompile Include="SplitScreen.cpp" />
     <QtRcc Include="mediaoption.qrc" />
@@ -101,6 +102,8 @@
     <ClCompile Include="main.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <QtMoc Include="DecoderThread.h" />
+    <ClInclude Include="CommonStructHeader.h" />
     <ClInclude Include="ffmpegDecode.h" />
     <ClInclude Include="ffmpegInclude.h" />
     <QtMoc Include="PlayQlabel.h" />

@@ -4,7 +4,8 @@ mediaoption::mediaoption(QWidget* parent) :QMainWindow(parent), scrindex(0)
 {
 	for (int i = 0; i < MAXSCREEN; i++)
 	{
-		decoder[i] = nullptr;
+		decoderthread[i] = nullptr;
+		timer[i] = nullptr;
 	}
 	initWindow();
 }
@@ -13,38 +14,35 @@ void mediaoption::initWindow(void)
 {
 	ui.setupUi(this);
 	//url = "rtsp://admin:admin123@10.135.128.8:554/cam/realmonitor?channel=1&subtype=0";
-	//url = "D:\\code\\C++code\\videopusher\\mediaoption\\001.avi";
+	//url = "D:\\code\\C++code\\videopusher\\001.avi";
 	scr = new SplitScreen();
 	QString ind = ui.comboBox->currentText();
 	int index = ind.mid(0, ind.length() - 2).toInt();
 	scr->setScrnum(index);
 	scr->changeScreen(ui);
-	timer = new QTimer(this);
 	void(QComboBox:: * pcomboBox)(int) = &QComboBox::currentIndexChanged;
 	QObject::connect(ui.comboBox, pcomboBox, this, &mediaoption::setScreen);
 	QObject::connect(ui.pushButton, &QPushButton::clicked, this, [=]() mutable {
-			if (scr->label[scrindex] != nullptr)
-			{
-				decoder[scrindex] = new FFmpegDecoder();
-				scr->label[scrindex]->setlabelindex();
-				string  url = ui.UrllineEdit->text().toStdString();
-				timer->start(15);
-
-				if (decoder[scrindex]->Open(url))
-				{
-					QObject::connect(timer, &QTimer::timeout, this, &mediaoption::opencvdisplay);
-				}
-				else
-				{
-					std::cout << "Cannot open file " << url << std::endl;
-				}
-			}	
+		timer[scrindex] = new QTimer(this);
+		if (timer[scrindex]->isActive() == false)
+		{
+			timer[scrindex]->start(25);
+		}
+		decoderthread[scrindex] = new DecoderThread(this);
+		if (scr->label[scrindex] != nullptr)
+		{
+			scr->label[scrindex]->setlabelindex();
+			string  url = ui.UrllineEdit->text().toStdString();
+			decoderthread[scrindex]->setUrl(url);
+			decoderthread[scrindex]->start();
+			QObject::connect(timer[scrindex], &QTimer::timeout, this, &mediaoption::opencvdisplay);
+		}	
 		});
 }
-
+ 
 void mediaoption::opencvdisplay(void)
 {
-	decoder[scrindex]->GetNextFrame(image);
+	QImage image = decoderthread[scrindex]->getDecoderData().img;
 	QPixmap pixmap = QPixmap::fromImage(image);
 	int tmp = scr->getScrnum() - 1;
 	if (scrindex <= tmp)
@@ -68,7 +66,7 @@ void mediaoption::opencvdisplay(void)
 void mediaoption::setScreen(int check)
 {
 	
-	timer->stop();
+	timer[scrindex]->stop();
 	QString ind = ui.comboBox->currentText();
 	int index = ind.mid(0, ind.length() - 2).toInt();
 	scr->setScrnum(index);
@@ -80,7 +78,7 @@ void mediaoption::setScreen(int check)
 			scrindex = j;
 			});
 	}
-	timer->start(15);
+	timer[scrindex]->start(25);
 }
 mediaoption:: ~mediaoption()
 {
