@@ -1,6 +1,6 @@
 #include "DecoderThread.h"
 
-DecoderThread::DecoderThread(QObject *parent): QThread(parent), url("")
+DecoderThread::DecoderThread(QObject *parent): QThread(parent), url(""), playflag(true)
 {
 
 }
@@ -29,6 +29,11 @@ void DecoderThread::run()
 			if(imgdata.size() == 5)
 			{
 				imagedata = imgdata.dequeue();
+			}
+
+			if (!playflag)
+			{
+				break;
 			}
 		}
 	}

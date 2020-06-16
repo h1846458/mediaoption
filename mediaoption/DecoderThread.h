@@ -18,12 +18,14 @@ public:
 	int getSize() { return imgdata.size(); }
 	void run();
 	void setUrl(string urls) { url = urls; }
+	void setFlag() { playflag = false; }
 	~DecoderThread();
 
 private:
 	QQueue<DecoderData> imgdata;
 	DecoderData imagedata;
 	string url;
+	bool playflag;
 signals:
 
 private slots:

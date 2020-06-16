@@ -39,6 +39,20 @@ void mediaoption::initWindow(void)
 			QObject::connect(timer[scrindex], &QTimer::timeout, this, &mediaoption::opencvdisplay);
 		}	
 		});
+	QObject::connect(this, &QMainWindow::destroyed, this, [=]() {
+		for (int i = 0; i < MAXSCREEN; i++)
+		{
+			if (decoderthread[i] != nullptr)
+			{
+				
+				decoderthread[i]->setFlag();
+				decoderthread[i]->wait();
+				delete decoderthread[i];
+				qDebug() << "fasdfasdfasdfasdf";
+				
+			}
+		}
+		});
 }
  
 void mediaoption::opencvdisplay(void)
