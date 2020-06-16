@@ -15,6 +15,7 @@ void mediaoption::initWindow(void)
 	ui.setupUi(this);
 	//url = "rtsp://admin:admin123@10.135.128.8:554/cam/realmonitor?channel=1&subtype=0";
 	//url = "D:\\code\\C++code\\videopusher\\001.avi";
+	//url = "D:\CodeC++\FFMpeg2\MyVideo_1.avi";
 	scr = new SplitScreen();
 	QString ind = ui.comboBox->currentText();
 	int index = ind.mid(0, ind.length() - 2).toInt();
@@ -26,7 +27,7 @@ void mediaoption::initWindow(void)
 		timer[scrindex] = new QTimer(this);
 		if (timer[scrindex]->isActive() == false)
 		{
-			timer[scrindex]->start(25);
+			timer[scrindex]->start(10);
 		}
 		decoderthread[scrindex] = new DecoderThread(this);
 		if (scr->label[scrindex] != nullptr)
@@ -65,8 +66,6 @@ void mediaoption::opencvdisplay(void)
 
 void mediaoption::setScreen(int check)
 {
-	
-	timer[scrindex]->stop();
 	QString ind = ui.comboBox->currentText();
 	int index = ind.mid(0, ind.length() - 2).toInt();
 	scr->setScrnum(index);

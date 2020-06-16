@@ -20,7 +20,11 @@ void DecoderThread::run()
 			data.img = image;
 			if (imgdata.size() <= 5)
 			{
-				imgdata.enqueue(data);
+				if (!image.isNull())
+				{
+					imgdata.enqueue(data);
+				}
+				
 			}
 			if(imgdata.size() == 5)
 			{
