@@ -44,12 +44,9 @@ void mediaoption::initWindow(void)
 		{
 			if (decoderthread[i] != nullptr)
 			{
-				
 				decoderthread[i]->setFlag();
 				decoderthread[i]->wait();
 				delete decoderthread[i];
-				qDebug() << "fasdfasdfasdfasdf";
-				
 			}
 		}
 		});
@@ -91,8 +88,9 @@ void mediaoption::setScreen(int check)
 			scrindex = j;
 			});
 	}
-	timer[scrindex]->start(25);
+	//timer[scrindex]->start(25);
 }
+
 mediaoption:: ~mediaoption()
 {
 
