@@ -1,6 +1,9 @@
 #include "DecoderThread.h"
+#include <QAction>
 
-DecoderThread::DecoderThread(QObject *parent): QThread(parent), url(""), playflag(true)
+
+
+DecoderThread::DecoderThread(QObject *parent): QThread(parent), url(""), playflag(true), label(nullptr)
 {
 
 }
@@ -29,8 +32,9 @@ void DecoderThread::run()
 			if(imgdata.size() == 5)
 			{
 				imagedata = imgdata.dequeue();
+				QImage resultImg = imagedata.img.scaled(label->size(), Qt::KeepAspectRatio, Qt::SmoothTransformation);
+				label->setPixmap(QPixmap::fromImage(resultImg));
 			}
-
 			if (!playflag)
 			{
 				break;
@@ -42,6 +46,7 @@ void DecoderThread::run()
 		std::cout << "Cannot open file " << url << std::endl;
 	}
 }
+
 
 DecoderThread::~DecoderThread()
 {

@@ -15,9 +15,6 @@ namespace cw {
 		}
 
 	};
-
-
-
 };
 
 #pragma pack(pop)

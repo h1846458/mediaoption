@@ -1,13 +1,14 @@
 #include "SplitScreen.h"
 
 
-SplitScreen::SplitScreen():scrnum(1)
+SplitScreen::SplitScreen(Ui::mediaoptionClass ws):scrnum(1)
 {
 	for(int i = 0; i < MAXSCREEN; i++)
 	{
 		label[i] = nullptr;
 	}
-	layout = nullptr;
+	layout = new QGridLayout(ws.playwidget);
+	layout->setSpacing(5);
 	//changeScreen(ws);
 }
 
@@ -17,9 +18,6 @@ bool SplitScreen::changeScreen(Ui::mediaoptionClass ws)
 	{
 		case 1:
 		{
-			layout = new QGridLayout(ws.playwidget);
-			layout->setSpacing(1);
-			//QPushButton* button1 = new QPushButton(ws.playwidget);
 			label[0] = new PlayQlabel();
 			label[0]->setObjectName(QString("lable_%1").arg(0));
 			//label[0]->setObjectName(QStringLiteral("label"));
@@ -28,34 +26,30 @@ bool SplitScreen::changeScreen(Ui::mediaoptionClass ws)
 			label[0]->setStyleSheet("border-width: 1px;border-style: solid;border-color: rgb(255, 170, 0);");
 			label[0]->setStyleSheet("background-color: rgb(62, 62, 62);");      
 			label[0]->setScaledContents(false);
-			layout->addWidget(label[0]);
-			//qDebug() << "fgasdfasdfasdfdasfadfad";
+			layout->addWidget(label[0], 0, 0);
 			break;
 		}
 		case 4:
 		{
-			layout = new QGridLayout(ws.playwidget);
-			layout->setSpacing(1);
+			//layout = new QGridLayout(ws.playwidget);
+			//layout->setSpacing(1);
 			//layout->setRowStretch(2, 2);
 			for (int i = 0; i < scrnum; i++)
 			{
-				label[i] = new PlayQlabel();
-				label[i]->setObjectName(QString("lable_%1").arg(i));
-				label[i]->setStyleSheet("border-width: 1px;border-style: solid;border-color: rgb(255, 170, 0);");
-				label[i]->setStyleSheet("background-color: rgb(0, 0, 0);");
-
-			}
-			int n = 0;
-			for (int j = 0; j < 2; j++)
-			{
-
-				for (int q = 0; q < 2; q++)
+				if (label[i] == nullptr)
 				{
-					layout->addWidget(label[n], j, q);
-					n = n + 1;
+					qDebug() << "=========" << i;
+					label[i] = new PlayQlabel();
+					label[i]->setObjectName(QString("lable_%1").arg(i));
+					label[i]->setStyleSheet("border-width: 1px;border-style: solid;border-color: rgb(255, 170, 0);");
+					label[i]->setStyleSheet("background-color: rgb(0, 0, 0);");
 				}
+				
 
 			}
+			layout->addWidget(label[1], 0, 1);
+			layout->addWidget(label[2], 1, 0);
+			layout->addWidget(label[3], 1, 1);
 			break;
 		}
 		case 6:

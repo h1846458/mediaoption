@@ -8,7 +8,7 @@ class SplitScreen :public Ui::mediaoptionClass
 {
 	//Q_OBJECT;
 public:
-	SplitScreen();
+	SplitScreen(Ui::mediaoptionClass ws);
 	virtual ~SplitScreen();
 public:
 	PlayQlabel* label[MAXSCREEN];

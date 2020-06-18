@@ -4,6 +4,7 @@
 #include "SplitScreen.h"
 #include <qtimer.h>
 #include "DecoderThread.h"
+#include <qmessagebox.h>
 
 class mediaoption : public QMainWindow
 {
@@ -20,8 +21,11 @@ private:
 private:
     QTimer* timer[MAXSCREEN];
     DecoderThread* decoderthread[MAXSCREEN];
+    QImage image[MAXSCREEN];
     SplitScreen* scr;
     int scrindex;
+    QList<int> playlist;
+
 private slots:
     void opencvdisplay(void);
 
