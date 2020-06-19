@@ -1,19 +1,26 @@
 #include "PlayQlabel.h"
 
-PlayQlabel::PlayQlabel(QWidget* parent) : QLabel(parent), labelindex(0)
+PlayQlabel::PlayQlabel(QWidget* parent) : QLabel(parent), labelindex(0), playflag(true)
 {
-	QGridLayout* lay = new QGridLayout(this);
-	playbutton = new QPushButton(this);
-	playbutton->setStyleSheet(QStringLiteral("QPushButton { background-color:transparent}"));
+	playbutton = nullptr;
+	lay = nullptr;
+	
+}
+void PlayQlabel::setlay(PlayQlabel* lab)
+{
+	
+	lab->playbutton = new QPushButton(lab);
+	lab->playbutton->installEventFilter(lab);
+	lab->lay= new QGridLayout(lab);
+	lab->playbutton->setStyleSheet(QStringLiteral("QPushButton { background-color:transparent}"));
 	QIcon icon;
 	icon.addFile(QStringLiteral("res/play_button.png"), QSize(), QIcon::Normal, QIcon::Off);
-	playbutton->setIcon(icon);
-	playbutton->setIconSize(QSize(60, 60));
-	lay->setContentsMargins(this->width() * 4 / 5, 0 , this->width()*4 / 5, 0);
-	lay->addWidget(playbutton);
-	qDebug() << "dfadfasdfadsfasdfasdfads";
+	lab->playbutton->setIcon(icon);
+	lab->playbutton->setIconSize(QSize(60, 60));
+	lab->lay->setContentsMargins(lab->width() * 4 / 5, 0, lab->width() * 4 / 5, 0);
+	lab->lay->addWidget(lab->playbutton);
+	
 }
-
 void PlayQlabel::mousePressEvent(QMouseEvent* ev)
 {
 	if (ev->button() == Qt::LeftButton)
@@ -39,12 +46,44 @@ void PlayQlabel::mouseMoveEvent(QMouseEvent* ev)
 
 void PlayQlabel::enterEvent(QEvent* ev)
 {
-	playbutton->show();
+		playbutton->show();
 }
 
 void PlayQlabel::leaveEvent(QEvent* ev)
 {
-	playbutton->hide();
+	
+	
+}
+bool PlayQlabel::eventFilter(QObject* watched, QEvent* ev)
+{
+	if (watched == playbutton)
+	{
+		if (ev->type() == QEvent::MouseButtonPress)
+		{
+			if (playflag)
+			{
+				playbutton->setIcon(QIcon(QString::fromLocal8Bit("res/pause_button.png")));
+				playbutton->hide();
+				emit playbutton->click();
+			}
+			else if (!playflag)
+			{
+				playbutton->setIcon(QIcon(QString::fromLocal8Bit("res/play_button.png")));
+				playbutton->hide();
+				emit playbutton->click();
+			}
+		}
+		/*else if (ev->type() == QEvent::Leave) {
+			playbutton->setIcon(QIcon(QString::fromLocal8Bit(":/Resources/°´Å¥.png")));
+		}8*/
+	}
+	return QWidget::eventFilter(watched, ev);
+
+	
 }
 
-
+PlayQlabel::~PlayQlabel()
+{
+	delete playbutton;
+	delete lay;
+}

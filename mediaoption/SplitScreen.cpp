@@ -7,18 +7,23 @@ SplitScreen::SplitScreen(Ui::mediaoptionClass ws):scrnum(1)
 	{
 		label[i] = nullptr;
 	}
-	layout = new QGridLayout(ws.playwidget);
-	layout->setSpacing(5);
+	layout = nullptr;
 	//changeScreen(ws);
 }
 
 bool SplitScreen::changeScreen(Ui::mediaoptionClass ws)
 {
+	if (layout ==nullptr)
+	{
+		layout = new QGridLayout(ws.playwidget);
+		layout->setSpacing(5);
+	}
+	
 	switch (scrnum)
 	{
 		case 1:
 		{
-			label[0] = new PlayQlabel();
+			label[0] = new PlayQlabel(ws.playwidget);
 			label[0]->setObjectName(QString("lable_%1").arg(0));
 			//label[0]->setObjectName(QStringLiteral("label"));
 			//label[0]->setText(QApplication::translate("mediaoptionClass", "TextLabel", Q_NULLPTR));
@@ -26,6 +31,7 @@ bool SplitScreen::changeScreen(Ui::mediaoptionClass ws)
 			label[0]->setStyleSheet("border-width: 1px;border-style: solid;border-color: rgb(255, 170, 0);");
 			label[0]->setStyleSheet("background-color: rgb(62, 62, 62);");      
 			label[0]->setScaledContents(false);
+			PlayQlabel::setlay(label[0]);
 			layout->addWidget(label[0], 0, 0);
 			break;
 		}
@@ -39,17 +45,26 @@ bool SplitScreen::changeScreen(Ui::mediaoptionClass ws)
 				if (label[i] == nullptr)
 				{
 					qDebug() << "=========" << i;
-					label[i] = new PlayQlabel();
+					label[i] = new PlayQlabel(ws.playwidget);
 					label[i]->setObjectName(QString("lable_%1").arg(i));
 					label[i]->setStyleSheet("border-width: 1px;border-style: solid;border-color: rgb(255, 170, 0);");
 					label[i]->setStyleSheet("background-color: rgb(62, 62, 62);");
+					PlayQlabel::setlay(label[i]);
 				}
 				
 
 			}
-			layout->addWidget(label[1], 0, 1);
-			layout->addWidget(label[2], 1, 0);
-			layout->addWidget(label[3], 1, 1);
+			int n = 0;
+			for (int j = 0; j < 2; j++)
+			{
+
+				for (int q = 0; q < 2; q++)
+				{
+					layout->addWidget(label[n], j, q);
+					n = n + 1;
+				}
+
+			}
 			break;
 		}
 		case 6:
@@ -58,10 +73,11 @@ bool SplitScreen::changeScreen(Ui::mediaoptionClass ws)
 			//layout->setSpacing(1);
 			for (int i = 0; i < scrnum; i++)
 			{
-				label[i] = new PlayQlabel();
+				label[i] = new PlayQlabel(ws.playwidget);
 				label[i]->setObjectName(QString("lable_%1").arg(i));
 				label[i]->setStyleSheet("border-width: 1px;border-style: solid;border-color: rgb(255, 170, 0);");
 				label[i]->setStyleSheet("background-color: rgb(0, 0, 0);");
+				PlayQlabel::setlay(label[i]);
 			}
 			layout->addWidget(label[0], 0, 0, 2, 2);
 
@@ -84,10 +100,11 @@ bool SplitScreen::changeScreen(Ui::mediaoptionClass ws)
 			//layout->setSpacing(1);
 			for (int i = 0; i < scrnum; i++)
 			{
-				label[i] = new PlayQlabel();
+				label[i] = new PlayQlabel(ws.playwidget);
 				label[i]->setObjectName(QString("lable_%1").arg(i));
 				label[i]->setStyleSheet("border-width: 1px;border-style: solid;border-color: rgb(255, 170, 0);");
 				label[i]->setStyleSheet("background-color: rgb(0, 0, 0);");
+				PlayQlabel::setlay(label[i]);
 
 			}
 			int n = 0;
@@ -105,14 +122,15 @@ bool SplitScreen::changeScreen(Ui::mediaoptionClass ws)
 		}
 		case 16:
 		{
-			layout = new QGridLayout(ws.playwidget);
-			layout->setSpacing(1);
+			//layout = new QGridLayout(ws.playwidget);
+			//layout->setSpacing(1);
 			for (int i = 0; i < scrnum; i++)
 			{
-				label[i] = new PlayQlabel();
+				label[i] = new PlayQlabel(ws.playwidget);
 				label[i]->setObjectName(QString("lable_%1").arg(i));
 				label[i]->setStyleSheet("border-width: 1px;border-style: solid;border-color: rgb(255, 170, 0);");
 				label[i]->setStyleSheet("background-color: rgb(0, 0, 0);");
+				PlayQlabel::setlay(label[i]);
 
 			}
 			int n = 0;
@@ -152,9 +170,8 @@ bool SplitScreen::deletelayout()
 	{
 		delete layout;
 		layout = nullptr;
-		return true;
 	}
-	
+	return true;
 	
 }
 
