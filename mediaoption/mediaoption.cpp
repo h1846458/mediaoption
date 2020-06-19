@@ -32,7 +32,7 @@ void mediaoption::initWindow(void)
 			msgBox.setWindowFlags(Qt::Widget);
 			//msgBox.setStyleSheet("background-color:white");
 			msgBox.setStyleSheet("QLabel{""min-width: 200px;""min-height: 100px; ""font-size:18px;""}");
-			msgBox.setText(QString::fromLocal8Bit("请选择一个播放窗口"));
+			msgBox.setText(QString::fromLocal8Bit("<center><h4>请选择一个播放窗口</h4></center>"));
 			msgBox.addButton(QMessageBox::Ok);
 			msgBox.button(QMessageBox::Ok)->hide();
 			QObjectList objChildList = msgBox.children();
@@ -133,7 +133,6 @@ void mediaoption::setScreen(int check)
 	QString ind = ui.comboBox->currentText();
 	int index = ind.mid(0, ind.length() - 2).toInt();
 	scr->setScrnum(index);
-	//scr->deletelayout();
 	scr->changeScreen(ui);
 	for (int j = 0; j < scr->getScrnum(); j++)
 	{
@@ -142,7 +141,6 @@ void mediaoption::setScreen(int check)
 			});
 	}
 	
-	//timer[scrindex]->start(25);
 }
 
 mediaoption:: ~mediaoption()

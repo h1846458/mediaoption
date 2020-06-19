@@ -42,7 +42,7 @@ bool SplitScreen::changeScreen(Ui::mediaoptionClass ws)
 					label[i] = new PlayQlabel();
 					label[i]->setObjectName(QString("lable_%1").arg(i));
 					label[i]->setStyleSheet("border-width: 1px;border-style: solid;border-color: rgb(255, 170, 0);");
-					label[i]->setStyleSheet("background-color: rgb(0, 0, 0);");
+					label[i]->setStyleSheet("background-color: rgb(62, 62, 62);");
 				}
 				
 
@@ -54,8 +54,8 @@ bool SplitScreen::changeScreen(Ui::mediaoptionClass ws)
 		}
 		case 6:
 		{
-			layout = new QGridLayout(ws.playwidget);
-			layout->setSpacing(1);
+			//layout = new QGridLayout(ws.playwidget);
+			//layout->setSpacing(1);
 			for (int i = 0; i < scrnum; i++)
 			{
 				label[i] = new PlayQlabel();
@@ -80,8 +80,8 @@ bool SplitScreen::changeScreen(Ui::mediaoptionClass ws)
 		}
 		case 9:
 		{
-			layout = new QGridLayout(ws.playwidget);
-			layout->setSpacing(1);
+			//layout = new QGridLayout(ws.playwidget);
+			//layout->setSpacing(1);
 			for (int i = 0; i < scrnum; i++)
 			{
 				label[i] = new PlayQlabel();
