@@ -6,6 +6,7 @@ PlayQlabel::PlayQlabel(QWidget* parent) : QLabel(parent), labelindex(0), playfla
 	lay = nullptr;
 	
 }
+
 void PlayQlabel::setlay(PlayQlabel* lab)
 {
 	
@@ -21,6 +22,7 @@ void PlayQlabel::setlay(PlayQlabel* lab)
 	lab->lay->addWidget(lab->playbutton);
 	
 }
+
 void PlayQlabel::mousePressEvent(QMouseEvent* ev)
 {
 	if (ev->button() == Qt::LeftButton)
@@ -51,9 +53,13 @@ void PlayQlabel::enterEvent(QEvent* ev)
 
 void PlayQlabel::leaveEvent(QEvent* ev)
 {
-	
+	if (!playflag)
+	{
+		playbutton->hide();
+	}
 	
 }
+
 bool PlayQlabel::eventFilter(QObject* watched, QEvent* ev)
 {
 	if (watched == playbutton)

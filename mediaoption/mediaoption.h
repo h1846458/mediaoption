@@ -19,14 +19,14 @@ private:
     void initWindow(void);
     void setScreen(int check);
 private:
-    QTimer* timer[MAXSCREEN];
+    QTimer* timer;
     DecoderThread* decoderthread[MAXSCREEN];
-    QImage image[MAXSCREEN];
     SplitScreen* scr;
     int scrindex;
     QList<int> playlist;
+    void initplay(int index);
 
 private slots:
-    void opencvdisplay(void);
+    
 
 };

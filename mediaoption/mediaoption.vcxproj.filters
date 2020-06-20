@@ -64,9 +64,6 @@
     <ClInclude Include="ui_mediaoption.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="SplitScreen.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="CommonStructHeader.h">
       <Filter>Header Files</Filter>
     </ClInclude>
@@ -79,6 +76,9 @@
       <Filter>Header Files</Filter>
     </QtMoc>
     <QtMoc Include="DecoderThread.h">
+      <Filter>Header Files</Filter>
+    </QtMoc>
+    <QtMoc Include="SplitScreen.h">
       <Filter>Header Files</Filter>
     </QtMoc>
   </ItemGroup>

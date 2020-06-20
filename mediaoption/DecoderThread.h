@@ -21,6 +21,7 @@ public:
 	void setUrl(string urls) { url = urls; }
 	void setFlag() { playflag = false; }
 	void setLabel(PlayQlabel *lab) {label = lab;}
+	void vplay();
 	~DecoderThread();
 
 private:

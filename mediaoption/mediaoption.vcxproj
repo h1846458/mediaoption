@@ -108,7 +108,7 @@
     <ClInclude Include="ffmpegInclude.h" />
     <QtMoc Include="PlayQlabel.h" />
     <ClInclude Include="resource.h" />
-    <ClInclude Include="SplitScreen.h" />
+    <QtMoc Include="SplitScreen.h" />
     <ClInclude Include="ui_mediaoption.h" />
   </ItemGroup>
   <ItemGroup>

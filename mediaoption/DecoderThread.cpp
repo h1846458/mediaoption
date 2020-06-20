@@ -32,13 +32,13 @@ void DecoderThread::run()
 			if(imgdata.size() == 5)
 			{
 				imagedata = imgdata.dequeue();
-				QImage resultImg = imagedata.img.scaled(label->size(), Qt::KeepAspectRatio, Qt::SmoothTransformation);
-				label->setPixmap(QPixmap::fromImage(resultImg));
+				
 			}
 			if (!playflag)
 			{
 				break;
 			}
+			QThread::msleep(10);
 		}
 	}
 	else
@@ -47,7 +47,19 @@ void DecoderThread::run()
 	}
 }
 
-
+void DecoderThread::vplay()
+{
+	if (playflag)
+	{
+		if (!imagedata.img.isNull())
+		{
+			QImage resultImg = imagedata.img.scaled(label->size(), Qt::KeepAspectRatio, Qt::SmoothTransformation);
+			label->setPixmap(QPixmap::fromImage(resultImg));
+		}
+	}
+	
+	
+}
 DecoderThread::~DecoderThread()
 {
 

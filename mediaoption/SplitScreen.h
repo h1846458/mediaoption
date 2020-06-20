@@ -4,22 +4,20 @@
 #include "PlayQlabel.h"
 #include <QVBoxLayout>
 #define MAXSCREEN 16
-class SplitScreen :public Ui::mediaoptionClass
+class SplitScreen :public QWidget //Ui::mediaoptionClass
 {
-	//Q_OBJECT;
+	Q_OBJECT;
 public:
-	SplitScreen(Ui::mediaoptionClass ws);
+	explicit SplitScreen(QWidget* parent = 0);
 	virtual ~SplitScreen();
 public:
 	PlayQlabel* label[MAXSCREEN];
-	void setScrnum(int& n) { scrnum = n;};
+	void setScrnum(int& n);
 	bool changeScreen(Ui::mediaoptionClass ws);
 	bool deletelayout();
 	int getScrnum() { return scrnum; };
 private:
 	int scrnum;
 	QGridLayout* layout;
-	
-
 };
 
