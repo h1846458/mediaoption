@@ -56,13 +56,26 @@ void mediaoption::initWindow(void)
 void mediaoption::setScreen(int check)
 {
 	//string  url = ui.UrllineEdit->text().toStdString();
+	timer->stop();
 	QString ind = ui.comboBox->currentText();
 	int index = ind.mid(0, ind.length() - 2).toInt();
-	string  url = ui.UrllineEdit->text().toStdString();
+	//string  url = ui.UrllineEdit->text().toStdString();
 	scr->setScrnum(index);
 	scr->deletelayout();
 	scr->changeScreen(ui);
+	for (auto i = 0; i < MAXSCREEN; i++)
+	{
+		if (decoderthread[i] != nullptr)
+		{
+			if (decoderthread[i]->isRunning())
+			{
+				decoderthread[i]->setLabel(scr->label[i]);
+				//scr->label[i]->setplayflag(false);
+			}
+		}
+	}
 	initplay(index);
+	timer->start(0);
 }
 
 void mediaoption::initplay(int index)
@@ -75,12 +88,15 @@ void mediaoption::initplay(int index)
 				string  url = ui.UrllineEdit->text().toStdString();
 				if (scr->label[i]->getplayflag())
 				{
-					decoderthread[i] = new DecoderThread(this);
-					decoderthread[i]->setUrl(url);
-					if (!decoderthread[i]->isRunning())
+					if (decoderthread[i] == nullptr)
 					{
-						decoderthread[i]->setLabel(scr->label[i]);
-						decoderthread[i]->start();
+						decoderthread[i] = new DecoderThread(this);
+						decoderthread[i]->setUrl(url);
+						if (!decoderthread[i]->isRunning())
+						{
+							decoderthread[i]->setLabel(scr->label[i]);
+							decoderthread[i]->start();
+						}
 					}
 					scr->label[i]->setplayflag(false);
 				}

@@ -51,11 +51,18 @@ void DecoderThread::vplay()
 {
 	if (playflag)
 	{
+		if (label->getplayflag())
+		{
+			label->setplayflag(false);
+			label->playbutton->setIcon(QIcon(QString::fromLocal8Bit("res/pause_button.png")));
+			label->playbutton->hide();
+		}
 		if (!imagedata.img.isNull())
 		{
 			QImage resultImg = imagedata.img.scaled(label->size(), Qt::KeepAspectRatio, Qt::SmoothTransformation);
 			label->setPixmap(QPixmap::fromImage(resultImg));
 		}
+
 	}
 	
 	

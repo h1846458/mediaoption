@@ -27,10 +27,7 @@ void PlayQlabel::mousePressEvent(QMouseEvent* ev)
 {
 	if (ev->button() == Qt::LeftButton)
 	{
-		QString  lname = this->objectName();
-		labelindex = lname.mid(lname.length() - 1, lname.length()).toInt();
-		emit leftclick();
-		//qDebug() << this->objectName();
+		playbutton->hide();
 	}
 	
 }
@@ -60,6 +57,7 @@ void PlayQlabel::leaveEvent(QEvent* ev)
 	
 }
 
+
 bool PlayQlabel::eventFilter(QObject* watched, QEvent* ev)
 {
 	if (watched == playbutton)
@@ -79,9 +77,14 @@ bool PlayQlabel::eventFilter(QObject* watched, QEvent* ev)
 				emit playbutton->click();
 			}
 		}
-		/*else if (ev->type() == QEvent::Leave) {
-			playbutton->setIcon(QIcon(QString::fromLocal8Bit(":/Resources/°´Å¥.png")));
-		}8*/
+		
+	}
+	if (watched == this)
+	{
+		if (ev->type() == QEvent::Paint)
+		{
+			playbutton->hide();
+		}
 	}
 	return QWidget::eventFilter(watched, ev);
 
