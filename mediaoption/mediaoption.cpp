@@ -55,11 +55,9 @@ void mediaoption::initWindow(void)
  
 void mediaoption::setScreen(int check)
 {
-	//string  url = ui.UrllineEdit->text().toStdString();
 	timer->stop();
 	QString ind = ui.comboBox->currentText();
 	int index = ind.mid(0, ind.length() - 2).toInt();
-	//string  url = ui.UrllineEdit->text().toStdString();
 	scr->setScrnum(index);
 	scr->deletelayout();
 	scr->changeScreen(ui);
@@ -69,8 +67,19 @@ void mediaoption::setScreen(int check)
 		{
 			if (decoderthread[i]->isRunning())
 			{
-				decoderthread[i]->setLabel(scr->label[i]);
-				//scr->label[i]->setplayflag(false);
+				if (i < index)
+				{
+					decoderthread[i]->setLabel(scr->label[i]);
+					//scr->label[i]->setplayflag(false);
+				}
+				else
+				{
+					decoderthread[i]->setFlag();
+					decoderthread[i]->wait();
+					delete decoderthread[i];
+					decoderthread[i] = nullptr;
+				}
+				
 			}
 		}
 	}
