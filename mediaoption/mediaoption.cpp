@@ -8,6 +8,12 @@ mediaoption::mediaoption(QWidget* parent) :QMainWindow(parent), scrindex(0)
 		decoderthread[i] = nullptr;
 	}
 	initWindow();
+	initDb();
+}
+
+void mediaoption::initDb()
+{
+	DB = new SqliteOperate();
 }
 
 void mediaoption::initWindow(void)
@@ -17,7 +23,7 @@ void mediaoption::initWindow(void)
 	//url = "D:\\code\\C++code\\videopusher\\001.avi";
 	//url = "D:\CodeC++\FFMpeg2\MyVideo_1.avi";
 	timer = new QTimer(this);
-	scr = new SplitScreen(this);
+	scr = new SplitScreen();
 	QString ind = ui.comboBox->currentText();
 	int index = ind.mid(0, ind.length() - 2).toInt();
 	scr->setScrnum(index);
@@ -128,5 +134,5 @@ void mediaoption::initplay(int index)
 
 mediaoption:: ~mediaoption()
 {
-
+	delete DB;
 }

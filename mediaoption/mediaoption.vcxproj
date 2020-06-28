@@ -41,11 +41,11 @@
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <IncludePath>..\3part\ffmpeg\include;..\3part\opencv\include\opencv2;..\3part\opencv\include;$(IncludePath)</IncludePath>
-    <LibraryPath>..\3part\opencv\lib;..\3part\ffmpeg\lib;$(LibraryPath)</LibraryPath>
+    <LibraryPath>..\3part\lib;..\3part\opencv\lib;..\3part\ffmpeg\lib;$(LibraryPath)</LibraryPath>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <Link>
-      <AdditionalDependencies>avcodec.lib;avutil.lib;swscale.lib;avformat.lib;avfilter.lib;opencv_core412.lib;opencv_highgui412.lib;opencv_imgcodecs412.lib;opencv_videoio412.lib;opencv_imgproc412.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>avcodec.lib;avutil.lib;swscale.lib;avformat.lib;avfilter.lib;opencv_core412.lib;opencv_highgui412.lib;opencv_imgcodecs412.lib;opencv_videoio412.lib;opencv_imgproc412.lib;Qt5Sql.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
   <ImportGroup Condition="Exists('$(QtMsBuild)\qt_defaults.props')">
@@ -94,6 +94,7 @@
     <ClCompile Include="DecoderThread.cpp" />
     <ClCompile Include="PlayQlabel.cpp" />
     <ClCompile Include="SplitScreen.cpp" />
+    <ClCompile Include="SqliteOperate.cpp" />
     <QtRcc Include="mediaoption.qrc" />
     <QtUic Include="mediaoption.ui" />
     <QtMoc Include="mediaoption.h" />
@@ -108,7 +109,8 @@
     <ClInclude Include="ffmpegInclude.h" />
     <QtMoc Include="PlayQlabel.h" />
     <ClInclude Include="resource.h" />
-    <QtMoc Include="SplitScreen.h" />
+    <ClInclude Include="SplitScreen.h" />
+    <ClInclude Include="SqliteOperate.h" />
     <ClInclude Include="ui_mediaoption.h" />
   </ItemGroup>
   <ItemGroup>

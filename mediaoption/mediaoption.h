@@ -4,6 +4,7 @@
 #include "SplitScreen.h"
 #include <qtimer.h>
 #include "DecoderThread.h"
+#include "SqliteOperate.h"
 #include <qmessagebox.h>
 
 class mediaoption : public QMainWindow
@@ -17,14 +18,17 @@ public:
 private:
     Ui::mediaoptionClass ui;
     void initWindow(void);
+    void initDb();
     void setScreen(int check);
+    void initplay(int index);
 private:
     QTimer* timer;
     DecoderThread* decoderthread[MAXSCREEN];
     SplitScreen* scr;
     int scrindex;
     QList<int> playlist;
-    void initplay(int index);
+    SqliteOperate *DB;
+    
 
 private slots:
     

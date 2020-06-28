@@ -160,7 +160,6 @@ public:
     QSpacerItem *horizontalSpacer_16;
     QGridLayout *gridLayout_9;
     QLineEdit *lineEdit_17;
-    QComboBox *comboBox_4;
     QLineEdit *lineEdit_18;
     QLineEdit *lineEdit_15;
     QLineEdit *lineEdit_19;
@@ -169,6 +168,7 @@ public:
     QPushButton *pushButton_13;
     QSpacerItem *horizontalSpacer_15;
     QPushButton *pushButton_14;
+    QLineEdit *lineEdit;
     QSpacerItem *horizontalSpacer_17;
     QSpacerItem *verticalSpacer_4;
     QWidget *Systemset;
@@ -874,11 +874,6 @@ public:
 
         gridLayout_9->addWidget(lineEdit_17, 0, 0, 1, 2);
 
-        comboBox_4 = new QComboBox(groupBox_8);
-        comboBox_4->setObjectName(QStringLiteral("comboBox_4"));
-
-        gridLayout_9->addWidget(comboBox_4, 0, 2, 1, 3);
-
         lineEdit_18 = new QLineEdit(groupBox_8);
         lineEdit_18->setObjectName(QStringLiteral("lineEdit_18"));
         lineEdit_18->setStyleSheet(QLatin1String("QLineEdit{background-color:transparent}\n"
@@ -922,6 +917,11 @@ public:
         pushButton_14->setObjectName(QStringLiteral("pushButton_14"));
 
         gridLayout_9->addWidget(pushButton_14, 3, 4, 1, 1);
+
+        lineEdit = new QLineEdit(groupBox_8);
+        lineEdit->setObjectName(QStringLiteral("lineEdit"));
+
+        gridLayout_9->addWidget(lineEdit, 0, 2, 1, 3);
 
         gridLayout_9->setColumnStretch(0, 2);
         gridLayout_9->setColumnStretch(1, 1);

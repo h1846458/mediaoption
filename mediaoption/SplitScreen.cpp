@@ -1,7 +1,7 @@
 #include "SplitScreen.h"
 
 
-SplitScreen::SplitScreen(QWidget* parent): QWidget(parent), scrnum(1)
+SplitScreen::SplitScreen(): scrnum(1)
 {
 	for(int i = 0; i < MAXSCREEN; i++)
 	{

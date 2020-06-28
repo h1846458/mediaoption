@@ -1314,9 +1314,6 @@ QLineEdit{border-width:0;border-style:outset}</string>
                </property>
               </widget>
              </item>
-             <item row="0" column="2" colspan="3">
-              <widget class="QComboBox" name="comboBox_4"/>
-             </item>
              <item row="1" column="0" colspan="2">
               <widget class="QLineEdit" name="lineEdit_18">
                <property name="styleSheet">
@@ -1390,6 +1387,9 @@ QLineEdit{border-width:0;border-style:outset}</string>
                 <string>取消</string>
                </property>
               </widget>
+             </item>
+             <item row="0" column="2" colspan="3">
+              <widget class="QLineEdit" name="lineEdit"/>
              </item>
             </layout>
            </item>

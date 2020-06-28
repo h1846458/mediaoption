@@ -79,16 +79,8 @@ bool PlayQlabel::eventFilter(QObject* watched, QEvent* ev)
 		}
 		
 	}
-	if (watched == this)
-	{
-		if (ev->type() == QEvent::Paint)
-		{
-			playbutton->hide();
-		}
-	}
 	return QWidget::eventFilter(watched, ev);
 
-	
 }
 
 PlayQlabel::~PlayQlabel()

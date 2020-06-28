@@ -4,11 +4,11 @@
 #include "PlayQlabel.h"
 #include <QVBoxLayout>
 #define MAXSCREEN 16
-class SplitScreen :public QWidget //Ui::mediaoptionClass
+class SplitScreen :Ui::mediaoptionClass
 {
-	Q_OBJECT;
+	//Q_OBJECT;
 public:
-	explicit SplitScreen(QWidget* parent = 0);
+	explicit SplitScreen();
 	virtual ~SplitScreen();
 public:
 	PlayQlabel* label[MAXSCREEN];
