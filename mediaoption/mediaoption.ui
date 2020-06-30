@@ -6,7 +6,7 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>1420</width>
+    <width>1209</width>
     <height>737</height>
    </rect>
   </property>
@@ -53,7 +53,7 @@
        <string notr="true"/>
       </property>
       <property name="currentIndex">
-       <number>0</number>
+       <number>1</number>
       </property>
       <widget class="QWidget" name="Play">
        <property name="accessibleName">
@@ -312,7 +312,7 @@
               </property>
               <property name="icon">
                <iconset>
-                <normaloff>res/last.jpg</normaloff>res/last.jpg</iconset>
+                <normaloff>res/last.png</normaloff>res/last.png</iconset>
               </property>
               <property name="iconSize">
                <size>
@@ -345,7 +345,7 @@
               </property>
               <property name="icon">
                <iconset>
-                <normaloff>res/x-2.jpg</normaloff>res/x-2.jpg</iconset>
+                <normaloff>res/player_fast_back.png</normaloff>res/player_fast_back.png</iconset>
               </property>
               <property name="iconSize">
                <size>
@@ -369,39 +369,6 @@
              </spacer>
             </item>
             <item>
-             <widget class="QPushButton" name="pushButton_9">
-              <property name="styleSheet">
-               <string notr="true">QPushButton { background-color:transparent}</string>
-              </property>
-              <property name="text">
-               <string/>
-              </property>
-              <property name="icon">
-               <iconset>
-                <normaloff>res/start.jpg</normaloff>res/start.jpg</iconset>
-              </property>
-              <property name="iconSize">
-               <size>
-                <width>25</width>
-                <height>25</height>
-               </size>
-              </property>
-             </widget>
-            </item>
-            <item>
-             <spacer name="horizontalSpacer_3">
-              <property name="orientation">
-               <enum>Qt::Horizontal</enum>
-              </property>
-              <property name="sizeHint" stdset="0">
-               <size>
-                <width>40</width>
-                <height>20</height>
-               </size>
-              </property>
-             </spacer>
-            </item>
-            <item>
              <widget class="QPushButton" name="pushButton_7">
               <property name="styleSheet">
                <string notr="true">QPushButton { background-color:transparent}</string>
@@ -411,7 +378,7 @@
               </property>
               <property name="icon">
                <iconset>
-                <normaloff>res/stop.jpg</normaloff>res/stop.jpg</iconset>
+                <normaloff>res/play_button.png</normaloff>res/play_button.png</iconset>
               </property>
               <property name="iconSize">
                <size>
@@ -444,7 +411,7 @@
               </property>
               <property name="icon">
                <iconset>
-                <normaloff>res/x2.jpg</normaloff>res/x2.jpg</iconset>
+                <normaloff>res/player_fast_font.png</normaloff>res/player_fast_font.png</iconset>
               </property>
               <property name="iconSize">
                <size>
@@ -477,7 +444,7 @@
               </property>
               <property name="icon">
                <iconset>
-                <normaloff>res/next.jpg</normaloff>res/next.jpg</iconset>
+                <normaloff>res/next.png</normaloff>res/next.png</iconset>
               </property>
               <property name="iconSize">
                <size>
@@ -510,7 +477,7 @@
               </property>
               <property name="icon">
                <iconset>
-                <normaloff>res/vol.jpg</normaloff>res/vol.jpg</iconset>
+                <normaloff>res/sound.png</normaloff>res/sound.png</iconset>
               </property>
               <property name="iconSize">
                <size>
@@ -543,7 +510,7 @@
               </property>
               <property name="icon">
                <iconset>
-                <normaloff>res/quanping.jpg</normaloff>res/quanping.jpg</iconset>
+                <normaloff>res/fullscreen.png</normaloff>res/fullscreen.png</iconset>
               </property>
               <property name="iconSize">
                <size>
@@ -552,19 +519,6 @@
                </size>
               </property>
              </widget>
-            </item>
-            <item>
-             <spacer name="horizontalSpacer_36">
-              <property name="orientation">
-               <enum>Qt::Horizontal</enum>
-              </property>
-              <property name="sizeHint" stdset="0">
-               <size>
-                <width>18</width>
-                <height>20</height>
-               </size>
-              </property>
-             </spacer>
             </item>
            </layout>
           </item>
