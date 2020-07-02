@@ -6,6 +6,7 @@
 #include <QDebug>
 #include <QtSql/QSqlError>
 #include <QApplication>
+#include <QDir>
 
 class SqliteOperate 
 {

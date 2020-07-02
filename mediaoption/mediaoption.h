@@ -1,5 +1,4 @@
 #pragma once
-
 #include <QtWidgets/QMainWindow>
 #include "SplitScreen.h"
 #include <qtimer.h>

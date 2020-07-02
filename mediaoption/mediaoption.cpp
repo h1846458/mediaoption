@@ -14,6 +14,17 @@ mediaoption::mediaoption(QWidget* parent) :QMainWindow(parent), scrindex(0)
 void mediaoption::initDb()
 {
 	DB = new SqliteOperate();
+	if (DB->openDb())
+	{
+		QString tabn = "rtspserver";
+		if (!DB->IsTaBexists(tabn))
+		{
+			DB->createTable();
+		}
+		
+	}
+	QString sql = "SELECT * FROM devicetype";
+	DB->queryTable(sql);
 }
 
 void mediaoption::initWindow(void)

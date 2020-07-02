@@ -69,8 +69,6 @@ public:
     QSpacerItem *horizontalSpacer;
     QPushButton *pushButton_6;
     QSpacerItem *horizontalSpacer_2;
-    QPushButton *pushButton_9;
-    QSpacerItem *horizontalSpacer_3;
     QPushButton *pushButton_7;
     QSpacerItem *horizontalSpacer_4;
     QPushButton *pushButton_19;
@@ -80,7 +78,6 @@ public:
     QPushButton *pushButton_8;
     QSpacerItem *horizontalSpacer_6;
     QPushButton *pushButton_21;
-    QSpacerItem *horizontalSpacer_36;
     QWidget *Pusher;
     QGridLayout *gridLayout_15;
     QTreeView *treeView_4;
@@ -183,7 +180,7 @@ public:
     {
         if (mediaoptionClass->objectName().isEmpty())
             mediaoptionClass->setObjectName(QStringLiteral("mediaoptionClass"));
-        mediaoptionClass->resize(1420, 737);
+        mediaoptionClass->resize(1209, 737);
         QFont font;
         font.setFamily(QStringLiteral("Microsoft YaHei UI"));
         font.setPointSize(10);
@@ -318,6 +315,69 @@ public:
 
         horizontalSlider_2 = new QSlider(Voplay);
         horizontalSlider_2->setObjectName(QStringLiteral("horizontalSlider_2"));
+        horizontalSlider_2->setStyleSheet(QLatin1String("QSlider::groove:horizontal {\n"
+"border: 1px solid #4A708B;\n"
+"background: #C0C0C0;\n"
+"height: 5px;\n"
+"border-radius: 1px;\n"
+"padding-left:-1px;\n"
+"padding-right:-1px;\n"
+"}\n"
+"\n"
+"QSlider::sub-page:horizontal {\n"
+"background: qlineargradient(x1:0, y1:0, x2:0, y2:1, \n"
+"    stop:0 #B1B1B1, stop:1 #c4c4c4);\n"
+"background: qlineargradient(x1: 0, y1: 0.2, x2: 1, y2: 1,\n"
+"    stop: 0 #5DCCFF, stop: 1 #1874CD);\n"
+"border: 1px solid #4A708B;\n"
+"height: 10px;\n"
+"border-radius: 2px;\n"
+"}\n"
+"\n"
+"QSlider::add-page:horizontal {\n"
+"background: #575757;\n"
+"border: 0px solid #777;\n"
+"height: 10px;\n"
+"border-radius: 2px;\n"
+"}\n"
+"\n"
+"QSlider::handle:horizontal \n"
+"{\n"
+"    background: qradialgradient(spread:pad, cx:0.5, cy:0.5, radius:0.5, fx:0.5, fy:0.5, \n"
+"    stop:0.6 #45ADED, stop:0.778409 rgba(255, 255, 255, 255));\n"
+"\n"
+"    width: 11px;\n"
+"    margin-top: -3px;\n"
+"    margin-bottom: -3px;\n"
+"    border-radius: 5px;\n"
+"}\n"
+"\n"
+"QSlider::handle:horizontal:hover {\n"
+"    background: q"
+                        "radialgradient(spread:pad, cx:0.5, cy:0.5, radius:0.5, fx:0.5, fy:0.5, stop:0.6 #2A8BDA, \n"
+"    stop:0.778409 rgba(255, 255, 255, 255));\n"
+"\n"
+"    width: 11px;\n"
+"    margin-top: -3px;\n"
+"    margin-bottom: -3px;\n"
+"    border-radius: 5px;\n"
+"}\n"
+"\n"
+"QSlider::sub-page:horizontal:disabled {\n"
+"background: #00009C;\n"
+"border-color: #999;\n"
+"}\n"
+"\n"
+"QSlider::add-page:horizontal:disabled {\n"
+"background: #eee;\n"
+"border-color: #999;\n"
+"}\n"
+"\n"
+"QSlider::handle:horizontal:disabled {\n"
+"background: #eee;\n"
+"border: 1px solid #aaa;\n"
+"border-radius: 4px;\n"
+"}"));
         horizontalSlider_2->setOrientation(Qt::Horizontal);
 
         verticalLayout->addWidget(horizontalSlider_2);
@@ -333,7 +393,7 @@ public:
         pushButton_20->setObjectName(QStringLiteral("pushButton_20"));
         pushButton_20->setStyleSheet(QStringLiteral("QPushButton { background-color:transparent}"));
         QIcon icon;
-        icon.addFile(QStringLiteral("res/last.jpg"), QSize(), QIcon::Normal, QIcon::Off);
+        icon.addFile(QStringLiteral("res/last.png"), QSize(), QIcon::Normal, QIcon::Off);
         pushButton_20->setIcon(icon);
         pushButton_20->setIconSize(QSize(25, 25));
 
@@ -347,7 +407,7 @@ public:
         pushButton_6->setObjectName(QStringLiteral("pushButton_6"));
         pushButton_6->setStyleSheet(QStringLiteral("QPushButton { background-color:transparent}"));
         QIcon icon1;
-        icon1.addFile(QStringLiteral("res/x-2.jpg"), QSize(), QIcon::Normal, QIcon::Off);
+        icon1.addFile(QStringLiteral("res/player_fast_back.png"), QSize(), QIcon::Normal, QIcon::Off);
         pushButton_6->setIcon(icon1);
         pushButton_6->setIconSize(QSize(30, 25));
 
@@ -357,26 +417,12 @@ public:
 
         horizontalLayout->addItem(horizontalSpacer_2);
 
-        pushButton_9 = new QPushButton(Voplay);
-        pushButton_9->setObjectName(QStringLiteral("pushButton_9"));
-        pushButton_9->setStyleSheet(QStringLiteral("QPushButton { background-color:transparent}"));
-        QIcon icon2;
-        icon2.addFile(QStringLiteral("res/start.jpg"), QSize(), QIcon::Normal, QIcon::Off);
-        pushButton_9->setIcon(icon2);
-        pushButton_9->setIconSize(QSize(25, 25));
-
-        horizontalLayout->addWidget(pushButton_9);
-
-        horizontalSpacer_3 = new QSpacerItem(40, 20, QSizePolicy::Expanding, QSizePolicy::Minimum);
-
-        horizontalLayout->addItem(horizontalSpacer_3);
-
         pushButton_7 = new QPushButton(Voplay);
         pushButton_7->setObjectName(QStringLiteral("pushButton_7"));
         pushButton_7->setStyleSheet(QStringLiteral("QPushButton { background-color:transparent}"));
-        QIcon icon3;
-        icon3.addFile(QStringLiteral("res/stop.jpg"), QSize(), QIcon::Normal, QIcon::Off);
-        pushButton_7->setIcon(icon3);
+        QIcon icon2;
+        icon2.addFile(QStringLiteral("res/play_button.png"), QSize(), QIcon::Normal, QIcon::Off);
+        pushButton_7->setIcon(icon2);
         pushButton_7->setIconSize(QSize(25, 25));
 
         horizontalLayout->addWidget(pushButton_7);
@@ -388,9 +434,9 @@ public:
         pushButton_19 = new QPushButton(Voplay);
         pushButton_19->setObjectName(QStringLiteral("pushButton_19"));
         pushButton_19->setStyleSheet(QStringLiteral("QPushButton { background-color:transparent}"));
-        QIcon icon4;
-        icon4.addFile(QStringLiteral("res/x2.jpg"), QSize(), QIcon::Normal, QIcon::Off);
-        pushButton_19->setIcon(icon4);
+        QIcon icon3;
+        icon3.addFile(QStringLiteral("res/player_fast_font.png"), QSize(), QIcon::Normal, QIcon::Off);
+        pushButton_19->setIcon(icon3);
         pushButton_19->setIconSize(QSize(30, 25));
 
         horizontalLayout->addWidget(pushButton_19);
@@ -402,9 +448,9 @@ public:
         pushButton_10 = new QPushButton(Voplay);
         pushButton_10->setObjectName(QStringLiteral("pushButton_10"));
         pushButton_10->setStyleSheet(QStringLiteral("QPushButton { background-color:transparent}"));
-        QIcon icon5;
-        icon5.addFile(QStringLiteral("res/next.jpg"), QSize(), QIcon::Normal, QIcon::Off);
-        pushButton_10->setIcon(icon5);
+        QIcon icon4;
+        icon4.addFile(QStringLiteral("res/next.png"), QSize(), QIcon::Normal, QIcon::Off);
+        pushButton_10->setIcon(icon4);
         pushButton_10->setIconSize(QSize(25, 25));
 
         horizontalLayout->addWidget(pushButton_10);
@@ -416,9 +462,9 @@ public:
         pushButton_8 = new QPushButton(Voplay);
         pushButton_8->setObjectName(QStringLiteral("pushButton_8"));
         pushButton_8->setStyleSheet(QStringLiteral("QPushButton { background-color:transparent}"));
-        QIcon icon6;
-        icon6.addFile(QStringLiteral("res/vol.jpg"), QSize(), QIcon::Normal, QIcon::Off);
-        pushButton_8->setIcon(icon6);
+        QIcon icon5;
+        icon5.addFile(QStringLiteral("res/sound.png"), QSize(), QIcon::Normal, QIcon::Off);
+        pushButton_8->setIcon(icon5);
         pushButton_8->setIconSize(QSize(25, 25));
 
         horizontalLayout->addWidget(pushButton_8);
@@ -430,16 +476,12 @@ public:
         pushButton_21 = new QPushButton(Voplay);
         pushButton_21->setObjectName(QStringLiteral("pushButton_21"));
         pushButton_21->setStyleSheet(QStringLiteral("QPushButton { background-color:transparent}"));
-        QIcon icon7;
-        icon7.addFile(QStringLiteral("res/quanping.jpg"), QSize(), QIcon::Normal, QIcon::Off);
-        pushButton_21->setIcon(icon7);
+        QIcon icon6;
+        icon6.addFile(QStringLiteral("res/fullscreen.png"), QSize(), QIcon::Normal, QIcon::Off);
+        pushButton_21->setIcon(icon6);
         pushButton_21->setIconSize(QSize(25, 25));
 
         horizontalLayout->addWidget(pushButton_21);
-
-        horizontalSpacer_36 = new QSpacerItem(18, 20, QSizePolicy::Expanding, QSizePolicy::Minimum);
-
-        horizontalLayout->addItem(horizontalSpacer_36);
 
 
         verticalLayout->addLayout(horizontalLayout);
@@ -1017,7 +1059,6 @@ public:
         vodqlabel->setText(QString());
         pushButton_20->setText(QString());
         pushButton_6->setText(QString());
-        pushButton_9->setText(QString());
         pushButton_7->setText(QString());
         pushButton_19->setText(QString());
         pushButton_10->setText(QString());
