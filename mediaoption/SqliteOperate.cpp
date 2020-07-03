@@ -58,23 +58,20 @@ void SqliteOperate::addNewcolumn(QString& columnNameAndproperty)
 
 }
 
-void SqliteOperate::queryTable(QString& str)
+void SqliteOperate::queryTable(QString& str, QList<QString>& dl)
 {
 	QSqlQuery query;
 	query.exec(str);
 	while (query.next())
 	{
 		QString typenames = query.value(1).toString();
-		//QString typeids = query.value(2).toInt();
-		
-
-		qDebug() << typenames;
+		dl.append(typenames);
+		//qDebug() << typenames;
 	}
 }
 
 bool SqliteOperate::IsTaBexists(QString& Tabname)
 {
-	//QSqlDatabase db = QSqlDatabase::database();
 	if (db.tables().contains(Tabname))
 	{
 		return true;
@@ -82,9 +79,10 @@ bool SqliteOperate::IsTaBexists(QString& Tabname)
 	return false;
 }
 
-void SqliteOperate::singleinsertdata()
+void SqliteOperate::singleinsertdata(const QString &sql)
 {
-
+	QSqlQuery query;
+	query.exec(sql);
 }
 
 void SqliteOperate::Moreinsertdata()

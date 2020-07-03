@@ -20,6 +20,7 @@ private:
     void initDb();
     void setScreen(int check);
     void initplay(int index);
+    void setdevicetype();
 private:
     QTimer* timer;
     DecoderThread* decoderthread[MAXSCREEN];

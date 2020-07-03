@@ -30,6 +30,7 @@
 #include <QtWidgets/QTreeView>
 #include <QtWidgets/QVBoxLayout>
 #include <QtWidgets/QWidget>
+#include "TreeView.h"
 
 QT_BEGIN_NAMESPACE
 
@@ -55,11 +56,11 @@ public:
     QLineEdit *UrllineEdit;
     QComboBox *comboBox_2;
     QGridLayout *gridLayout_2;
-    QTreeView *treeView_2;
+    TreeView *playtreeView;
     QWidget *playwidget;
     QWidget *Voplay;
     QGridLayout *gridLayout_6;
-    QTreeView *treeView_3;
+    TreeView *vodtreeView;
     QVBoxLayout *verticalLayout;
     QLabel *vodqlabel;
     QSlider *horizontalSlider_2;
@@ -124,7 +125,7 @@ public:
     QSpacerItem *verticalSpacer_8;
     QWidget *Device;
     QGridLayout *gridLayout_11;
-    QTreeView *treeView;
+    QTreeView *treeView_5;
     QGroupBox *groupBox_7;
     QGridLayout *gridLayout_8;
     QSpacerItem *verticalSpacer;
@@ -132,21 +133,21 @@ public:
     QGridLayout *gridLayout_7;
     QGridLayout *gridLayout_5;
     QLineEdit *lineEdit_8;
-    QLineEdit *lineEdit_2;
+    QLineEdit *deviceName;
     QLineEdit *lineEdit_9;
-    QComboBox *comboBox_3;
+    QComboBox *deviceType;
     QLineEdit *lineEdit_14;
-    QLineEdit *lineEdit_3;
+    QLineEdit *deviceId;
     QLineEdit *lineEdit_10;
-    QLineEdit *lineEdit_4;
+    QLineEdit *userName;
     QLineEdit *lineEdit_11;
-    QLineEdit *lineEdit_5;
+    QLineEdit *passWd;
     QLineEdit *lineEdit_12;
-    QLineEdit *lineEdit_6;
+    QLineEdit *ipAddr;
     QLineEdit *lineEdit_13;
-    QLineEdit *lineEdit_7;
-    QPushButton *pushButton_12;
-    QPushButton *pushButton_11;
+    QLineEdit *devicePort;
+    QPushButton *cancelDevice;
+    QPushButton *submitDevice;
     QSpacerItem *horizontalSpacer_28;
     QSpacerItem *horizontalSpacer_30;
     QSpacerItem *horizontalSpacer_14;
@@ -274,11 +275,11 @@ public:
         gridLayout_2 = new QGridLayout();
         gridLayout_2->setSpacing(6);
         gridLayout_2->setObjectName(QStringLiteral("gridLayout_2"));
-        treeView_2 = new QTreeView(Play);
-        treeView_2->setObjectName(QStringLiteral("treeView_2"));
-        treeView_2->setEnabled(true);
+        playtreeView = new TreeView(Play);
+        playtreeView->setObjectName(QStringLiteral("playtreeView"));
+        playtreeView->setEnabled(true);
 
-        gridLayout_2->addWidget(treeView_2, 0, 0, 1, 1);
+        gridLayout_2->addWidget(playtreeView, 0, 0, 1, 1);
 
         playwidget = new QWidget(Play);
         playwidget->setObjectName(QStringLiteral("playwidget"));
@@ -298,10 +299,10 @@ public:
         gridLayout_6->setContentsMargins(11, 11, 11, 11);
         gridLayout_6->setObjectName(QStringLiteral("gridLayout_6"));
         gridLayout_6->setContentsMargins(0, 0, 0, 0);
-        treeView_3 = new QTreeView(Voplay);
-        treeView_3->setObjectName(QStringLiteral("treeView_3"));
+        vodtreeView = new TreeView(Voplay);
+        vodtreeView->setObjectName(QStringLiteral("vodtreeView"));
 
-        gridLayout_6->addWidget(treeView_3, 0, 0, 1, 1);
+        gridLayout_6->addWidget(vodtreeView, 0, 0, 1, 1);
 
         verticalLayout = new QVBoxLayout();
         verticalLayout->setSpacing(6);
@@ -732,10 +733,10 @@ public:
         gridLayout_11->setContentsMargins(11, 11, 11, 11);
         gridLayout_11->setObjectName(QStringLiteral("gridLayout_11"));
         gridLayout_11->setContentsMargins(0, 0, 0, 0);
-        treeView = new QTreeView(Device);
-        treeView->setObjectName(QStringLiteral("treeView"));
+        treeView_5 = new QTreeView(Device);
+        treeView_5->setObjectName(QStringLiteral("treeView_5"));
 
-        gridLayout_11->addWidget(treeView, 0, 0, 1, 1);
+        gridLayout_11->addWidget(treeView_5, 0, 0, 1, 1);
 
         groupBox_7 = new QGroupBox(Device);
         groupBox_7->setObjectName(QStringLiteral("groupBox_7"));
@@ -766,10 +767,10 @@ public:
 
         gridLayout_5->addWidget(lineEdit_8, 0, 0, 1, 1);
 
-        lineEdit_2 = new QLineEdit(groupBox_7);
-        lineEdit_2->setObjectName(QStringLiteral("lineEdit_2"));
+        deviceName = new QLineEdit(groupBox_7);
+        deviceName->setObjectName(QStringLiteral("deviceName"));
 
-        gridLayout_5->addWidget(lineEdit_2, 0, 1, 1, 1);
+        gridLayout_5->addWidget(deviceName, 0, 1, 1, 1);
 
         lineEdit_9 = new QLineEdit(groupBox_7);
         lineEdit_9->setObjectName(QStringLiteral("lineEdit_9"));
@@ -779,10 +780,10 @@ public:
 
         gridLayout_5->addWidget(lineEdit_9, 1, 0, 1, 1);
 
-        comboBox_3 = new QComboBox(groupBox_7);
-        comboBox_3->setObjectName(QStringLiteral("comboBox_3"));
+        deviceType = new QComboBox(groupBox_7);
+        deviceType->setObjectName(QStringLiteral("deviceType"));
 
-        gridLayout_5->addWidget(comboBox_3, 1, 1, 1, 1);
+        gridLayout_5->addWidget(deviceType, 1, 1, 1, 1);
 
         lineEdit_14 = new QLineEdit(groupBox_7);
         lineEdit_14->setObjectName(QStringLiteral("lineEdit_14"));
@@ -792,10 +793,10 @@ public:
 
         gridLayout_5->addWidget(lineEdit_14, 2, 0, 1, 1);
 
-        lineEdit_3 = new QLineEdit(groupBox_7);
-        lineEdit_3->setObjectName(QStringLiteral("lineEdit_3"));
+        deviceId = new QLineEdit(groupBox_7);
+        deviceId->setObjectName(QStringLiteral("deviceId"));
 
-        gridLayout_5->addWidget(lineEdit_3, 2, 1, 1, 1);
+        gridLayout_5->addWidget(deviceId, 2, 1, 1, 1);
 
         lineEdit_10 = new QLineEdit(groupBox_7);
         lineEdit_10->setObjectName(QStringLiteral("lineEdit_10"));
@@ -805,10 +806,10 @@ public:
 
         gridLayout_5->addWidget(lineEdit_10, 3, 0, 1, 1);
 
-        lineEdit_4 = new QLineEdit(groupBox_7);
-        lineEdit_4->setObjectName(QStringLiteral("lineEdit_4"));
+        userName = new QLineEdit(groupBox_7);
+        userName->setObjectName(QStringLiteral("userName"));
 
-        gridLayout_5->addWidget(lineEdit_4, 3, 1, 1, 1);
+        gridLayout_5->addWidget(userName, 3, 1, 1, 1);
 
         lineEdit_11 = new QLineEdit(groupBox_7);
         lineEdit_11->setObjectName(QStringLiteral("lineEdit_11"));
@@ -818,10 +819,10 @@ public:
 
         gridLayout_5->addWidget(lineEdit_11, 4, 0, 1, 1);
 
-        lineEdit_5 = new QLineEdit(groupBox_7);
-        lineEdit_5->setObjectName(QStringLiteral("lineEdit_5"));
+        passWd = new QLineEdit(groupBox_7);
+        passWd->setObjectName(QStringLiteral("passWd"));
 
-        gridLayout_5->addWidget(lineEdit_5, 4, 1, 1, 1);
+        gridLayout_5->addWidget(passWd, 4, 1, 1, 1);
 
         lineEdit_12 = new QLineEdit(groupBox_7);
         lineEdit_12->setObjectName(QStringLiteral("lineEdit_12"));
@@ -831,10 +832,10 @@ public:
 
         gridLayout_5->addWidget(lineEdit_12, 5, 0, 1, 1);
 
-        lineEdit_6 = new QLineEdit(groupBox_7);
-        lineEdit_6->setObjectName(QStringLiteral("lineEdit_6"));
+        ipAddr = new QLineEdit(groupBox_7);
+        ipAddr->setObjectName(QStringLiteral("ipAddr"));
 
-        gridLayout_5->addWidget(lineEdit_6, 5, 1, 1, 1);
+        gridLayout_5->addWidget(ipAddr, 5, 1, 1, 1);
 
         lineEdit_13 = new QLineEdit(groupBox_7);
         lineEdit_13->setObjectName(QStringLiteral("lineEdit_13"));
@@ -844,10 +845,10 @@ public:
 
         gridLayout_5->addWidget(lineEdit_13, 6, 0, 1, 1);
 
-        lineEdit_7 = new QLineEdit(groupBox_7);
-        lineEdit_7->setObjectName(QStringLiteral("lineEdit_7"));
+        devicePort = new QLineEdit(groupBox_7);
+        devicePort->setObjectName(QStringLiteral("devicePort"));
 
-        gridLayout_5->addWidget(lineEdit_7, 6, 1, 1, 1);
+        gridLayout_5->addWidget(devicePort, 6, 1, 1, 1);
 
         gridLayout_5->setColumnStretch(0, 1);
         gridLayout_5->setColumnStretch(1, 3);
@@ -855,15 +856,15 @@ public:
 
         gridLayout_7->addLayout(gridLayout_5, 0, 0, 1, 4);
 
-        pushButton_12 = new QPushButton(groupBox_7);
-        pushButton_12->setObjectName(QStringLiteral("pushButton_12"));
+        cancelDevice = new QPushButton(groupBox_7);
+        cancelDevice->setObjectName(QStringLiteral("cancelDevice"));
 
-        gridLayout_7->addWidget(pushButton_12, 1, 3, 1, 1);
+        gridLayout_7->addWidget(cancelDevice, 1, 3, 1, 1);
 
-        pushButton_11 = new QPushButton(groupBox_7);
-        pushButton_11->setObjectName(QStringLiteral("pushButton_11"));
+        submitDevice = new QPushButton(groupBox_7);
+        submitDevice->setObjectName(QStringLiteral("submitDevice"));
 
-        gridLayout_7->addWidget(pushButton_11, 1, 1, 1, 1);
+        gridLayout_7->addWidget(submitDevice, 1, 1, 1, 1);
 
         horizontalSpacer_28 = new QSpacerItem(40, 20, QSizePolicy::Expanding, QSizePolicy::Minimum);
 
@@ -1087,8 +1088,8 @@ public:
         lineEdit_11->setText(QApplication::translate("mediaoptionClass", "\345\257\206\347\240\201\357\274\232", Q_NULLPTR));
         lineEdit_12->setText(QApplication::translate("mediaoptionClass", "IP\345\234\260\345\235\200\357\274\232", Q_NULLPTR));
         lineEdit_13->setText(QApplication::translate("mediaoptionClass", "\347\253\257\345\217\243\345\217\267\357\274\232", Q_NULLPTR));
-        pushButton_12->setText(QApplication::translate("mediaoptionClass", "\345\217\226\346\266\210", Q_NULLPTR));
-        pushButton_11->setText(QApplication::translate("mediaoptionClass", "\347\241\256\345\256\232", Q_NULLPTR));
+        cancelDevice->setText(QApplication::translate("mediaoptionClass", "\345\217\226\346\266\210", Q_NULLPTR));
+        submitDevice->setText(QApplication::translate("mediaoptionClass", "\347\241\256\345\256\232", Q_NULLPTR));
         groupBox_8->setTitle(QApplication::translate("mediaoptionClass", "\346\267\273\345\212\240\346\222\255\346\224\276\346\226\207\344\273\266", Q_NULLPTR));
         lineEdit_17->setText(QApplication::translate("mediaoptionClass", "\346\226\207\344\273\266\350\267\257\345\276\204\357\274\232", Q_NULLPTR));
         lineEdit_18->setText(QApplication::translate("mediaoptionClass", "\347\224\250\346\210\267\345\220\215\357\274\232", Q_NULLPTR));

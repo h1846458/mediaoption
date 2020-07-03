@@ -95,6 +95,7 @@
     <ClCompile Include="PlayQlabel.cpp" />
     <ClCompile Include="SplitScreen.cpp" />
     <ClCompile Include="SqliteOperate.cpp" />
+    <ClCompile Include="TreeView.cpp" />
     <QtRcc Include="mediaoption.qrc" />
     <QtUic Include="mediaoption.ui" />
     <QtMoc Include="mediaoption.h" />
@@ -111,6 +112,7 @@
     <ClInclude Include="resource.h" />
     <ClInclude Include="SplitScreen.h" />
     <ClInclude Include="SqliteOperate.h" />
+    <QtMoc Include="TreeView.h" />
     <ClInclude Include="ui_mediaoption.h" />
   </ItemGroup>
   <ItemGroup>

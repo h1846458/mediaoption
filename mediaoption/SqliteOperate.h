@@ -7,6 +7,8 @@
 #include <QtSql/QSqlError>
 #include <QApplication>
 #include <QDir>
+//#include <QList>
+
 
 class SqliteOperate 
 {
@@ -23,13 +25,13 @@ public:
     void addNewcolumn(QString& columnNameAndproperty);
 
     //查询和显示结果
-    void queryTable(QString& str);
+    void queryTable(QString& str, QList<QString>& dl);
 
     //判断数据表是否存在
     bool IsTaBexists(QString& Tabname);
 
     //插入数据
-    void singleinsertdata();//插入单条数据
+    void singleinsertdata(const QString& sql);//插入单条数据
 
     void Moreinsertdata();//插入多条数据
 

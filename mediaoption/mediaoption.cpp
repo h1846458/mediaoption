@@ -23,8 +23,7 @@ void mediaoption::initDb()
 		}
 		
 	}
-	QString sql = "SELECT * FROM devicetype";
-	DB->queryTable(sql);
+	setdevicetype();
 }
 
 void mediaoption::initWindow(void)
@@ -67,7 +66,50 @@ void mediaoption::initWindow(void)
 		}
 		});
 
-	
+	QObject::connect(ui.submitDevice, &QPushButton::clicked, this, [=]() {
+		QString devicename = ui.deviceName->text();
+		QString devicetype = ui.deviceType->currentText();
+		QString deviceid = ui.deviceId->text();
+		QString username = ui.userName->text();
+		QString passwd = ui.passWd->text();
+		QString ipaddr = ui.ipAddr->text();
+		QString port = ui.devicePort->text();
+		QString sql = QString(QString::fromLocal8Bit("INSERT INTO  devicetab (name, devicetype, deviceid, username, passwd, ipaddr, port) VALUES ('%1', '%2', '%3', '%4', '%5', '%6', '%7')"))
+			.arg(devicename)
+			.arg(devicetype)
+			.arg(deviceid)
+			.arg(username)
+			.arg(passwd)
+			.arg(ipaddr)
+			.arg(port);
+		DB->singleinsertdata(sql);
+		ui.deviceName->clear();
+		ui.deviceId->clear();
+		ui.devicePort->clear();
+		ui.userName->clear();
+		ui.passWd->clear();
+		ui.ipAddr->clear();
+		QMessageBox msgBox(this);
+		msgBox.setWindowFlags(Qt::Widget);
+		//msgBox.setStyleSheet("background-color:white");
+		msgBox.setStyleSheet("QLabel{""min-width: 200px;""min-height: 100px; ""font-size:18px;""}");
+		msgBox.setText(QString::fromLocal8Bit("<center><h4>添加设备成功</h4></center>"));
+		msgBox.addButton(QMessageBox::Ok);
+		msgBox.button(QMessageBox::Ok)->hide();
+		msgBox.show();
+		msgBox.move(this->width() / 2, this->height() / 2);
+		QTimer::singleShot(3000, &msgBox, &QMessageBox::close);
+		msgBox.exec();
+		});
+
+	QObject::connect(ui.cancelDevice, &QPushButton::clicked, this, [=]() {
+		ui.deviceName->clear();
+		ui.deviceId->clear();
+		ui.devicePort->clear();
+		ui.userName->clear();
+		ui.passWd->clear();
+		ui.ipAddr->clear();
+		});
 }
  
 void mediaoption::setScreen(int check)
@@ -140,6 +182,17 @@ void mediaoption::initplay(int index)
 				});
 		}
 		
+	}
+}
+
+void mediaoption::setdevicetype()
+{
+	QString sql = "SELECT * FROM devicetype";
+	QList<QString> typelist;
+	DB->queryTable(sql, typelist);
+	for (auto i = 0; i < typelist.size(); i++)
+	{
+		ui.deviceType->addItem(typelist.at(i));
 	}
 }
 
