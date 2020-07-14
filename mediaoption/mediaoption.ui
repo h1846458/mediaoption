@@ -53,7 +53,7 @@
        <string notr="true"/>
       </property>
       <property name="currentIndex">
-       <number>0</number>
+       <number>2</number>
       </property>
       <widget class="QWidget" name="Play">
        <property name="accessibleName">
@@ -1013,7 +1013,7 @@ QLineEdit{border-width:0;border-style:outset}</string>
        <attribute name="title">
         <string>设备管理</string>
        </attribute>
-       <layout class="QGridLayout" name="gridLayout_11" columnstretch="0,2,2">
+       <layout class="QGridLayout" name="gridLayout_11" columnstretch="0">
         <property name="leftMargin">
          <number>0</number>
         </property>
@@ -1030,9 +1030,6 @@ QLineEdit{border-width:0;border-style:outset}</string>
          <number>0</number>
         </property>
         <item row="0" column="0">
-         <widget class="QTreeView" name="treeView_5"/>
-        </item>
-        <item row="0" column="1">
          <widget class="QGroupBox" name="groupBox_7">
           <property name="title">
            <string>添加设备</string>
@@ -1265,174 +1262,6 @@ QLineEdit{border-width:0;border-style:outset}</string>
               <size>
                <width>20</width>
                <height>229</height>
-              </size>
-             </property>
-            </spacer>
-           </item>
-          </layout>
-         </widget>
-        </item>
-        <item row="0" column="2">
-         <widget class="QGroupBox" name="groupBox_8">
-          <property name="title">
-           <string>添加播放文件</string>
-          </property>
-          <layout class="QGridLayout" name="gridLayout_10" columnstretch="0,0,0">
-           <property name="leftMargin">
-            <number>0</number>
-           </property>
-           <property name="topMargin">
-            <number>0</number>
-           </property>
-           <property name="rightMargin">
-            <number>0</number>
-           </property>
-           <property name="bottomMargin">
-            <number>0</number>
-           </property>
-           <item row="0" column="1">
-            <spacer name="verticalSpacer_3">
-             <property name="orientation">
-              <enum>Qt::Vertical</enum>
-             </property>
-             <property name="sizeHint" stdset="0">
-              <size>
-               <width>20</width>
-               <height>292</height>
-              </size>
-             </property>
-            </spacer>
-           </item>
-           <item row="1" column="0">
-            <spacer name="horizontalSpacer_16">
-             <property name="orientation">
-              <enum>Qt::Horizontal</enum>
-             </property>
-             <property name="sizeHint" stdset="0">
-              <size>
-               <width>121</width>
-               <height>20</height>
-              </size>
-             </property>
-            </spacer>
-           </item>
-           <item row="1" column="1">
-            <layout class="QGridLayout" name="gridLayout_9" columnstretch="2,1,2,2,3">
-             <item row="0" column="0" colspan="2">
-              <widget class="QLineEdit" name="lineEdit_17">
-               <property name="styleSheet">
-                <string notr="true">QLineEdit{background-color:transparent}
-QLineEdit{border-width:0;border-style:outset}</string>
-               </property>
-               <property name="text">
-                <string>文件路径：</string>
-               </property>
-               <property name="readOnly">
-                <bool>true</bool>
-               </property>
-              </widget>
-             </item>
-             <item row="1" column="0" colspan="2">
-              <widget class="QLineEdit" name="lineEdit_18">
-               <property name="styleSheet">
-                <string notr="true">QLineEdit{background-color:transparent}
-QLineEdit{border-width:0;border-style:outset}</string>
-               </property>
-               <property name="text">
-                <string>用户名：</string>
-               </property>
-               <property name="readOnly">
-                <bool>true</bool>
-               </property>
-              </widget>
-             </item>
-             <item row="1" column="2" colspan="3">
-              <widget class="QLineEdit" name="lineEdit_15"/>
-             </item>
-             <item row="2" column="0" colspan="2">
-              <widget class="QLineEdit" name="lineEdit_19">
-               <property name="styleSheet">
-                <string notr="true">QLineEdit{background-color:transparent}
-QLineEdit{border-width:0;border-style:outset}</string>
-               </property>
-               <property name="text">
-                <string>密码：</string>
-               </property>
-               <property name="readOnly">
-                <bool>true</bool>
-               </property>
-              </widget>
-             </item>
-             <item row="2" column="2" colspan="3">
-              <widget class="QLineEdit" name="lineEdit_16"/>
-             </item>
-             <item row="3" column="0">
-              <spacer name="horizontalSpacer_33">
-               <property name="orientation">
-                <enum>Qt::Horizontal</enum>
-               </property>
-               <property name="sizeHint" stdset="0">
-                <size>
-                 <width>17</width>
-                 <height>20</height>
-                </size>
-               </property>
-              </spacer>
-             </item>
-             <item row="3" column="1" colspan="2">
-              <widget class="QPushButton" name="pushButton_13">
-               <property name="text">
-                <string>确定</string>
-               </property>
-              </widget>
-             </item>
-             <item row="3" column="3">
-              <spacer name="horizontalSpacer_15">
-               <property name="orientation">
-                <enum>Qt::Horizontal</enum>
-               </property>
-               <property name="sizeHint" stdset="0">
-                <size>
-                 <width>40</width>
-                 <height>20</height>
-                </size>
-               </property>
-              </spacer>
-             </item>
-             <item row="3" column="4">
-              <widget class="QPushButton" name="pushButton_14">
-               <property name="text">
-                <string>取消</string>
-               </property>
-              </widget>
-             </item>
-             <item row="0" column="2" colspan="3">
-              <widget class="QLineEdit" name="lineEdit"/>
-             </item>
-            </layout>
-           </item>
-           <item row="1" column="2">
-            <spacer name="horizontalSpacer_17">
-             <property name="orientation">
-              <enum>Qt::Horizontal</enum>
-             </property>
-             <property name="sizeHint" stdset="0">
-              <size>
-               <width>121</width>
-               <height>20</height>
-              </size>
-             </property>
-            </spacer>
-           </item>
-           <item row="2" column="1">
-            <spacer name="verticalSpacer_4">
-             <property name="orientation">
-              <enum>Qt::Vertical</enum>
-             </property>
-             <property name="sizeHint" stdset="0">
-              <size>
-               <width>20</width>
-               <height>292</height>
               </size>
              </property>
             </spacer>

@@ -45,7 +45,7 @@
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <Link>
-      <AdditionalDependencies>avcodec.lib;avutil.lib;swscale.lib;avformat.lib;avfilter.lib;opencv_core411.lib;opencv_highgui411.lib;opencv_imgcodecs411.lib;opencv_videoio411.lib;opencv_imgproc411.lib;Qt5Sql.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>avcodec.lib;avutil.lib;swscale.lib;avformat.lib;avfilter.lib;opencv_core411.lib;opencv_highgui411.lib;opencv_imgcodecs411.lib;opencv_videoio411.lib;opencv_imgproc411.lib;Qt5Sql.lib;BasicUsageEnvironment.lib;groupsock.lib;liveMedia.lib;UsageEnvironment.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
   <ImportGroup Condition="Exists('$(QtMsBuild)\qt_defaults.props')">
