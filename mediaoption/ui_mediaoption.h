@@ -27,7 +27,7 @@
 #include <QtWidgets/QSpacerItem>
 #include <QtWidgets/QStatusBar>
 #include <QtWidgets/QTabWidget>
-#include <QtWidgets/QTreeView>
+#include <QtWidgets/QTableView>
 #include <QtWidgets/QVBoxLayout>
 #include <QtWidgets/QWidget>
 #include "TreeView.h"
@@ -80,52 +80,19 @@ public:
     QSpacerItem *horizontalSpacer_6;
     QPushButton *pushButton_21;
     QWidget *Pusher;
-    QGridLayout *gridLayout_15;
-    QTreeView *treeView_4;
-    QGroupBox *groupBox_5;
-    QGridLayout *gridLayout_12;
-    QSpacerItem *verticalSpacer_5;
-    QSpacerItem *horizontalSpacer_22;
-    QGridLayout *gridLayout_4;
-    QLineEdit *lineEdit_20;
-    QLineEdit *lineEdit_21;
-    QLineEdit *lineEdit_22;
-    QLineEdit *lineEdit_23;
-    QLineEdit *lineEdit_29;
-    QLineEdit *lineEdit_30;
-    QLineEdit *lineEdit_31;
-    QLineEdit *lineEdit_32;
-    QSpacerItem *horizontalSpacer_18;
-    QPushButton *pushButton_15;
-    QSpacerItem *horizontalSpacer_19;
-    QSpacerItem *horizontalSpacer_21;
-    QPushButton *pushButton_16;
-    QSpacerItem *horizontalSpacer_20;
-    QSpacerItem *horizontalSpacer_23;
-    QSpacerItem *verticalSpacer_6;
-    QGroupBox *groupBox_6;
-    QGridLayout *gridLayout_14;
-    QSpacerItem *verticalSpacer_7;
-    QSpacerItem *horizontalSpacer_31;
-    QGridLayout *gridLayout_13;
-    QLineEdit *lineEdit_24;
-    QLineEdit *lineEdit_33;
-    QLineEdit *lineEdit_25;
-    QLineEdit *lineEdit_26;
-    QLineEdit *lineEdit_27;
-    QLineEdit *lineEdit_28;
-    QSpacerItem *horizontalSpacer_25;
-    QPushButton *pushButton_17;
-    QSpacerItem *horizontalSpacer_27;
-    QSpacerItem *horizontalSpacer_24;
-    QPushButton *pushButton_18;
-    QSpacerItem *horizontalSpacer_26;
-    QSpacerItem *horizontalSpacer_29;
-    QSpacerItem *horizontalSpacer_32;
-    QSpacerItem *verticalSpacer_8;
+    QGridLayout *pushlayout;
+    QHBoxLayout *pushHlayout;
+    QSpacerItem *horizontalSpacer_3;
+    QPushButton *addServer;
+    QSpacerItem *horizontalSpacer_16;
+    QLineEdit *lineEdit;
+    QComboBox *selectserver;
+    QSpacerItem *horizontalSpacer_11;
+    QPushButton *startServer;
+    QSpacerItem *horizontalSpacer_15;
+    QTableView *pushTableView;
     QWidget *Device;
     QGridLayout *gridLayout_11;
-    QTreeView *treeView_5;
     QGroupBox *groupBox_7;
     QGridLayout *gridLayout_8;
     QSpacerItem *verticalSpacer;
@@ -152,23 +119,6 @@ public:
     QSpacerItem *horizontalSpacer_30;
     QSpacerItem *horizontalSpacer_14;
     QSpacerItem *verticalSpacer_2;
-    QGroupBox *groupBox_8;
-    QGridLayout *gridLayout_10;
-    QSpacerItem *verticalSpacer_3;
-    QSpacerItem *horizontalSpacer_16;
-    QGridLayout *gridLayout_9;
-    QLineEdit *lineEdit_17;
-    QLineEdit *lineEdit_18;
-    QLineEdit *lineEdit_15;
-    QLineEdit *lineEdit_19;
-    QLineEdit *lineEdit_16;
-    QSpacerItem *horizontalSpacer_33;
-    QPushButton *pushButton_13;
-    QSpacerItem *horizontalSpacer_15;
-    QPushButton *pushButton_14;
-    QLineEdit *lineEdit;
-    QSpacerItem *horizontalSpacer_17;
-    QSpacerItem *verticalSpacer_4;
     QWidget *Systemset;
     QGridLayout *gridLayout_3;
     QGroupBox *groupBox;
@@ -181,7 +131,7 @@ public:
     {
         if (mediaoptionClass->objectName().isEmpty())
             mediaoptionClass->setObjectName(QStringLiteral("mediaoptionClass"));
-        mediaoptionClass->resize(1209, 737);
+        mediaoptionClass->resize(1249, 833);
         QFont font;
         font.setFamily(QStringLiteral("Microsoft YaHei UI"));
         font.setPointSize(10);
@@ -495,236 +445,63 @@ public:
         tabWidget->addTab(Voplay, QString());
         Pusher = new QWidget();
         Pusher->setObjectName(QStringLiteral("Pusher"));
-        gridLayout_15 = new QGridLayout(Pusher);
-        gridLayout_15->setSpacing(0);
-        gridLayout_15->setContentsMargins(11, 11, 11, 11);
-        gridLayout_15->setObjectName(QStringLiteral("gridLayout_15"));
-        gridLayout_15->setContentsMargins(0, 0, 0, 0);
-        treeView_4 = new QTreeView(Pusher);
-        treeView_4->setObjectName(QStringLiteral("treeView_4"));
+        pushlayout = new QGridLayout(Pusher);
+        pushlayout->setSpacing(0);
+        pushlayout->setContentsMargins(11, 11, 11, 11);
+        pushlayout->setObjectName(QStringLiteral("pushlayout"));
+        pushlayout->setContentsMargins(0, 0, 0, 0);
+        pushHlayout = new QHBoxLayout();
+        pushHlayout->setSpacing(6);
+        pushHlayout->setObjectName(QStringLiteral("pushHlayout"));
+        horizontalSpacer_3 = new QSpacerItem(118, 20, QSizePolicy::Expanding, QSizePolicy::Minimum);
 
-        gridLayout_15->addWidget(treeView_4, 0, 0, 1, 1);
+        pushHlayout->addItem(horizontalSpacer_3);
 
-        groupBox_5 = new QGroupBox(Pusher);
-        groupBox_5->setObjectName(QStringLiteral("groupBox_5"));
-        gridLayout_12 = new QGridLayout(groupBox_5);
-        gridLayout_12->setSpacing(6);
-        gridLayout_12->setContentsMargins(11, 11, 11, 11);
-        gridLayout_12->setObjectName(QStringLiteral("gridLayout_12"));
-        verticalSpacer_5 = new QSpacerItem(20, 267, QSizePolicy::Minimum, QSizePolicy::Expanding);
+        addServer = new QPushButton(Pusher);
+        addServer->setObjectName(QStringLiteral("addServer"));
 
-        gridLayout_12->addItem(verticalSpacer_5, 0, 1, 1, 1);
+        pushHlayout->addWidget(addServer);
 
-        horizontalSpacer_22 = new QSpacerItem(84, 20, QSizePolicy::Expanding, QSizePolicy::Minimum);
+        horizontalSpacer_16 = new QSpacerItem(328, 20, QSizePolicy::Expanding, QSizePolicy::Minimum);
 
-        gridLayout_12->addItem(horizontalSpacer_22, 1, 0, 1, 1);
+        pushHlayout->addItem(horizontalSpacer_16);
 
-        gridLayout_4 = new QGridLayout();
-        gridLayout_4->setSpacing(6);
-        gridLayout_4->setObjectName(QStringLiteral("gridLayout_4"));
-        lineEdit_20 = new QLineEdit(groupBox_5);
-        lineEdit_20->setObjectName(QStringLiteral("lineEdit_20"));
-        lineEdit_20->setStyleSheet(QLatin1String("QLineEdit{background-color:transparent}\n"
-"QLineEdit{border-width:0;border-style:outset}"));
-        lineEdit_20->setReadOnly(true);
+        lineEdit = new QLineEdit(Pusher);
+        lineEdit->setObjectName(QStringLiteral("lineEdit"));
+        lineEdit->setAlignment(Qt::AlignCenter);
+        lineEdit->setReadOnly(true);
 
-        gridLayout_4->addWidget(lineEdit_20, 0, 0, 1, 3);
+        pushHlayout->addWidget(lineEdit);
 
-        lineEdit_21 = new QLineEdit(groupBox_5);
-        lineEdit_21->setObjectName(QStringLiteral("lineEdit_21"));
+        selectserver = new QComboBox(Pusher);
+        selectserver->setObjectName(QStringLiteral("selectserver"));
 
-        gridLayout_4->addWidget(lineEdit_21, 0, 3, 1, 3);
+        pushHlayout->addWidget(selectserver);
 
-        lineEdit_22 = new QLineEdit(groupBox_5);
-        lineEdit_22->setObjectName(QStringLiteral("lineEdit_22"));
-        lineEdit_22->setStyleSheet(QLatin1String("QLineEdit{background-color:transparent}\n"
-"QLineEdit{border-width:0;border-style:outset}"));
-        lineEdit_22->setReadOnly(true);
+        horizontalSpacer_11 = new QSpacerItem(40, 20, QSizePolicy::Expanding, QSizePolicy::Minimum);
 
-        gridLayout_4->addWidget(lineEdit_22, 1, 0, 1, 3);
+        pushHlayout->addItem(horizontalSpacer_11);
 
-        lineEdit_23 = new QLineEdit(groupBox_5);
-        lineEdit_23->setObjectName(QStringLiteral("lineEdit_23"));
+        startServer = new QPushButton(Pusher);
+        startServer->setObjectName(QStringLiteral("startServer"));
 
-        gridLayout_4->addWidget(lineEdit_23, 1, 3, 1, 3);
+        pushHlayout->addWidget(startServer);
 
-        lineEdit_29 = new QLineEdit(groupBox_5);
-        lineEdit_29->setObjectName(QStringLiteral("lineEdit_29"));
-        lineEdit_29->setStyleSheet(QLatin1String("QLineEdit{background-color:transparent}\n"
-"QLineEdit{border-width:0;border-style:outset}"));
-        lineEdit_29->setReadOnly(true);
+        horizontalSpacer_15 = new QSpacerItem(118, 20, QSizePolicy::Expanding, QSizePolicy::Minimum);
 
-        gridLayout_4->addWidget(lineEdit_29, 2, 0, 1, 3);
+        pushHlayout->addItem(horizontalSpacer_15);
 
-        lineEdit_30 = new QLineEdit(groupBox_5);
-        lineEdit_30->setObjectName(QStringLiteral("lineEdit_30"));
+        pushHlayout->setStretch(3, 2);
+        pushHlayout->setStretch(4, 7);
+        pushHlayout->setStretch(7, 1);
 
-        gridLayout_4->addWidget(lineEdit_30, 2, 3, 1, 3);
+        pushlayout->addLayout(pushHlayout, 0, 0, 1, 1);
 
-        lineEdit_31 = new QLineEdit(groupBox_5);
-        lineEdit_31->setObjectName(QStringLiteral("lineEdit_31"));
-        lineEdit_31->setStyleSheet(QLatin1String("QLineEdit{background-color:transparent}\n"
-"QLineEdit{border-width:0;border-style:outset}"));
-        lineEdit_31->setReadOnly(true);
+        pushTableView = new QTableView(Pusher);
+        pushTableView->setObjectName(QStringLiteral("pushTableView"));
 
-        gridLayout_4->addWidget(lineEdit_31, 3, 0, 1, 3);
+        pushlayout->addWidget(pushTableView, 1, 0, 1, 1);
 
-        lineEdit_32 = new QLineEdit(groupBox_5);
-        lineEdit_32->setObjectName(QStringLiteral("lineEdit_32"));
-
-        gridLayout_4->addWidget(lineEdit_32, 3, 3, 1, 3);
-
-        horizontalSpacer_18 = new QSpacerItem(40, 20, QSizePolicy::Expanding, QSizePolicy::Minimum);
-
-        gridLayout_4->addItem(horizontalSpacer_18, 4, 0, 1, 1);
-
-        pushButton_15 = new QPushButton(groupBox_5);
-        pushButton_15->setObjectName(QStringLiteral("pushButton_15"));
-
-        gridLayout_4->addWidget(pushButton_15, 4, 1, 1, 1);
-
-        horizontalSpacer_19 = new QSpacerItem(40, 20, QSizePolicy::Expanding, QSizePolicy::Minimum);
-
-        gridLayout_4->addItem(horizontalSpacer_19, 4, 2, 1, 1);
-
-        horizontalSpacer_21 = new QSpacerItem(28, 20, QSizePolicy::Expanding, QSizePolicy::Minimum);
-
-        gridLayout_4->addItem(horizontalSpacer_21, 4, 3, 1, 1);
-
-        pushButton_16 = new QPushButton(groupBox_5);
-        pushButton_16->setObjectName(QStringLiteral("pushButton_16"));
-
-        gridLayout_4->addWidget(pushButton_16, 4, 4, 1, 1);
-
-        horizontalSpacer_20 = new QSpacerItem(40, 20, QSizePolicy::Expanding, QSizePolicy::Minimum);
-
-        gridLayout_4->addItem(horizontalSpacer_20, 4, 5, 1, 1);
-
-        gridLayout_4->setColumnStretch(0, 1);
-        gridLayout_4->setColumnStretch(2, 1);
-        gridLayout_4->setColumnStretch(3, 10);
-        gridLayout_4->setColumnStretch(4, 1);
-
-        gridLayout_12->addLayout(gridLayout_4, 1, 1, 1, 1);
-
-        horizontalSpacer_23 = new QSpacerItem(84, 20, QSizePolicy::Expanding, QSizePolicy::Minimum);
-
-        gridLayout_12->addItem(horizontalSpacer_23, 1, 2, 1, 1);
-
-        verticalSpacer_6 = new QSpacerItem(20, 268, QSizePolicy::Minimum, QSizePolicy::Expanding);
-
-        gridLayout_12->addItem(verticalSpacer_6, 2, 1, 1, 1);
-
-
-        gridLayout_15->addWidget(groupBox_5, 0, 1, 1, 1);
-
-        groupBox_6 = new QGroupBox(Pusher);
-        groupBox_6->setObjectName(QStringLiteral("groupBox_6"));
-        gridLayout_14 = new QGridLayout(groupBox_6);
-        gridLayout_14->setSpacing(6);
-        gridLayout_14->setContentsMargins(11, 11, 11, 11);
-        gridLayout_14->setObjectName(QStringLiteral("gridLayout_14"));
-        verticalSpacer_7 = new QSpacerItem(20, 283, QSizePolicy::Minimum, QSizePolicy::Expanding);
-
-        gridLayout_14->addItem(verticalSpacer_7, 0, 1, 1, 1);
-
-        horizontalSpacer_31 = new QSpacerItem(98, 20, QSizePolicy::Expanding, QSizePolicy::Minimum);
-
-        gridLayout_14->addItem(horizontalSpacer_31, 1, 0, 1, 1);
-
-        gridLayout_13 = new QGridLayout();
-        gridLayout_13->setSpacing(6);
-        gridLayout_13->setObjectName(QStringLiteral("gridLayout_13"));
-        lineEdit_24 = new QLineEdit(groupBox_6);
-        lineEdit_24->setObjectName(QStringLiteral("lineEdit_24"));
-        lineEdit_24->setStyleSheet(QLatin1String("QLineEdit{background-color:transparent}\n"
-"QLineEdit{border-width:0;border-style:outset}"));
-        lineEdit_24->setReadOnly(true);
-
-        gridLayout_13->addWidget(lineEdit_24, 0, 0, 1, 3);
-
-        lineEdit_33 = new QLineEdit(groupBox_6);
-        lineEdit_33->setObjectName(QStringLiteral("lineEdit_33"));
-
-        gridLayout_13->addWidget(lineEdit_33, 0, 3, 1, 4);
-
-        lineEdit_25 = new QLineEdit(groupBox_6);
-        lineEdit_25->setObjectName(QStringLiteral("lineEdit_25"));
-        lineEdit_25->setStyleSheet(QLatin1String("QLineEdit{background-color:transparent}\n"
-"QLineEdit{border-width:0;border-style:outset}"));
-        lineEdit_25->setReadOnly(true);
-
-        gridLayout_13->addWidget(lineEdit_25, 1, 0, 1, 3);
-
-        lineEdit_26 = new QLineEdit(groupBox_6);
-        lineEdit_26->setObjectName(QStringLiteral("lineEdit_26"));
-
-        gridLayout_13->addWidget(lineEdit_26, 1, 3, 1, 4);
-
-        lineEdit_27 = new QLineEdit(groupBox_6);
-        lineEdit_27->setObjectName(QStringLiteral("lineEdit_27"));
-        lineEdit_27->setStyleSheet(QLatin1String("QLineEdit{background-color:transparent}\n"
-"QLineEdit{border-width:0;border-style:outset}"));
-        lineEdit_27->setReadOnly(true);
-
-        gridLayout_13->addWidget(lineEdit_27, 2, 0, 1, 3);
-
-        lineEdit_28 = new QLineEdit(groupBox_6);
-        lineEdit_28->setObjectName(QStringLiteral("lineEdit_28"));
-
-        gridLayout_13->addWidget(lineEdit_28, 2, 3, 1, 4);
-
-        horizontalSpacer_25 = new QSpacerItem(40, 20, QSizePolicy::Expanding, QSizePolicy::Minimum);
-
-        gridLayout_13->addItem(horizontalSpacer_25, 3, 0, 1, 1);
-
-        pushButton_17 = new QPushButton(groupBox_6);
-        pushButton_17->setObjectName(QStringLiteral("pushButton_17"));
-
-        gridLayout_13->addWidget(pushButton_17, 3, 1, 1, 1);
-
-        horizontalSpacer_27 = new QSpacerItem(17, 20, QSizePolicy::Expanding, QSizePolicy::Minimum);
-
-        gridLayout_13->addItem(horizontalSpacer_27, 3, 2, 1, 1);
-
-        horizontalSpacer_24 = new QSpacerItem(18, 20, QSizePolicy::Expanding, QSizePolicy::Minimum);
-
-        gridLayout_13->addItem(horizontalSpacer_24, 3, 3, 1, 1);
-
-        pushButton_18 = new QPushButton(groupBox_6);
-        pushButton_18->setObjectName(QStringLiteral("pushButton_18"));
-
-        gridLayout_13->addWidget(pushButton_18, 3, 4, 1, 1);
-
-        horizontalSpacer_26 = new QSpacerItem(13, 20, QSizePolicy::Expanding, QSizePolicy::Minimum);
-
-        gridLayout_13->addItem(horizontalSpacer_26, 3, 5, 1, 1);
-
-        horizontalSpacer_29 = new QSpacerItem(13, 20, QSizePolicy::Expanding, QSizePolicy::Minimum);
-
-        gridLayout_13->addItem(horizontalSpacer_29, 3, 6, 1, 1);
-
-        gridLayout_13->setColumnStretch(0, 1);
-        gridLayout_13->setColumnStretch(2, 1);
-        gridLayout_13->setColumnStretch(3, 7);
-        gridLayout_13->setColumnStretch(4, 5);
-        gridLayout_13->setColumnStretch(5, 10);
-
-        gridLayout_14->addLayout(gridLayout_13, 1, 1, 1, 2);
-
-        horizontalSpacer_32 = new QSpacerItem(97, 20, QSizePolicy::Expanding, QSizePolicy::Minimum);
-
-        gridLayout_14->addItem(horizontalSpacer_32, 1, 3, 1, 1);
-
-        verticalSpacer_8 = new QSpacerItem(20, 283, QSizePolicy::Minimum, QSizePolicy::Expanding);
-
-        gridLayout_14->addItem(verticalSpacer_8, 2, 2, 1, 1);
-
-
-        gridLayout_15->addWidget(groupBox_6, 0, 2, 1, 1);
-
-        gridLayout_15->setColumnStretch(1, 1);
-        gridLayout_15->setColumnStretch(2, 1);
         tabWidget->addTab(Pusher, QString());
         Device = new QWidget();
         Device->setObjectName(QStringLiteral("Device"));
@@ -733,11 +510,6 @@ public:
         gridLayout_11->setContentsMargins(11, 11, 11, 11);
         gridLayout_11->setObjectName(QStringLiteral("gridLayout_11"));
         gridLayout_11->setContentsMargins(0, 0, 0, 0);
-        treeView_5 = new QTreeView(Device);
-        treeView_5->setObjectName(QStringLiteral("treeView_5"));
-
-        gridLayout_11->addWidget(treeView_5, 0, 0, 1, 1);
-
         groupBox_7 = new QGroupBox(Device);
         groupBox_7->setObjectName(QStringLiteral("groupBox_7"));
         gridLayout_8 = new QGridLayout(groupBox_7);
@@ -889,104 +661,8 @@ public:
         gridLayout_8->setColumnMinimumWidth(1, 1);
         gridLayout_8->setColumnMinimumWidth(2, 1);
 
-        gridLayout_11->addWidget(groupBox_7, 0, 1, 1, 1);
+        gridLayout_11->addWidget(groupBox_7, 0, 0, 1, 1);
 
-        groupBox_8 = new QGroupBox(Device);
-        groupBox_8->setObjectName(QStringLiteral("groupBox_8"));
-        gridLayout_10 = new QGridLayout(groupBox_8);
-        gridLayout_10->setSpacing(6);
-        gridLayout_10->setContentsMargins(11, 11, 11, 11);
-        gridLayout_10->setObjectName(QStringLiteral("gridLayout_10"));
-        gridLayout_10->setContentsMargins(0, 0, 0, 0);
-        verticalSpacer_3 = new QSpacerItem(20, 292, QSizePolicy::Minimum, QSizePolicy::Expanding);
-
-        gridLayout_10->addItem(verticalSpacer_3, 0, 1, 1, 1);
-
-        horizontalSpacer_16 = new QSpacerItem(121, 20, QSizePolicy::Expanding, QSizePolicy::Minimum);
-
-        gridLayout_10->addItem(horizontalSpacer_16, 1, 0, 1, 1);
-
-        gridLayout_9 = new QGridLayout();
-        gridLayout_9->setSpacing(6);
-        gridLayout_9->setObjectName(QStringLiteral("gridLayout_9"));
-        lineEdit_17 = new QLineEdit(groupBox_8);
-        lineEdit_17->setObjectName(QStringLiteral("lineEdit_17"));
-        lineEdit_17->setStyleSheet(QLatin1String("QLineEdit{background-color:transparent}\n"
-"QLineEdit{border-width:0;border-style:outset}"));
-        lineEdit_17->setReadOnly(true);
-
-        gridLayout_9->addWidget(lineEdit_17, 0, 0, 1, 2);
-
-        lineEdit_18 = new QLineEdit(groupBox_8);
-        lineEdit_18->setObjectName(QStringLiteral("lineEdit_18"));
-        lineEdit_18->setStyleSheet(QLatin1String("QLineEdit{background-color:transparent}\n"
-"QLineEdit{border-width:0;border-style:outset}"));
-        lineEdit_18->setReadOnly(true);
-
-        gridLayout_9->addWidget(lineEdit_18, 1, 0, 1, 2);
-
-        lineEdit_15 = new QLineEdit(groupBox_8);
-        lineEdit_15->setObjectName(QStringLiteral("lineEdit_15"));
-
-        gridLayout_9->addWidget(lineEdit_15, 1, 2, 1, 3);
-
-        lineEdit_19 = new QLineEdit(groupBox_8);
-        lineEdit_19->setObjectName(QStringLiteral("lineEdit_19"));
-        lineEdit_19->setStyleSheet(QLatin1String("QLineEdit{background-color:transparent}\n"
-"QLineEdit{border-width:0;border-style:outset}"));
-        lineEdit_19->setReadOnly(true);
-
-        gridLayout_9->addWidget(lineEdit_19, 2, 0, 1, 2);
-
-        lineEdit_16 = new QLineEdit(groupBox_8);
-        lineEdit_16->setObjectName(QStringLiteral("lineEdit_16"));
-
-        gridLayout_9->addWidget(lineEdit_16, 2, 2, 1, 3);
-
-        horizontalSpacer_33 = new QSpacerItem(17, 20, QSizePolicy::Expanding, QSizePolicy::Minimum);
-
-        gridLayout_9->addItem(horizontalSpacer_33, 3, 0, 1, 1);
-
-        pushButton_13 = new QPushButton(groupBox_8);
-        pushButton_13->setObjectName(QStringLiteral("pushButton_13"));
-
-        gridLayout_9->addWidget(pushButton_13, 3, 1, 1, 2);
-
-        horizontalSpacer_15 = new QSpacerItem(40, 20, QSizePolicy::Expanding, QSizePolicy::Minimum);
-
-        gridLayout_9->addItem(horizontalSpacer_15, 3, 3, 1, 1);
-
-        pushButton_14 = new QPushButton(groupBox_8);
-        pushButton_14->setObjectName(QStringLiteral("pushButton_14"));
-
-        gridLayout_9->addWidget(pushButton_14, 3, 4, 1, 1);
-
-        lineEdit = new QLineEdit(groupBox_8);
-        lineEdit->setObjectName(QStringLiteral("lineEdit"));
-
-        gridLayout_9->addWidget(lineEdit, 0, 2, 1, 3);
-
-        gridLayout_9->setColumnStretch(0, 2);
-        gridLayout_9->setColumnStretch(1, 1);
-        gridLayout_9->setColumnStretch(2, 2);
-        gridLayout_9->setColumnStretch(3, 2);
-        gridLayout_9->setColumnStretch(4, 3);
-
-        gridLayout_10->addLayout(gridLayout_9, 1, 1, 1, 1);
-
-        horizontalSpacer_17 = new QSpacerItem(121, 20, QSizePolicy::Expanding, QSizePolicy::Minimum);
-
-        gridLayout_10->addItem(horizontalSpacer_17, 1, 2, 1, 1);
-
-        verticalSpacer_4 = new QSpacerItem(20, 292, QSizePolicy::Minimum, QSizePolicy::Expanding);
-
-        gridLayout_10->addItem(verticalSpacer_4, 2, 1, 1, 1);
-
-
-        gridLayout_11->addWidget(groupBox_8, 0, 2, 1, 1);
-
-        gridLayout_11->setColumnStretch(1, 2);
-        gridLayout_11->setColumnStretch(2, 2);
         tabWidget->addTab(Device, QString());
         Systemset = new QWidget();
         Systemset->setObjectName(QStringLiteral("Systemset"));
@@ -1066,19 +742,9 @@ public:
         pushButton_8->setText(QString());
         pushButton_21->setText(QString());
         tabWidget->setTabText(tabWidget->indexOf(Voplay), QApplication::translate("mediaoptionClass", "\347\202\271\346\222\255", Q_NULLPTR));
-        groupBox_5->setTitle(QApplication::translate("mediaoptionClass", "\346\267\273\345\212\240RTSP\346\234\215\345\212\241\345\231\250", Q_NULLPTR));
-        lineEdit_20->setText(QApplication::translate("mediaoptionClass", "\350\256\276\345\244\207\345\220\215\347\247\260\357\274\232", Q_NULLPTR));
-        lineEdit_22->setText(QApplication::translate("mediaoptionClass", "\350\256\276\345\244\207\347\274\226\345\217\267\357\274\232", Q_NULLPTR));
-        lineEdit_29->setText(QApplication::translate("mediaoptionClass", "IP\345\234\260\345\235\200\357\274\232", Q_NULLPTR));
-        lineEdit_31->setText(QApplication::translate("mediaoptionClass", "\347\253\257\345\217\243\345\217\267\357\274\232", Q_NULLPTR));
-        pushButton_15->setText(QApplication::translate("mediaoptionClass", "\347\241\256\345\256\232", Q_NULLPTR));
-        pushButton_16->setText(QApplication::translate("mediaoptionClass", "\345\217\226\346\266\210", Q_NULLPTR));
-        groupBox_6->setTitle(QApplication::translate("mediaoptionClass", "\346\216\250\346\265\201", Q_NULLPTR));
-        lineEdit_24->setText(QApplication::translate("mediaoptionClass", "\346\216\250\346\265\201\350\267\257\345\276\204\357\274\232", Q_NULLPTR));
-        lineEdit_25->setText(QApplication::translate("mediaoptionClass", "\347\224\250\346\210\267\345\220\215\357\274\232", Q_NULLPTR));
-        lineEdit_27->setText(QApplication::translate("mediaoptionClass", "\345\257\206\347\240\201\357\274\232", Q_NULLPTR));
-        pushButton_17->setText(QApplication::translate("mediaoptionClass", "\345\274\200\345\247\213", Q_NULLPTR));
-        pushButton_18->setText(QApplication::translate("mediaoptionClass", "\345\201\234\346\255\242", Q_NULLPTR));
+        addServer->setText(QApplication::translate("mediaoptionClass", "\346\267\273\345\212\240\346\265\201\345\252\222\344\275\223\346\234\215\345\212\241\345\231\250", Q_NULLPTR));
+        lineEdit->setText(QApplication::translate("mediaoptionClass", "\351\200\211\346\213\251\346\234\215\345\212\241\345\231\250:", Q_NULLPTR));
+        startServer->setText(QApplication::translate("mediaoptionClass", "\346\211\223\345\274\200\346\265\201\345\252\222\344\275\223\346\234\215\345\212\241\345\231\250", Q_NULLPTR));
         tabWidget->setTabText(tabWidget->indexOf(Pusher), QApplication::translate("mediaoptionClass", "\346\216\250\346\265\201\350\256\276\347\275\256", Q_NULLPTR));
         groupBox_7->setTitle(QApplication::translate("mediaoptionClass", "\346\267\273\345\212\240\350\256\276\345\244\207", Q_NULLPTR));
         lineEdit_8->setText(QApplication::translate("mediaoptionClass", "\350\256\276\345\244\207\345\220\215\347\247\260\357\274\232", Q_NULLPTR));
@@ -1090,12 +756,6 @@ public:
         lineEdit_13->setText(QApplication::translate("mediaoptionClass", "\347\253\257\345\217\243\345\217\267\357\274\232", Q_NULLPTR));
         cancelDevice->setText(QApplication::translate("mediaoptionClass", "\345\217\226\346\266\210", Q_NULLPTR));
         submitDevice->setText(QApplication::translate("mediaoptionClass", "\347\241\256\345\256\232", Q_NULLPTR));
-        groupBox_8->setTitle(QApplication::translate("mediaoptionClass", "\346\267\273\345\212\240\346\222\255\346\224\276\346\226\207\344\273\266", Q_NULLPTR));
-        lineEdit_17->setText(QApplication::translate("mediaoptionClass", "\346\226\207\344\273\266\350\267\257\345\276\204\357\274\232", Q_NULLPTR));
-        lineEdit_18->setText(QApplication::translate("mediaoptionClass", "\347\224\250\346\210\267\345\220\215\357\274\232", Q_NULLPTR));
-        lineEdit_19->setText(QApplication::translate("mediaoptionClass", "\345\257\206\347\240\201\357\274\232", Q_NULLPTR));
-        pushButton_13->setText(QApplication::translate("mediaoptionClass", "\347\241\256\345\256\232", Q_NULLPTR));
-        pushButton_14->setText(QApplication::translate("mediaoptionClass", "\345\217\226\346\266\210", Q_NULLPTR));
         tabWidget->setTabText(tabWidget->indexOf(Device), QApplication::translate("mediaoptionClass", "\350\256\276\345\244\207\347\256\241\347\220\206", Q_NULLPTR));
         groupBox->setTitle(QApplication::translate("mediaoptionClass", "\345\233\275\346\240\207", Q_NULLPTR));
         groupBox_2->setTitle(QApplication::translate("mediaoptionClass", "\345\271\263\345\217\260", Q_NULLPTR));
