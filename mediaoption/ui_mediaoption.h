@@ -9,6 +9,7 @@
 #ifndef UI_MEDIAOPTION_H
 #define UI_MEDIAOPTION_H
 
+#include <PushTable.h>
 #include <QtCore/QVariant>
 #include <QtWidgets/QAction>
 #include <QtWidgets/QApplication>
@@ -27,7 +28,6 @@
 #include <QtWidgets/QSpacerItem>
 #include <QtWidgets/QStatusBar>
 #include <QtWidgets/QTabWidget>
-#include <QtWidgets/QTableView>
 #include <QtWidgets/QVBoxLayout>
 #include <QtWidgets/QWidget>
 #include "TreeView.h"
@@ -90,7 +90,7 @@ public:
     QSpacerItem *horizontalSpacer_11;
     QPushButton *startServer;
     QSpacerItem *horizontalSpacer_15;
-    QTableView *pushTableView;
+    PushTable *pushTableView;
     QWidget *Device;
     QGridLayout *gridLayout_11;
     QGroupBox *groupBox_7;
@@ -131,7 +131,7 @@ public:
     {
         if (mediaoptionClass->objectName().isEmpty())
             mediaoptionClass->setObjectName(QStringLiteral("mediaoptionClass"));
-        mediaoptionClass->resize(1249, 833);
+        mediaoptionClass->resize(1671, 853);
         QFont font;
         font.setFamily(QStringLiteral("Microsoft YaHei UI"));
         font.setPointSize(10);
@@ -459,6 +459,7 @@ public:
 
         addServer = new QPushButton(Pusher);
         addServer->setObjectName(QStringLiteral("addServer"));
+        addServer->setStyleSheet(QStringLiteral(""));
 
         pushHlayout->addWidget(addServer);
 
@@ -468,6 +469,8 @@ public:
 
         lineEdit = new QLineEdit(Pusher);
         lineEdit->setObjectName(QStringLiteral("lineEdit"));
+        lineEdit->setStyleSheet(QLatin1String("QLineEdit{background-color:transparent}\n"
+"QLineEdit{border-width:0;border-style:outset}"));
         lineEdit->setAlignment(Qt::AlignCenter);
         lineEdit->setReadOnly(true);
 
@@ -484,6 +487,7 @@ public:
 
         startServer = new QPushButton(Pusher);
         startServer->setObjectName(QStringLiteral("startServer"));
+        startServer->setStyleSheet(QStringLiteral(""));
 
         pushHlayout->addWidget(startServer);
 
@@ -491,14 +495,19 @@ public:
 
         pushHlayout->addItem(horizontalSpacer_15);
 
-        pushHlayout->setStretch(3, 2);
+        pushHlayout->setStretch(2, 5);
+        pushHlayout->setStretch(3, 1);
         pushHlayout->setStretch(4, 7);
-        pushHlayout->setStretch(7, 1);
+        pushHlayout->setStretch(5, 2);
+        pushHlayout->setStretch(7, 2);
 
         pushlayout->addLayout(pushHlayout, 0, 0, 1, 1);
 
-        pushTableView = new QTableView(Pusher);
+        pushTableView = new PushTable(Pusher);
         pushTableView->setObjectName(QStringLiteral("pushTableView"));
+        pushTableView->setSelectionMode(QAbstractItemView::NoSelection);
+        pushTableView->setSelectionBehavior(QAbstractItemView::SelectRows);
+        pushTableView->setShowGrid(true);
 
         pushlayout->addWidget(pushTableView, 1, 0, 1, 1);
 
@@ -703,7 +712,7 @@ public:
 
         retranslateUi(mediaoptionClass);
 
-        tabWidget->setCurrentIndex(0);
+        tabWidget->setCurrentIndex(2);
 
 
         QMetaObject::connectSlotsByName(mediaoptionClass);

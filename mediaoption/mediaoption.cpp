@@ -40,6 +40,7 @@ void mediaoption::initWindow(void)
 	int index = ind.mid(0, ind.length() - 2).toInt();
 	scr->setScrnum(index);
 	scr->changeScreen(ui); 
+	//PushTable::set_tabLayout(ui.pushTableView, ui.pushTableView);
 	initplay(index);
 
 	void(QComboBox:: * pcomboBox)(int) = &QComboBox::currentIndexChanged;

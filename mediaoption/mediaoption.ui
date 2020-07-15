@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>1249</width>
-    <height>833</height>
+    <width>1671</width>
+    <height>853</height>
    </rect>
   </property>
   <property name="font">
@@ -53,7 +53,7 @@
        <string notr="true"/>
       </property>
       <property name="currentIndex">
-       <number>0</number>
+       <number>2</number>
       </property>
       <widget class="QWidget" name="Play">
        <property name="accessibleName">
@@ -611,7 +611,7 @@ border-radius: 4px;
          <number>0</number>
         </property>
         <item row="0" column="0">
-         <layout class="QHBoxLayout" name="pushHlayout" stretch="0,0,0,2,7,0,0,1">
+         <layout class="QHBoxLayout" name="pushHlayout" stretch="0,0,5,1,7,2,0,2">
           <item>
            <spacer name="horizontalSpacer_3">
             <property name="orientation">
@@ -627,6 +627,10 @@ border-radius: 4px;
           </item>
           <item>
            <widget class="QPushButton" name="addServer">
+            <property name="styleSheet">
+             <string notr="true">
+</string>
+            </property>
             <property name="text">
              <string>添加流媒体服务器</string>
             </property>
@@ -647,6 +651,10 @@ border-radius: 4px;
           </item>
           <item>
            <widget class="QLineEdit" name="lineEdit">
+            <property name="styleSheet">
+             <string notr="true">QLineEdit{background-color:transparent}
+QLineEdit{border-width:0;border-style:outset}</string>
+            </property>
             <property name="text">
              <string>选择服务器:</string>
             </property>
@@ -676,6 +684,9 @@ border-radius: 4px;
           </item>
           <item>
            <widget class="QPushButton" name="startServer">
+            <property name="styleSheet">
+             <string notr="true"/>
+            </property>
             <property name="text">
              <string>打开流媒体服务器</string>
             </property>
@@ -697,7 +708,17 @@ border-radius: 4px;
          </layout>
         </item>
         <item row="1" column="0">
-         <widget class="QTableView" name="pushTableView"/>
+         <widget class="PushTable" name="pushTableView">
+          <property name="selectionMode">
+           <enum>QAbstractItemView::NoSelection</enum>
+          </property>
+          <property name="selectionBehavior">
+           <enum>QAbstractItemView::SelectRows</enum>
+          </property>
+          <property name="showGrid">
+           <bool>true</bool>
+          </property>
+         </widget>
         </item>
        </layout>
       </widget>
@@ -1024,7 +1045,12 @@ QLineEdit{border-width:0;border-style:outset}</string>
   <customwidget>
    <class>TreeView</class>
    <extends>QTreeView</extends>
-   <header location="global">TreeView.h</header>
+   <header>TreeView.h</header>
+  </customwidget>
+  <customwidget>
+   <class>PushTable</class>
+   <extends>QTableView</extends>
+   <header location="global">PushTable.h</header>
   </customwidget>
  </customwidgets>
  <resources>
