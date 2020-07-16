@@ -1,0 +1,187 @@
+[33mcommit 1bbce1d886abbd485ba888319d1eef8eb1d36373[m[33m ([m[1;36mHEAD[m[33m)[m
+Author: h1846458 <18476856458@163.com>
+Date:   Thu Jul 16 03:11:49 2020 +0800
+
+    提交本地代码并且获取最新代码
+
+[33mcommit 68bf5041183c1f6901405bd96ab7be7acd8727f3[m[33m ([m[1;31morigin/master[m[33m, [m[1;31morigin/HEAD[m[33m)[m
+Author: YQ006 <hurui1@cloudwalk.cn>
+Date:   Wed Jul 15 21:06:25 2020 +0800
+
+    addserver
+
+[33mcommit f5957284fa0565f033c2d40f315ea1353c634fa8[m
+Author: YQ006 <hurui1@cloudwalk.cn>
+Date:   Tue Jul 14 19:57:00 2020 +0800
+
+    增加live555
+
+[33mcommit fe79d2d0a3f22ce3038d0b35cbc448ab28175597[m
+Author: YQ006 <hurui1@cloudwalk.cn>
+Date:   Fri Jul 3 19:56:56 2020 +0800
+
+    添加tree
+
+[33mcommit 2a7d310368e36e41d93755d9be60e8554f03e2a8[m
+Author: YQ006 <hurui1@cloudwalk.cn>
+Date:   Thu Jul 2 19:33:44 2020 +0800
+
+    增减sql处理
+
+[33mcommit d17f0ce64498b893677a39a1510d2843a2eabcce[m
+Author: YQ006 <hurui1@cloudwalk.cn>
+Date:   Tue Jun 30 16:56:16 2020 +0800
+
+    替换图标
+
+[33mcommit 0817a9d7515d8124effa29c15d1040de04e87b7e[m
+Author: h1846458 <18476856458@163.com>
+Date:   Sun Jun 28 21:00:43 2020 +0800
+
+    增加sql
+
+[33mcommit 30588c38523b4783dd3a5846aaa910bd60be39d1[m
+Author: h1846458 <18476856458@163.com>
+Date:   Mon Jun 22 23:06:10 2020 +0800
+
+    解决多屏互相切
+
+[33mcommit b3f45d72d1a9cc15b70c94187f8dfb88a4ea89c2[m
+Author: h1846458 <18476856458@163.com>
+Date:   Mon Jun 22 21:40:37 2020 +0800
+
+    解决多屏切换卡死
+
+[33mcommit 6df5524d5a4de17671c15c6fb1cd28ffdba0bebf[m
+Author: h1846458 <18476856458@163.com>
+Date:   Sat Jun 20 23:58:27 2020 +0800
+
+    解决多线程卡死
+
+[33mcommit 4d5b1bd8bda9889bb5ea28674e9c4673f2f94367[m
+Author: h1846458 <18476856458@163.com>
+Date:   Sat Jun 20 02:26:09 2020 +0800
+
+    解决单窗口播放
+
+[33mcommit 425823bd9a08d48e2448c7a8b1beb903ab2e630e[m
+Author: YQ006 <hurui1@cloudwalk.cn>
+Date:   Fri Jun 19 19:39:26 2020 +0800
+
+    悬浮按钮
+
+[33mcommit 95f5d534191e0e56b55d76bf84244b868778722d[m
+Author: YQ006 <hurui1@cloudwalk.cn>
+Date:   Thu Jun 18 22:19:56 2020 +0800
+
+    解决多线程无法播放的问题
+
+[33mcommit 429754480db9a092e701d70360287ef156ed4b3c[m
+Author: YQ006 <hurui1@cloudwalk.cn>
+Date:   Wed Jun 17 19:24:13 2020 +0800
+
+    解决切换分屏
+
+[33mcommit 6541ec79357c4f2fdc6ae47990a3807d171404e3[m
+Author: h1846458 <18476856458@163.com>
+Date:   Tue Jun 16 23:29:50 2020 +0800
+
+    增加关闭子线程
+
+[33mcommit 2fc2e7c3765d205ded1040fdfc0c321d81cfb116[m
+Author: YQ006 <hurui1@cloudwalk.cn>
+Date:   Tue Jun 16 19:58:09 2020 +0800
+
+    解决Null image
+
+[33mcommit e8130975c0283542637d655c1fc112f5536da28d[m
+Author: h1846458 <18476856458@163.com>
+Date:   Tue Jun 16 00:46:56 2020 +0800
+
+    增加Qthread
+
+[33mcommit dd11ca03263cd9727b61b930efc0241466fffd70[m
+Author: h1846458 <18476856458@163.com>
+Date:   Sun Jun 14 23:36:40 2020 +0800
+
+    修改多线程
+
+[33mcommit 3110b88c935eab3cb0fda2ef4fbc612e55e8595e[m
+Author: YQ006 <hurui1@cloudwalk.cn>
+Date:   Fri Jun 12 19:00:42 2020 +0800
+
+    增加推流，系统设置，设备添加等UI,更新
+
+[33mcommit f70aa071595d32e43fc391ee93cc98f2106b0214[m
+Author: YQ006 <hurui1@cloudwalk.cn>
+Date:   Fri Jun 12 18:53:39 2020 +0800
+
+    增加推流，系统设置，设备添加等UI
+
+[33mcommit a0c948f09d2927dd3a723867af4a5188bc5b0eb6[m
+Author: h1846458 <18476856458@163.com>
+Date:   Fri Jun 12 00:23:23 2020 +0800
+
+    解决分屏减小问题
+
+[33mcommit 7c58a44183bd933ee73d1bf334f0f8d96e59f4f2[m
+Author: YQ006 <hurui1@cloudwalk.cn>
+Date:   Thu Jun 11 20:03:47 2020 +0800
+
+    增加新功能
+
+[33mcommit 5ad9fd20eeb15fe4632c0095e2a31a87ae47db0a[m
+Author: YQ006 <hurui1@cloudwalk.cn>
+Date:   Thu Jun 11 18:03:40 2020 +0800
+
+    增加新功能
+
+[33mcommit 6ca6db86b13eaff54e16a353ffddd0a0e2de52e2[m
+Merge: 7041643 222817c
+Author: YQ006 <hurui1@cloudwalk.cn>
+Date:   Thu Jun 11 08:48:31 2020 +0800
+
+    FFmpeg转Qimage
+
+[33mcommit 7041643cdde8843a616031d75fd60ff9a2d92849[m
+Author: YQ006 <hurui1@cloudwalk.cn>
+Date:   Thu Jun 4 09:58:58 2020 +0800
+
+    ffmpeg转Qimage
+
+[33mcommit 222817cec4889da8f6640685a9006681e0580e8d[m
+Author: h1846458 <18476856458@163.com>
+Date:   Sat May 30 23:48:11 2020 +0800
+
+    ffmpeg转Qimage
+
+[33mcommit f417f7940cfd1d00b1a5474ad20e8291e7b5c460[m
+Merge: 9117575 59b46c8
+Author: h1846458 <18476856458@163.com>
+Date:   Thu May 28 22:11:38 2020 +0800
+
+    Merge branch 'master' of https://github.com/h1846458/mediaoption
+
+[33mcommit 91175759d0ee92de1a3d2ada6332b5f5f808781b[m
+Author: h1846458 <18476856458@163.com>
+Date:   Thu May 28 22:02:42 2020 +0800
+
+    first commit
+
+[33mcommit 59b46c8aa1e22f33e1efaa7737936eefbad6c8b0[m
+Author: h1846458 <50512043+h1846458@users.noreply.github.com>
+Date:   Wed May 27 22:03:19 2020 +0800
+
+    Update README.md
+
+[33mcommit aed6f691250901eb4fda4bfa2e8f40f1c3330c03[m
+Author: h1846458 <18476856458@163.com>
+Date:   Wed May 27 21:57:23 2020 +0800
+
+    first commit
+
+[33mcommit ef0ef12aab197ed6d213a745d4532d8c33080b56[m
+Author: Administrator <Administrator@DESKTOP-7S7FF25>
+Date:   Wed May 27 21:34:21 2020 +0800
+
+    添加 .gitignore 和 .gitattributes。

@@ -68,6 +68,9 @@
     <ClCompile Include="Logs.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="PushThread.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <QtRcc Include="mediaoption.qrc" />
@@ -118,6 +121,9 @@
       <Filter>Header Files</Filter>
     </QtMoc>
     <QtMoc Include="PushTable.h">
+      <Filter>Header Files</Filter>
+    </QtMoc>
+    <QtMoc Include="PushThread.h">
       <Filter>Header Files</Filter>
     </QtMoc>
   </ItemGroup>

@@ -4,13 +4,11 @@
 #include "SplitScreen.h"
 #include <qtimer.h>
 #include "DecoderThread.h"
+#include "PushThread.h"
 #include "SqliteOperate.h"
 #include <qmessagebox.h>
 #include "ui_addserver.h"
-#include "BasicUsageEnvironment.hh"
-#include "DynamicRTSPServer.hh"
-#include "version.hh"
-#define ACCESS_CONTROL
+
 
 class mediaoption : public QMainWindow
 {
@@ -29,10 +27,10 @@ private:
     void setScreen(int check);
     void initplay(int index);
     void setdevicetype();
-    void startserver();
 private:
     QTimer* timer;
     DecoderThread* decoderthread[MAXSCREEN];
+    PushThread* sr;
     SplitScreen* scr;
     int scrindex;
     QList<int> playlist;
