@@ -9,6 +9,7 @@
 #ifndef UI_MEDIAOPTION_H
 #define UI_MEDIAOPTION_H
 
+#include <PushTable.h>
 #include <QtCore/QVariant>
 #include <QtWidgets/QAction>
 #include <QtWidgets/QApplication>
@@ -27,7 +28,6 @@
 #include <QtWidgets/QSpacerItem>
 #include <QtWidgets/QStatusBar>
 #include <QtWidgets/QTabWidget>
-#include <QtWidgets/QTableView>
 #include <QtWidgets/QVBoxLayout>
 #include <QtWidgets/QWidget>
 #include "TreeView.h"
@@ -90,7 +90,7 @@ public:
     QSpacerItem *horizontalSpacer_11;
     QPushButton *startServer;
     QSpacerItem *horizontalSpacer_15;
-    QTableView *pushTableView;
+    PushTable *pushTableView;
     QWidget *Device;
     QGridLayout *gridLayout_11;
     QGroupBox *groupBox_7;
@@ -131,7 +131,7 @@ public:
     {
         if (mediaoptionClass->objectName().isEmpty())
             mediaoptionClass->setObjectName(QStringLiteral("mediaoptionClass"));
-        mediaoptionClass->resize(1249, 833);
+        mediaoptionClass->resize(1503, 833);
         QFont font;
         font.setFamily(QStringLiteral("Microsoft YaHei UI"));
         font.setPointSize(10);
@@ -497,8 +497,10 @@ public:
 
         pushlayout->addLayout(pushHlayout, 0, 0, 1, 1);
 
-        pushTableView = new QTableView(Pusher);
+        pushTableView = new PushTable(Pusher);
         pushTableView->setObjectName(QStringLiteral("pushTableView"));
+        pushTableView->setEditTriggers(QAbstractItemView::NoEditTriggers);
+        pushTableView->setSelectionMode(QAbstractItemView::NoSelection);
 
         pushlayout->addWidget(pushTableView, 1, 0, 1, 1);
 

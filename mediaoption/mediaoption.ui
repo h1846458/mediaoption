@@ -6,7 +6,7 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>1249</width>
+    <width>1503</width>
     <height>833</height>
    </rect>
   </property>
@@ -697,7 +697,14 @@ border-radius: 4px;
          </layout>
         </item>
         <item row="1" column="0">
-         <widget class="QTableView" name="pushTableView"/>
+         <widget class="PushTable" name="pushTableView">
+          <property name="editTriggers">
+           <set>QAbstractItemView::NoEditTriggers</set>
+          </property>
+          <property name="selectionMode">
+           <enum>QAbstractItemView::NoSelection</enum>
+          </property>
+         </widget>
         </item>
        </layout>
       </widget>
@@ -1024,7 +1031,12 @@ QLineEdit{border-width:0;border-style:outset}</string>
   <customwidget>
    <class>TreeView</class>
    <extends>QTreeView</extends>
-   <header location="global">TreeView.h</header>
+   <header>TreeView.h</header>
+  </customwidget>
+  <customwidget>
+   <class>PushTable</class>
+   <extends>QTableView</extends>
+   <header location="global">PushTable.h</header>
   </customwidget>
  </customwidgets>
  <resources>

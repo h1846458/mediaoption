@@ -62,6 +62,12 @@
     <ClCompile Include="DynamicRTSPServer.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="PushTable.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Logs.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <QtRcc Include="mediaoption.qrc" />
@@ -97,6 +103,9 @@
     <ClInclude Include="ui_addserver.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="Logs.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <QtMoc Include="PlayQlabel.h">
@@ -106,6 +115,9 @@
       <Filter>Header Files</Filter>
     </QtMoc>
     <QtMoc Include="TreeView.h">
+      <Filter>Header Files</Filter>
+    </QtMoc>
+    <QtMoc Include="PushTable.h">
       <Filter>Header Files</Filter>
     </QtMoc>
   </ItemGroup>

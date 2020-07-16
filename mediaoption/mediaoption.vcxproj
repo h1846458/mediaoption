@@ -48,7 +48,8 @@
       <AdditionalDependencies>avcodec.lib;avutil.lib;swscale.lib;avformat.lib;avfilter.lib;opencv_core411.lib;opencv_highgui411.lib;opencv_imgcodecs411.lib;opencv_videoio411.lib;opencv_imgproc411.lib;Qt5Sql.lib;BasicUsageEnvironment.lib;groupsock.lib;liveMedia.lib;UsageEnvironment.lib;ws2_32.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
     <ClCompile>
-      <AdditionalIncludeDirectories>..\3part\liveserver\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>..\3part\liveserver\include;.\;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <PreprocessorDefinitions>WIN32_LEAN_AND_MEAN;VC_EXTRALEAN;%(PreprocessorDefinitions)</PreprocessorDefinitions>
     </ClCompile>
   </ItemDefinitionGroup>
   <ImportGroup Condition="Exists('$(QtMsBuild)\qt_defaults.props')">
@@ -96,7 +97,9 @@
   <ItemGroup>
     <ClCompile Include="DecoderThread.cpp" />
     <ClCompile Include="DynamicRTSPServer.cpp" />
+    <ClCompile Include="Logs.cpp" />
     <ClCompile Include="PlayQlabel.cpp" />
+    <ClCompile Include="PushTable.cpp" />
     <ClCompile Include="SplitScreen.cpp" />
     <ClCompile Include="SqliteOperate.cpp" />
     <ClCompile Include="TreeView.cpp" />
@@ -109,6 +112,8 @@
     <ClCompile Include="main.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <QtMoc Include="PushTable.h" />
+    <ClInclude Include="Logs.h" />
     <ClInclude Include="ui_addserver.h" />
     <ClInclude Include="version.hh" />
     <QtMoc Include="DecoderThread.h" />
