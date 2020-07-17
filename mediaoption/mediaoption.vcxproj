@@ -45,7 +45,7 @@
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <Link>
-      <AdditionalDependencies>avcodec.lib;avutil.lib;swscale.lib;avformat.lib;avfilter.lib;opencv_core412.lib;opencv_highgui412.lib;opencv_imgcodecs412.lib;opencv_videoio412.lib;opencv_imgproc412.lib;Qt5Sql.lib;BasicUsageEnvironment.lib;groupsock.lib;liveMedia.lib;UsageEnvironment.lib;ws2_32.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>avcodec.lib;avutil.lib;swscale.lib;avformat.lib;avfilter.lib;opencv_core411.lib;opencv_highgui411.lib;opencv_imgcodecs411.lib;opencv_videoio411.lib;opencv_imgproc411.lib;Qt5Sql.lib;BasicUsageEnvironment.lib;groupsock.lib;liveMedia.lib;UsageEnvironment.lib;ws2_32.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
     <ClCompile>
       <AdditionalIncludeDirectories>..\3part\liveserver\include;.\;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
@@ -61,7 +61,7 @@
     <QtBuildConfig>debug</QtBuildConfig>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x64'" Label="QtSettings">
-    <QtInstall>msvc2017</QtInstall>
+    <QtInstall>mcsv2017</QtInstall>
     <QtModules>core;gui;widgets</QtModules>
     <QtBuildConfig>release</QtBuildConfig>
   </PropertyGroup>
