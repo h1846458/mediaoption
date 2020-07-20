@@ -132,6 +132,13 @@ void mediaoption::initWindow(void)
 		
 		sr = new PushThread(this);
 		sr->start();
+		QList<QPushButton*> bts;
+		QList<QCheckBox*> checks;
+		ui.pushTableView->getobject(bts);
+		ui.pushTableView->getobject(checks);
+		qDebug() <<bts.at(1)->property("rowid");
+		qDebug() << checks.at(1)->property("rwid");
+
 		});
 }
  

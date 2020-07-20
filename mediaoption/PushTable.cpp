@@ -8,7 +8,7 @@ void PushTable::set_table()
 {
     tb_item = new QStandardItemModel(4, 6);
     this->setModel(tb_item);
-    //    table_view->horizontalHeader()->hide();                       // 隐藏水平表头
+    //table_view->horizontalHeader()->hide();                       // 隐藏水平表头
     this->verticalHeader()->hide();                                     // 隐藏垂直表头
     
 
@@ -27,12 +27,16 @@ void PushTable::set_table()
     {
         for (int j = 0; j < 6; ++j)
         {
+           
             if (j == 0)
             {
                 QStandardItem* it = new QStandardItem(QString("%1").arg(i + j));
                 //it->setTextAlignment(Qt::AlignHCenter | Qt::AlignVCenter);
                 tb_item->setItem(i, j, it);
                 QCheckBox* chbox = new QCheckBox();
+                chbox->setProperty("rwid", i);
+                
+                checkblist.append(chbox);
                 QWidget* wd = new QWidget;
                 QHBoxLayout* boxLayout = new QHBoxLayout();
                 boxLayout->addWidget(chbox);
@@ -46,19 +50,12 @@ void PushTable::set_table()
             else if (j == 5)
             {
                 QPushButton* bt = new QPushButton();
-                bt->setProperty("id", i);
+                bt->setProperty("rowid", i);
                 bt->setStyleSheet(QStringLiteral("QPushButton { background-color:transparent}"));
                 QIcon icon;
                 icon.addFile(QStringLiteral("res/play_button.png"), QSize(), QIcon::Normal, QIcon::Off);
                 bt->setIcon(icon);
                 bt->setIconSize(QSize(20, 20));
-                QObject::connect(bt, &QPushButton::clicked, this, [=]() {
-
-                    QStandardItem* it = new QStandardItem(getTime());
-                    it->setTextAlignment(Qt::AlignHCenter | Qt::AlignVCenter);
-                    tb_item->setItem(i, j-1, it);
-                    //qDebug() << getTime();
-                    });
                 this->setIndexWidget(tb_item->index(i, j), bt);
             }
             else
@@ -69,10 +66,35 @@ void PushTable::set_table()
                 tb_item->setItem(i, j, it);
                 */
             }
-           
-        }
-            
+        }     
     }
+
+    QList<QCheckBox*>ls = this->findChildren<QCheckBox*>();
+    QList<QPushButton*> bls = this->findChildren<QPushButton*>();
+    for (auto i = 0; i < bls.size(); i++)
+    {
+        void(QCheckBox:: * pcheck)(int) = &QCheckBox::stateChanged;
+        QObject::connect(ls.at(i), pcheck, this, [=](int state) {
+            if (state == Qt::Checked) // "选中"
+            {
+                checkblist.append(ls.at(i));
+            }
+            });
+        QObject::connect(bls.at(i), &QPushButton::clicked, this, [=]() {
+            int rwi = bls.at(i)->property("rowid").toInt();
+            QStandardItem* it = new QStandardItem(rwi, 4);
+            it->setTextAlignment(Qt::AlignHCenter | Qt::AlignVCenter);
+            tb_item->setItem(rwi, 4, it);
+            it->setText(getTime());
+            btlist.append(bls.at(i));
+            ls.at(i)->setChecked(true);
+            checkblist.append(ls.at(i));
+            //tb_item->setItem(rwi, 4, it);
+            //tb_item->setData(tb_item->index(rwi, 4), getTime())
+            });
+        
+    }
+
     this->horizontalHeader()->setStyleSheet("QHeaderView::section {color: black;padding-left: 4px;border: 0px solid #6c6c6c;}");
     this->setColumnWidth(0, int(this->width()/12) * 2);
     this->horizontalHeader()->setSectionResizeMode(1,QHeaderView::Stretch); //设置列宽自适应
@@ -84,7 +106,6 @@ void PushTable::set_table()
     //this->setShowGrid(false);                               // 隐藏网格线
     this->setFocusPolicy(Qt::NoFocus);                      // 去除当前Cell周边虚线框
     this->setAlternatingRowColors(true);                    // 开启隔行异色  
-
 }
 
 QString PushTable::getTime()
