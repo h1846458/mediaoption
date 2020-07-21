@@ -80,16 +80,16 @@ public:
     QSpacerItem *horizontalSpacer_6;
     QPushButton *pushButton_21;
     QWidget *Pusher;
-    QGridLayout *pushlayout;
-    QHBoxLayout *pushHlayout;
-    QSpacerItem *horizontalSpacer_3;
+    QGridLayout *pushgridLayout;
+    QHBoxLayout *pushlayout;
     QPushButton *addServer;
-    QSpacerItem *horizontalSpacer_16;
+    QSpacerItem *horizontalSpacer_3;
+    QPushButton *pushAll;
+    QSpacerItem *horizontalSpacer_11;
     QLineEdit *lineEdit;
     QComboBox *selectserver;
-    QSpacerItem *horizontalSpacer_11;
-    QPushButton *startServer;
     QSpacerItem *horizontalSpacer_15;
+    QPushButton *startServer;
     PushTable *pushTableView;
     QWidget *Device;
     QGridLayout *gridLayout_11;
@@ -139,7 +139,7 @@ public:
     {
         if (mediaoptionClass->objectName().isEmpty())
             mediaoptionClass->setObjectName(QStringLiteral("mediaoptionClass"));
-        mediaoptionClass->resize(1503, 833);
+        mediaoptionClass->resize(1446, 755);
         QFont font;
         font.setFamily(QStringLiteral("Microsoft YaHei UI"));
         font.setPointSize(10);
@@ -147,6 +147,9 @@ public:
         font.setWeight(50);
         mediaoptionClass->setFont(font);
         mediaoptionClass->setMouseTracking(false);
+        QIcon icon;
+        icon.addFile(QStringLiteral("res/multimedia.png"), QSize(), QIcon::Normal, QIcon::Off);
+        mediaoptionClass->setWindowIcon(icon);
         mediaoptionClass->setAutoFillBackground(true);
         mediaoptionClass->setStyleSheet(QStringLiteral(""));
         centralWidget = new QWidget(mediaoptionClass);
@@ -351,9 +354,9 @@ public:
         pushButton_20 = new QPushButton(Voplay);
         pushButton_20->setObjectName(QStringLiteral("pushButton_20"));
         pushButton_20->setStyleSheet(QStringLiteral("QPushButton { background-color:transparent}"));
-        QIcon icon;
-        icon.addFile(QStringLiteral("res/last.png"), QSize(), QIcon::Normal, QIcon::Off);
-        pushButton_20->setIcon(icon);
+        QIcon icon1;
+        icon1.addFile(QStringLiteral("res/last.png"), QSize(), QIcon::Normal, QIcon::Off);
+        pushButton_20->setIcon(icon1);
         pushButton_20->setIconSize(QSize(25, 25));
 
         horizontalLayout->addWidget(pushButton_20);
@@ -365,9 +368,9 @@ public:
         pushButton_6 = new QPushButton(Voplay);
         pushButton_6->setObjectName(QStringLiteral("pushButton_6"));
         pushButton_6->setStyleSheet(QStringLiteral("QPushButton { background-color:transparent}"));
-        QIcon icon1;
-        icon1.addFile(QStringLiteral("res/player_fast_back.png"), QSize(), QIcon::Normal, QIcon::Off);
-        pushButton_6->setIcon(icon1);
+        QIcon icon2;
+        icon2.addFile(QStringLiteral("res/player_fast_back.png"), QSize(), QIcon::Normal, QIcon::Off);
+        pushButton_6->setIcon(icon2);
         pushButton_6->setIconSize(QSize(30, 25));
 
         horizontalLayout->addWidget(pushButton_6);
@@ -379,9 +382,9 @@ public:
         pushButton_7 = new QPushButton(Voplay);
         pushButton_7->setObjectName(QStringLiteral("pushButton_7"));
         pushButton_7->setStyleSheet(QStringLiteral("QPushButton { background-color:transparent}"));
-        QIcon icon2;
-        icon2.addFile(QStringLiteral("res/play_button.png"), QSize(), QIcon::Normal, QIcon::Off);
-        pushButton_7->setIcon(icon2);
+        QIcon icon3;
+        icon3.addFile(QStringLiteral("res/play_button.png"), QSize(), QIcon::Normal, QIcon::Off);
+        pushButton_7->setIcon(icon3);
         pushButton_7->setIconSize(QSize(25, 25));
 
         horizontalLayout->addWidget(pushButton_7);
@@ -393,9 +396,9 @@ public:
         pushButton_19 = new QPushButton(Voplay);
         pushButton_19->setObjectName(QStringLiteral("pushButton_19"));
         pushButton_19->setStyleSheet(QStringLiteral("QPushButton { background-color:transparent}"));
-        QIcon icon3;
-        icon3.addFile(QStringLiteral("res/player_fast_font.png"), QSize(), QIcon::Normal, QIcon::Off);
-        pushButton_19->setIcon(icon3);
+        QIcon icon4;
+        icon4.addFile(QStringLiteral("res/player_fast_font.png"), QSize(), QIcon::Normal, QIcon::Off);
+        pushButton_19->setIcon(icon4);
         pushButton_19->setIconSize(QSize(30, 25));
 
         horizontalLayout->addWidget(pushButton_19);
@@ -407,9 +410,9 @@ public:
         pushButton_10 = new QPushButton(Voplay);
         pushButton_10->setObjectName(QStringLiteral("pushButton_10"));
         pushButton_10->setStyleSheet(QStringLiteral("QPushButton { background-color:transparent}"));
-        QIcon icon4;
-        icon4.addFile(QStringLiteral("res/next.png"), QSize(), QIcon::Normal, QIcon::Off);
-        pushButton_10->setIcon(icon4);
+        QIcon icon5;
+        icon5.addFile(QStringLiteral("res/next.png"), QSize(), QIcon::Normal, QIcon::Off);
+        pushButton_10->setIcon(icon5);
         pushButton_10->setIconSize(QSize(25, 25));
 
         horizontalLayout->addWidget(pushButton_10);
@@ -421,9 +424,9 @@ public:
         pushButton_8 = new QPushButton(Voplay);
         pushButton_8->setObjectName(QStringLiteral("pushButton_8"));
         pushButton_8->setStyleSheet(QStringLiteral("QPushButton { background-color:transparent}"));
-        QIcon icon5;
-        icon5.addFile(QStringLiteral("res/sound.png"), QSize(), QIcon::Normal, QIcon::Off);
-        pushButton_8->setIcon(icon5);
+        QIcon icon6;
+        icon6.addFile(QStringLiteral("res/sound.png"), QSize(), QIcon::Normal, QIcon::Off);
+        pushButton_8->setIcon(icon6);
         pushButton_8->setIconSize(QSize(25, 25));
 
         horizontalLayout->addWidget(pushButton_8);
@@ -435,9 +438,9 @@ public:
         pushButton_21 = new QPushButton(Voplay);
         pushButton_21->setObjectName(QStringLiteral("pushButton_21"));
         pushButton_21->setStyleSheet(QStringLiteral("QPushButton { background-color:transparent}"));
-        QIcon icon6;
-        icon6.addFile(QStringLiteral("res/fullscreen.png"), QSize(), QIcon::Normal, QIcon::Off);
-        pushButton_21->setIcon(icon6);
+        QIcon icon7;
+        icon7.addFile(QStringLiteral("res/fullscreen.png"), QSize(), QIcon::Normal, QIcon::Off);
+        pushButton_21->setIcon(icon7);
         pushButton_21->setIconSize(QSize(25, 25));
 
         horizontalLayout->addWidget(pushButton_21);
@@ -453,26 +456,31 @@ public:
         tabWidget->addTab(Voplay, QString());
         Pusher = new QWidget();
         Pusher->setObjectName(QStringLiteral("Pusher"));
-        pushlayout = new QGridLayout(Pusher);
+        pushgridLayout = new QGridLayout(Pusher);
+        pushgridLayout->setSpacing(0);
+        pushgridLayout->setContentsMargins(11, 11, 11, 11);
+        pushgridLayout->setObjectName(QStringLiteral("pushgridLayout"));
+        pushgridLayout->setContentsMargins(0, -1, 0, 0);
+        pushlayout = new QHBoxLayout();
         pushlayout->setSpacing(0);
-        pushlayout->setContentsMargins(11, 11, 11, 11);
         pushlayout->setObjectName(QStringLiteral("pushlayout"));
-        pushlayout->setContentsMargins(0, 0, 0, 0);
-        pushHlayout = new QHBoxLayout();
-        pushHlayout->setSpacing(6);
-        pushHlayout->setObjectName(QStringLiteral("pushHlayout"));
-        horizontalSpacer_3 = new QSpacerItem(118, 20, QSizePolicy::Expanding, QSizePolicy::Minimum);
-
-        pushHlayout->addItem(horizontalSpacer_3);
-
         addServer = new QPushButton(Pusher);
         addServer->setObjectName(QStringLiteral("addServer"));
 
-        pushHlayout->addWidget(addServer);
+        pushlayout->addWidget(addServer);
 
-        horizontalSpacer_16 = new QSpacerItem(328, 20, QSizePolicy::Expanding, QSizePolicy::Minimum);
+        horizontalSpacer_3 = new QSpacerItem(40, 20, QSizePolicy::Expanding, QSizePolicy::Minimum);
 
-        pushHlayout->addItem(horizontalSpacer_16);
+        pushlayout->addItem(horizontalSpacer_3);
+
+        pushAll = new QPushButton(Pusher);
+        pushAll->setObjectName(QStringLiteral("pushAll"));
+
+        pushlayout->addWidget(pushAll);
+
+        horizontalSpacer_11 = new QSpacerItem(40, 20, QSizePolicy::Expanding, QSizePolicy::Minimum);
+
+        pushlayout->addItem(horizontalSpacer_11);
 
         lineEdit = new QLineEdit(Pusher);
         lineEdit->setObjectName(QStringLiteral("lineEdit"));
@@ -481,38 +489,34 @@ public:
         lineEdit->setAlignment(Qt::AlignCenter);
         lineEdit->setReadOnly(true);
 
-        pushHlayout->addWidget(lineEdit);
+        pushlayout->addWidget(lineEdit);
 
         selectserver = new QComboBox(Pusher);
         selectserver->setObjectName(QStringLiteral("selectserver"));
 
-        pushHlayout->addWidget(selectserver);
+        pushlayout->addWidget(selectserver);
 
-        horizontalSpacer_11 = new QSpacerItem(40, 20, QSizePolicy::Expanding, QSizePolicy::Minimum);
+        horizontalSpacer_15 = new QSpacerItem(40, 20, QSizePolicy::Expanding, QSizePolicy::Minimum);
 
-        pushHlayout->addItem(horizontalSpacer_11);
+        pushlayout->addItem(horizontalSpacer_15);
 
         startServer = new QPushButton(Pusher);
         startServer->setObjectName(QStringLiteral("startServer"));
 
-        pushHlayout->addWidget(startServer);
+        pushlayout->addWidget(startServer);
 
-        horizontalSpacer_15 = new QSpacerItem(118, 20, QSizePolicy::Expanding, QSizePolicy::Minimum);
+        pushlayout->setStretch(1, 1);
+        pushlayout->setStretch(3, 1);
+        pushlayout->setStretch(5, 2);
 
-        pushHlayout->addItem(horizontalSpacer_15);
-
-        pushHlayout->setStretch(3, 2);
-        pushHlayout->setStretch(4, 7);
-        pushHlayout->setStretch(7, 1);
-
-        pushlayout->addLayout(pushHlayout, 0, 0, 1, 1);
+        pushgridLayout->addLayout(pushlayout, 0, 0, 1, 1);
 
         pushTableView = new PushTable(Pusher);
         pushTableView->setObjectName(QStringLiteral("pushTableView"));
         pushTableView->setEditTriggers(QAbstractItemView::NoEditTriggers);
         pushTableView->setSelectionMode(QAbstractItemView::NoSelection);
 
-        pushlayout->addWidget(pushTableView, 1, 0, 1, 1);
+        pushgridLayout->addWidget(pushTableView, 1, 0, 1, 1);
 
         tabWidget->addTab(Pusher, QString());
         Device = new QWidget();
@@ -810,8 +814,9 @@ public:
         pushButton_21->setText(QString());
         tabWidget->setTabText(tabWidget->indexOf(Voplay), QApplication::translate("mediaoptionClass", "\347\202\271\346\222\255", Q_NULLPTR));
         addServer->setText(QApplication::translate("mediaoptionClass", "\346\267\273\345\212\240\346\265\201\345\252\222\344\275\223\346\234\215\345\212\241\345\231\250", Q_NULLPTR));
+        pushAll->setText(QApplication::translate("mediaoptionClass", "\346\211\271\351\207\217\346\216\250\346\265\201or\346\232\202\345\201\234", Q_NULLPTR));
         lineEdit->setText(QApplication::translate("mediaoptionClass", "\351\200\211\346\213\251\346\234\215\345\212\241\345\231\250:", Q_NULLPTR));
-        startServer->setText(QApplication::translate("mediaoptionClass", "\346\211\223\345\274\200\346\265\201\345\252\222\344\275\223\346\234\215\345\212\241\345\231\250", Q_NULLPTR));
+        startServer->setText(QApplication::translate("mediaoptionClass", "RtspServer", Q_NULLPTR));
         tabWidget->setTabText(tabWidget->indexOf(Pusher), QApplication::translate("mediaoptionClass", "\346\216\250\346\265\201\350\256\276\347\275\256", Q_NULLPTR));
         groupBox_7->setTitle(QApplication::translate("mediaoptionClass", "\346\267\273\345\212\240\350\256\276\345\244\207", Q_NULLPTR));
         lineEdit_8->setText(QApplication::translate("mediaoptionClass", "\350\256\276\345\244\207\345\220\215\347\247\260\357\274\232", Q_NULLPTR));

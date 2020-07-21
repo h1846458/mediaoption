@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>1503</width>
-    <height>833</height>
+    <width>1446</width>
+    <height>755</height>
    </rect>
   </property>
   <property name="font">
@@ -23,6 +23,10 @@
   </property>
   <property name="windowTitle">
    <string>VMS平台</string>
+  </property>
+  <property name="windowIcon">
+   <iconset>
+    <normaloff>res/multimedia.png</normaloff>res/multimedia.png</iconset>
   </property>
   <property name="autoFillBackground">
    <bool>true</bool>
@@ -594,11 +598,8 @@ border-radius: 4px;
        <attribute name="title">
         <string>推流设置</string>
        </attribute>
-       <layout class="QGridLayout" name="pushlayout">
+       <layout class="QGridLayout" name="pushgridLayout">
         <property name="leftMargin">
-         <number>0</number>
-        </property>
-        <property name="topMargin">
          <number>0</number>
         </property>
         <property name="rightMargin">
@@ -611,20 +612,10 @@ border-radius: 4px;
          <number>0</number>
         </property>
         <item row="0" column="0">
-         <layout class="QHBoxLayout" name="pushHlayout" stretch="0,0,0,2,7,0,0,1">
-          <item>
-           <spacer name="horizontalSpacer_3">
-            <property name="orientation">
-             <enum>Qt::Horizontal</enum>
-            </property>
-            <property name="sizeHint" stdset="0">
-             <size>
-              <width>118</width>
-              <height>20</height>
-             </size>
-            </property>
-           </spacer>
-          </item>
+         <layout class="QHBoxLayout" name="pushlayout" stretch="0,1,0,1,0,2,0,0">
+          <property name="spacing">
+           <number>0</number>
+          </property>
           <item>
            <widget class="QPushButton" name="addServer">
             <property name="text">
@@ -633,13 +624,33 @@ border-radius: 4px;
            </widget>
           </item>
           <item>
-           <spacer name="horizontalSpacer_16">
+           <spacer name="horizontalSpacer_3">
             <property name="orientation">
              <enum>Qt::Horizontal</enum>
             </property>
             <property name="sizeHint" stdset="0">
              <size>
-              <width>328</width>
+              <width>40</width>
+              <height>20</height>
+             </size>
+            </property>
+           </spacer>
+          </item>
+          <item>
+           <widget class="QPushButton" name="pushAll">
+            <property name="text">
+             <string>批量推流or暂停</string>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <spacer name="horizontalSpacer_11">
+            <property name="orientation">
+             <enum>Qt::Horizontal</enum>
+            </property>
+            <property name="sizeHint" stdset="0">
+             <size>
+              <width>40</width>
               <height>20</height>
              </size>
             </property>
@@ -666,7 +677,7 @@ QLineEdit{border-width:0;border-style:outset}</string>
            <widget class="QComboBox" name="selectserver"/>
           </item>
           <item>
-           <spacer name="horizontalSpacer_11">
+           <spacer name="horizontalSpacer_15">
             <property name="orientation">
              <enum>Qt::Horizontal</enum>
             </property>
@@ -681,22 +692,9 @@ QLineEdit{border-width:0;border-style:outset}</string>
           <item>
            <widget class="QPushButton" name="startServer">
             <property name="text">
-             <string>打开流媒体服务器</string>
+             <string>RtspServer</string>
             </property>
            </widget>
-          </item>
-          <item>
-           <spacer name="horizontalSpacer_15">
-            <property name="orientation">
-             <enum>Qt::Horizontal</enum>
-            </property>
-            <property name="sizeHint" stdset="0">
-             <size>
-              <width>118</width>
-              <height>20</height>
-             </size>
-            </property>
-           </spacer>
           </item>
          </layout>
         </item>

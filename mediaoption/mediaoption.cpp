@@ -1,6 +1,6 @@
 #include "mediaoption.h"
 
-mediaoption::mediaoption(QWidget* parent) :QMainWindow(parent), scrindex(0)
+mediaoption::mediaoption(QWidget* parent) :QMainWindow(parent), scrindex(0), sr(NULL)
 {
 	QImage img;
 	for (int i = 0; i < MAXSCREEN; i++)
@@ -55,6 +55,15 @@ void mediaoption::initWindow(void)
 				delete decoderthread[i];
 			}
 		}
+		if (sr != NULL)
+		{
+			if (sr->isRunning())
+			{
+				sr->stopser();
+				sr->wait();
+			}
+		}
+		
 		});
 
 	timer->start(0);
@@ -227,8 +236,6 @@ void mediaoption::setdevicetype()
 		ui.deviceType->addItem(typelist.at(i));
 	}
 }
-
-
 
 mediaoption:: ~mediaoption()
 {

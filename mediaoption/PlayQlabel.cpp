@@ -57,7 +57,6 @@ void PlayQlabel::leaveEvent(QEvent* ev)
 	
 }
 
-
 bool PlayQlabel::eventFilter(QObject* watched, QEvent* ev)
 {
 	if (watched == playbutton)

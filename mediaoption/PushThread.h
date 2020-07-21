@@ -13,10 +13,13 @@ public:
 	PushThread(QObject *parent);
 	~PushThread();
 	void run();
+	void stopser();
+	char stopserver;
 private:
 	TaskScheduler* scheduler;
 	UsageEnvironment* env;
 	RTSPServer* rtspServer;
 	UserAuthenticationDatabase* authDB;
 	portNumBits rtspServerPortNum;
+	
 };

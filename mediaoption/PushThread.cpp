@@ -1,6 +1,6 @@
 #include "PushThread.h"
 
-PushThread::PushThread(QObject *parent): QThread(parent), authDB(NULL), rtspServerPortNum(554)
+PushThread::PushThread(QObject *parent): QThread(parent), authDB(NULL), rtspServerPortNum(554), stopserver(0)
 {
 
 }
@@ -67,7 +67,13 @@ void PushThread::run()
 		*env << "(RTSP-over-HTTP tunneling is not available.)\n";
 	}
 
-	env->taskScheduler().doEventLoop(); // does not return
+	env->taskScheduler().doEventLoop(&stopserver); // does not return
+}
+
+void PushThread::stopser()
+{
+	stopserver = 1;
+	Medium::close(rtspServer);
 }
 
 PushThread::~PushThread()

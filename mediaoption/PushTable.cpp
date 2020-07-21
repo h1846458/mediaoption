@@ -9,9 +9,9 @@ void PushTable::set_table()
     tb_item = new QStandardItemModel(4, 6);
     this->setModel(tb_item);
     //table_view->horizontalHeader()->hide();                       // 隐藏水平表头
-    this->verticalHeader()->hide();                                     // 隐藏垂直表头
-    
-
+    this->verticalHeader()->hide(); // 隐藏垂直表头
+    tabHeader = new HeaderView(Qt::Horizontal, this);
+    this->setHorizontalHeader(tabHeader);
     QStringList column;
     column << QString::fromLocal8Bit("序号") 
         << QString::fromLocal8Bit("设备名称") 
@@ -119,4 +119,5 @@ QString PushTable::getTime()
 
 PushTable::~PushTable()
 {
+
 }

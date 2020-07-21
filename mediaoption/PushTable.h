@@ -4,6 +4,7 @@
 #include <QtWidgets>
 #include <QTableView>
 #include <time.h>
+#include "HeaderView.h"
 
 class PushTable : public QTableView
 {
@@ -21,5 +22,6 @@ private:
 	QStandardItemModel* tb_item;
 	QList<QCheckBox*> checkblist;
 	QList<QPushButton*> btlist;
+	HeaderView* tabHeader;
 	QString getTime();
 };

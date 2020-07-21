@@ -71,6 +71,12 @@
     <ClCompile Include="PushThread.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="FFmpegPushThread.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="HeaderView.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <QtRcc Include="mediaoption.qrc" />
@@ -126,10 +132,21 @@
     <QtMoc Include="PushThread.h">
       <Filter>Header Files</Filter>
     </QtMoc>
+    <QtMoc Include="FFmpegPushThread.h">
+      <Filter>Header Files</Filter>
+    </QtMoc>
+    <QtMoc Include="HeaderView.h">
+      <Filter>Header Files</Filter>
+    </QtMoc>
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="mediaoption.rc">
       <Filter>Resource Files</Filter>
     </ResourceCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <Image Include="media.ico">
+      <Filter>Resource Files</Filter>
+    </Image>
   </ItemGroup>
 </Project>
