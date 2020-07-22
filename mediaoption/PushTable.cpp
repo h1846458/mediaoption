@@ -4,16 +4,19 @@ PushTable::PushTable(QObject *parent): QTableView()
 {
 	set_table();
 }
+
 void PushTable::set_table()
 {
     tb_item = new QStandardItemModel(4, 6);
     this->setModel(tb_item);
-    //table_view->horizontalHeader()->hide();                       // 隐藏水平表头
+    //this->horizontalHeader()->hide();                       // 隐藏水平表头
     this->verticalHeader()->hide(); // 隐藏垂直表头
-    tabHeader = new HeaderView(Qt::Horizontal, this);
+    tabHeader = new HeaderView(Qt::Horizontal);
+    
     this->setHorizontalHeader(tabHeader);
+
     QStringList column;
-    column << QString::fromLocal8Bit("序号") 
+    column << QString::fromLocal8Bit("") 
         << QString::fromLocal8Bit("设备名称") 
         << QString::fromLocal8Bit("型号") 
         << QString::fromLocal8Bit("设备IP")
@@ -30,9 +33,9 @@ void PushTable::set_table()
            
             if (j == 0)
             {
-                QStandardItem* it = new QStandardItem(QString("%1").arg(i + j));
+                //QStandardItem* it = new QStandardItem(QString("%1").arg(i + j));
                 //it->setTextAlignment(Qt::AlignHCenter | Qt::AlignVCenter);
-                tb_item->setItem(i, j, it);
+                //tb_item->setItem(i, j, it);
                 QCheckBox* chbox = new QCheckBox();
                 chbox->setProperty("rwid", i);
                 
@@ -94,8 +97,29 @@ void PushTable::set_table()
             });
         
     }
-
-    this->horizontalHeader()->setStyleSheet("QHeaderView::section {color: black;padding-left: 4px;border: 0px solid #6c6c6c;}");
+    void(HeaderView:: * pheader)(bool) = &HeaderView::onChangeclicked;
+    QObject::connect(tabHeader, pheader, this, [=](bool ison) {
+        if (ison)
+        {
+            for (auto ct = ls.begin(); ct != ls.end(); ct++)
+            {
+                QCheckBox* ch = *ct;
+                ch->setChecked(true);
+            }
+            qDebug() << "dfasdfasdfasd" << ison;
+        }
+        else
+        {
+            for (auto ct = ls.begin(); ct != ls.end(); ct++)
+            {
+                QCheckBox* ch = *ct;
+                ch->setChecked(false);
+            }
+            qDebug() << "dfasdfasdfasd" << ison;
+        }
+        
+        //tabHeader->setisOn(true);
+        });
     this->setColumnWidth(0, int(this->width()/12) * 2);
     this->horizontalHeader()->setSectionResizeMode(1,QHeaderView::Stretch); //设置列宽自适应
     this->horizontalHeader()->setSectionResizeMode(2, QHeaderView::Stretch);

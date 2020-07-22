@@ -2,6 +2,9 @@
 
 #include <QHeaderView>
 #include <QPainter>
+#include <QPoint>
+#include <QDebug>
+#include <QMouseEvent>
 
 class HeaderView : public QHeaderView
 {
@@ -10,12 +13,14 @@ class HeaderView : public QHeaderView
 public:
 	HeaderView(Qt::Orientation orientation, QWidget* parent = 0);
 	~HeaderView();
+
 protected:
 	void paintSection(QPainter* painter, const QRect& rect, int logicalIndex) const;
-
 	void mousePressEvent(QMouseEvent* event);
 
+signals:
+	void onChangeclicked(bool);
+
 private:
-	//checkbox的开启或关闭状态
 	bool isOn;
 };

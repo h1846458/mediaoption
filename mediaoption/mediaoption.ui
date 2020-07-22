@@ -703,9 +703,15 @@ QLineEdit{border-width:0;border-style:outset}</string>
           <property name="editTriggers">
            <set>QAbstractItemView::NoEditTriggers</set>
           </property>
+          <property name="defaultDropAction">
+           <enum>Qt::LinkAction</enum>
+          </property>
           <property name="selectionMode">
            <enum>QAbstractItemView::NoSelection</enum>
           </property>
+          <attribute name="horizontalHeaderStretchLastSection">
+           <bool>true</bool>
+          </attribute>
          </widget>
         </item>
        </layout>

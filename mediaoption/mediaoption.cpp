@@ -43,6 +43,7 @@ void mediaoption::initWindow(void)
 	initplay(index);
 
 	void(QComboBox:: * pcomboBox)(int) = &QComboBox::currentIndexChanged;
+
 	QObject::connect(ui.comboBox, pcomboBox, this, &mediaoption::setScreen);
 
 	QObject::connect(this, &QMainWindow::destroyed, this, [=]() {
@@ -145,9 +146,6 @@ void mediaoption::initWindow(void)
 		QList<QCheckBox*> checks;
 		ui.pushTableView->getobject(bts);
 		ui.pushTableView->getobject(checks);
-		qDebug() <<bts.at(1)->property("rowid");
-		qDebug() << checks.at(1)->property("rwid");
-
 		});
 }
  

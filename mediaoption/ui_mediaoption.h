@@ -514,7 +514,9 @@ public:
         pushTableView = new PushTable(Pusher);
         pushTableView->setObjectName(QStringLiteral("pushTableView"));
         pushTableView->setEditTriggers(QAbstractItemView::NoEditTriggers);
+        pushTableView->setDefaultDropAction(Qt::LinkAction);
         pushTableView->setSelectionMode(QAbstractItemView::NoSelection);
+        pushTableView->horizontalHeader()->setStretchLastSection(true);
 
         pushgridLayout->addWidget(pushTableView, 1, 0, 1, 1);
 
