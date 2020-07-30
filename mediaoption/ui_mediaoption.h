@@ -80,53 +80,22 @@ public:
     QSpacerItem *horizontalSpacer_6;
     QPushButton *pushButton_21;
     QWidget *Pusher;
-    QGridLayout *pushgridLayout;
-    QHBoxLayout *pushlayout;
+    QGridLayout *gridLayout_7;
+    QHBoxLayout *horizontalLayout_12;
+    QSpacerItem *horizontalSpacer_17;
     QPushButton *addServer;
     QSpacerItem *horizontalSpacer_3;
+    QPushButton *addStream;
+    QSpacerItem *horizontalSpacer_16;
     QPushButton *pushAll;
     QSpacerItem *horizontalSpacer_11;
+    QHBoxLayout *horizontalLayout_11;
     QLineEdit *lineEdit;
     QComboBox *selectserver;
     QSpacerItem *horizontalSpacer_15;
     QPushButton *startServer;
+    QSpacerItem *horizontalSpacer_18;
     PushTable *pushTableView;
-    QWidget *Device;
-    QGridLayout *gridLayout_11;
-    QGroupBox *groupBox_7;
-    QGridLayout *gridLayout_5;
-    QGridLayout *gridLayout_4;
-    QSpacerItem *verticalSpacer;
-    QSpacerItem *horizontalSpacer_13;
-    QVBoxLayout *verticalLayout_2;
-    QHBoxLayout *horizontalLayout_3;
-    QLineEdit *lineEdit_8;
-    QLineEdit *deviceName;
-    QHBoxLayout *horizontalLayout_4;
-    QLineEdit *lineEdit_9;
-    QComboBox *deviceType;
-    QHBoxLayout *horizontalLayout_5;
-    QLineEdit *lineEdit_14;
-    QLineEdit *deviceId;
-    QHBoxLayout *horizontalLayout_6;
-    QLineEdit *lineEdit_10;
-    QLineEdit *userName;
-    QHBoxLayout *horizontalLayout_7;
-    QLineEdit *lineEdit_11;
-    QLineEdit *passWd;
-    QHBoxLayout *horizontalLayout_8;
-    QLineEdit *lineEdit_12;
-    QLineEdit *ipAddr;
-    QHBoxLayout *horizontalLayout_9;
-    QLineEdit *lineEdit_13;
-    QLineEdit *devicePort;
-    QHBoxLayout *horizontalLayout_10;
-    QSpacerItem *horizontalSpacer_30;
-    QPushButton *submitDevice;
-    QSpacerItem *horizontalSpacer_28;
-    QPushButton *cancelDevice;
-    QSpacerItem *horizontalSpacer_14;
-    QSpacerItem *verticalSpacer_2;
     QWidget *Systemset;
     QGridLayout *gridLayout_3;
     QGroupBox *groupBox;
@@ -139,7 +108,7 @@ public:
     {
         if (mediaoptionClass->objectName().isEmpty())
             mediaoptionClass->setObjectName(QStringLiteral("mediaoptionClass"));
-        mediaoptionClass->resize(1446, 755);
+        mediaoptionClass->resize(1627, 1006);
         QFont font;
         font.setFamily(QStringLiteral("Microsoft YaHei UI"));
         font.setPointSize(10);
@@ -456,60 +425,84 @@ public:
         tabWidget->addTab(Voplay, QString());
         Pusher = new QWidget();
         Pusher->setObjectName(QStringLiteral("Pusher"));
-        pushgridLayout = new QGridLayout(Pusher);
-        pushgridLayout->setSpacing(0);
-        pushgridLayout->setContentsMargins(11, 11, 11, 11);
-        pushgridLayout->setObjectName(QStringLiteral("pushgridLayout"));
-        pushgridLayout->setContentsMargins(0, -1, 0, 0);
-        pushlayout = new QHBoxLayout();
-        pushlayout->setSpacing(0);
-        pushlayout->setObjectName(QStringLiteral("pushlayout"));
+        gridLayout_7 = new QGridLayout(Pusher);
+        gridLayout_7->setSpacing(0);
+        gridLayout_7->setContentsMargins(11, 11, 11, 11);
+        gridLayout_7->setObjectName(QStringLiteral("gridLayout_7"));
+        gridLayout_7->setContentsMargins(0, 0, 0, 0);
+        horizontalLayout_12 = new QHBoxLayout();
+        horizontalLayout_12->setSpacing(6);
+        horizontalLayout_12->setObjectName(QStringLiteral("horizontalLayout_12"));
+        horizontalSpacer_17 = new QSpacerItem(40, 20, QSizePolicy::Expanding, QSizePolicy::Minimum);
+
+        horizontalLayout_12->addItem(horizontalSpacer_17);
+
         addServer = new QPushButton(Pusher);
         addServer->setObjectName(QStringLiteral("addServer"));
 
-        pushlayout->addWidget(addServer);
+        horizontalLayout_12->addWidget(addServer);
 
         horizontalSpacer_3 = new QSpacerItem(40, 20, QSizePolicy::Expanding, QSizePolicy::Minimum);
 
-        pushlayout->addItem(horizontalSpacer_3);
+        horizontalLayout_12->addItem(horizontalSpacer_3);
+
+        addStream = new QPushButton(Pusher);
+        addStream->setObjectName(QStringLiteral("addStream"));
+
+        horizontalLayout_12->addWidget(addStream);
+
+        horizontalSpacer_16 = new QSpacerItem(40, 20, QSizePolicy::Expanding, QSizePolicy::Minimum);
+
+        horizontalLayout_12->addItem(horizontalSpacer_16);
 
         pushAll = new QPushButton(Pusher);
         pushAll->setObjectName(QStringLiteral("pushAll"));
 
-        pushlayout->addWidget(pushAll);
+        horizontalLayout_12->addWidget(pushAll);
 
         horizontalSpacer_11 = new QSpacerItem(40, 20, QSizePolicy::Expanding, QSizePolicy::Minimum);
 
-        pushlayout->addItem(horizontalSpacer_11);
+        horizontalLayout_12->addItem(horizontalSpacer_11);
 
+        horizontalLayout_11 = new QHBoxLayout();
+        horizontalLayout_11->setSpacing(0);
+        horizontalLayout_11->setObjectName(QStringLiteral("horizontalLayout_11"));
         lineEdit = new QLineEdit(Pusher);
         lineEdit->setObjectName(QStringLiteral("lineEdit"));
         lineEdit->setStyleSheet(QLatin1String("QLineEdit{background-color:transparent}\n"
 "QLineEdit{border-width:0;border-style:outset}"));
-        lineEdit->setAlignment(Qt::AlignCenter);
+        lineEdit->setAlignment(Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter);
         lineEdit->setReadOnly(true);
 
-        pushlayout->addWidget(lineEdit);
+        horizontalLayout_11->addWidget(lineEdit);
 
         selectserver = new QComboBox(Pusher);
         selectserver->setObjectName(QStringLiteral("selectserver"));
 
-        pushlayout->addWidget(selectserver);
+        horizontalLayout_11->addWidget(selectserver);
+
+        horizontalLayout_11->setStretch(0, 1);
+        horizontalLayout_11->setStretch(1, 4);
+
+        horizontalLayout_12->addLayout(horizontalLayout_11);
 
         horizontalSpacer_15 = new QSpacerItem(40, 20, QSizePolicy::Expanding, QSizePolicy::Minimum);
 
-        pushlayout->addItem(horizontalSpacer_15);
+        horizontalLayout_12->addItem(horizontalSpacer_15);
 
         startServer = new QPushButton(Pusher);
         startServer->setObjectName(QStringLiteral("startServer"));
 
-        pushlayout->addWidget(startServer);
+        horizontalLayout_12->addWidget(startServer);
 
-        pushlayout->setStretch(1, 1);
-        pushlayout->setStretch(3, 1);
-        pushlayout->setStretch(5, 2);
+        horizontalSpacer_18 = new QSpacerItem(40, 20, QSizePolicy::Expanding, QSizePolicy::Minimum);
 
-        pushgridLayout->addLayout(pushlayout, 0, 0, 1, 1);
+        horizontalLayout_12->addItem(horizontalSpacer_18);
+
+        horizontalLayout_12->setStretch(6, 1);
+        horizontalLayout_12->setStretch(7, 1);
+
+        gridLayout_7->addLayout(horizontalLayout_12, 0, 0, 1, 1);
 
         pushTableView = new PushTable(Pusher);
         pushTableView->setObjectName(QStringLiteral("pushTableView"));
@@ -518,225 +511,9 @@ public:
         pushTableView->setSelectionMode(QAbstractItemView::NoSelection);
         pushTableView->horizontalHeader()->setStretchLastSection(true);
 
-        pushgridLayout->addWidget(pushTableView, 1, 0, 1, 1);
+        gridLayout_7->addWidget(pushTableView, 1, 0, 1, 1);
 
         tabWidget->addTab(Pusher, QString());
-        Device = new QWidget();
-        Device->setObjectName(QStringLiteral("Device"));
-        gridLayout_11 = new QGridLayout(Device);
-        gridLayout_11->setSpacing(0);
-        gridLayout_11->setContentsMargins(11, 11, 11, 11);
-        gridLayout_11->setObjectName(QStringLiteral("gridLayout_11"));
-        gridLayout_11->setContentsMargins(0, 0, 0, 0);
-        groupBox_7 = new QGroupBox(Device);
-        groupBox_7->setObjectName(QStringLiteral("groupBox_7"));
-        gridLayout_5 = new QGridLayout(groupBox_7);
-        gridLayout_5->setSpacing(6);
-        gridLayout_5->setContentsMargins(11, 11, 11, 11);
-        gridLayout_5->setObjectName(QStringLiteral("gridLayout_5"));
-        gridLayout_4 = new QGridLayout();
-        gridLayout_4->setSpacing(6);
-        gridLayout_4->setObjectName(QStringLiteral("gridLayout_4"));
-        verticalSpacer = new QSpacerItem(20, 208, QSizePolicy::Minimum, QSizePolicy::Expanding);
-
-        gridLayout_4->addItem(verticalSpacer, 0, 1, 1, 1);
-
-        horizontalSpacer_13 = new QSpacerItem(538, 20, QSizePolicy::Expanding, QSizePolicy::Minimum);
-
-        gridLayout_4->addItem(horizontalSpacer_13, 1, 0, 1, 1);
-
-        verticalLayout_2 = new QVBoxLayout();
-        verticalLayout_2->setSpacing(6);
-        verticalLayout_2->setObjectName(QStringLiteral("verticalLayout_2"));
-        horizontalLayout_3 = new QHBoxLayout();
-        horizontalLayout_3->setSpacing(0);
-        horizontalLayout_3->setObjectName(QStringLiteral("horizontalLayout_3"));
-        lineEdit_8 = new QLineEdit(groupBox_7);
-        lineEdit_8->setObjectName(QStringLiteral("lineEdit_8"));
-        lineEdit_8->setStyleSheet(QLatin1String("QLineEdit{background-color:transparent}\n"
-"QLineEdit{border-width:0;border-style:outset}"));
-        lineEdit_8->setReadOnly(true);
-
-        horizontalLayout_3->addWidget(lineEdit_8);
-
-        deviceName = new QLineEdit(groupBox_7);
-        deviceName->setObjectName(QStringLiteral("deviceName"));
-
-        horizontalLayout_3->addWidget(deviceName);
-
-        horizontalLayout_3->setStretch(0, 1);
-        horizontalLayout_3->setStretch(1, 3);
-
-        verticalLayout_2->addLayout(horizontalLayout_3);
-
-        horizontalLayout_4 = new QHBoxLayout();
-        horizontalLayout_4->setSpacing(0);
-        horizontalLayout_4->setObjectName(QStringLiteral("horizontalLayout_4"));
-        lineEdit_9 = new QLineEdit(groupBox_7);
-        lineEdit_9->setObjectName(QStringLiteral("lineEdit_9"));
-        lineEdit_9->setStyleSheet(QLatin1String("QLineEdit{background-color:transparent}\n"
-"QLineEdit{border-width:0;border-style:outset}"));
-        lineEdit_9->setReadOnly(true);
-
-        horizontalLayout_4->addWidget(lineEdit_9);
-
-        deviceType = new QComboBox(groupBox_7);
-        deviceType->setObjectName(QStringLiteral("deviceType"));
-
-        horizontalLayout_4->addWidget(deviceType);
-
-        horizontalLayout_4->setStretch(0, 1);
-        horizontalLayout_4->setStretch(1, 3);
-
-        verticalLayout_2->addLayout(horizontalLayout_4);
-
-        horizontalLayout_5 = new QHBoxLayout();
-        horizontalLayout_5->setSpacing(0);
-        horizontalLayout_5->setObjectName(QStringLiteral("horizontalLayout_5"));
-        lineEdit_14 = new QLineEdit(groupBox_7);
-        lineEdit_14->setObjectName(QStringLiteral("lineEdit_14"));
-        lineEdit_14->setStyleSheet(QLatin1String("QLineEdit{background-color:transparent}\n"
-"QLineEdit{border-width:0;border-style:outset}"));
-        lineEdit_14->setReadOnly(true);
-
-        horizontalLayout_5->addWidget(lineEdit_14);
-
-        deviceId = new QLineEdit(groupBox_7);
-        deviceId->setObjectName(QStringLiteral("deviceId"));
-
-        horizontalLayout_5->addWidget(deviceId);
-
-        horizontalLayout_5->setStretch(0, 1);
-        horizontalLayout_5->setStretch(1, 3);
-
-        verticalLayout_2->addLayout(horizontalLayout_5);
-
-        horizontalLayout_6 = new QHBoxLayout();
-        horizontalLayout_6->setSpacing(0);
-        horizontalLayout_6->setObjectName(QStringLiteral("horizontalLayout_6"));
-        lineEdit_10 = new QLineEdit(groupBox_7);
-        lineEdit_10->setObjectName(QStringLiteral("lineEdit_10"));
-        lineEdit_10->setStyleSheet(QLatin1String("QLineEdit{background-color:transparent}\n"
-"QLineEdit{border-width:0;border-style:outset}"));
-        lineEdit_10->setReadOnly(true);
-
-        horizontalLayout_6->addWidget(lineEdit_10);
-
-        userName = new QLineEdit(groupBox_7);
-        userName->setObjectName(QStringLiteral("userName"));
-
-        horizontalLayout_6->addWidget(userName);
-
-        horizontalLayout_6->setStretch(0, 1);
-        horizontalLayout_6->setStretch(1, 3);
-
-        verticalLayout_2->addLayout(horizontalLayout_6);
-
-        horizontalLayout_7 = new QHBoxLayout();
-        horizontalLayout_7->setSpacing(0);
-        horizontalLayout_7->setObjectName(QStringLiteral("horizontalLayout_7"));
-        lineEdit_11 = new QLineEdit(groupBox_7);
-        lineEdit_11->setObjectName(QStringLiteral("lineEdit_11"));
-        lineEdit_11->setStyleSheet(QLatin1String("QLineEdit{background-color:transparent}\n"
-"QLineEdit{border-width:0;border-style:outset}"));
-        lineEdit_11->setReadOnly(true);
-
-        horizontalLayout_7->addWidget(lineEdit_11);
-
-        passWd = new QLineEdit(groupBox_7);
-        passWd->setObjectName(QStringLiteral("passWd"));
-
-        horizontalLayout_7->addWidget(passWd);
-
-        horizontalLayout_7->setStretch(0, 1);
-        horizontalLayout_7->setStretch(1, 3);
-
-        verticalLayout_2->addLayout(horizontalLayout_7);
-
-        horizontalLayout_8 = new QHBoxLayout();
-        horizontalLayout_8->setSpacing(0);
-        horizontalLayout_8->setObjectName(QStringLiteral("horizontalLayout_8"));
-        lineEdit_12 = new QLineEdit(groupBox_7);
-        lineEdit_12->setObjectName(QStringLiteral("lineEdit_12"));
-        lineEdit_12->setStyleSheet(QLatin1String("QLineEdit{background-color:transparent}\n"
-"QLineEdit{border-width:0;border-style:outset}"));
-        lineEdit_12->setReadOnly(true);
-
-        horizontalLayout_8->addWidget(lineEdit_12);
-
-        ipAddr = new QLineEdit(groupBox_7);
-        ipAddr->setObjectName(QStringLiteral("ipAddr"));
-
-        horizontalLayout_8->addWidget(ipAddr);
-
-        horizontalLayout_8->setStretch(0, 1);
-        horizontalLayout_8->setStretch(1, 3);
-
-        verticalLayout_2->addLayout(horizontalLayout_8);
-
-        horizontalLayout_9 = new QHBoxLayout();
-        horizontalLayout_9->setSpacing(0);
-        horizontalLayout_9->setObjectName(QStringLiteral("horizontalLayout_9"));
-        lineEdit_13 = new QLineEdit(groupBox_7);
-        lineEdit_13->setObjectName(QStringLiteral("lineEdit_13"));
-        lineEdit_13->setStyleSheet(QLatin1String("QLineEdit{background-color:transparent}\n"
-"QLineEdit{border-width:0;border-style:outset}"));
-        lineEdit_13->setReadOnly(true);
-
-        horizontalLayout_9->addWidget(lineEdit_13);
-
-        devicePort = new QLineEdit(groupBox_7);
-        devicePort->setObjectName(QStringLiteral("devicePort"));
-
-        horizontalLayout_9->addWidget(devicePort);
-
-        horizontalLayout_9->setStretch(0, 1);
-        horizontalLayout_9->setStretch(1, 3);
-
-        verticalLayout_2->addLayout(horizontalLayout_9);
-
-        horizontalLayout_10 = new QHBoxLayout();
-        horizontalLayout_10->setSpacing(6);
-        horizontalLayout_10->setObjectName(QStringLiteral("horizontalLayout_10"));
-        horizontalSpacer_30 = new QSpacerItem(68, 20, QSizePolicy::Expanding, QSizePolicy::Minimum);
-
-        horizontalLayout_10->addItem(horizontalSpacer_30);
-
-        submitDevice = new QPushButton(groupBox_7);
-        submitDevice->setObjectName(QStringLiteral("submitDevice"));
-
-        horizontalLayout_10->addWidget(submitDevice);
-
-        horizontalSpacer_28 = new QSpacerItem(40, 20, QSizePolicy::Expanding, QSizePolicy::Minimum);
-
-        horizontalLayout_10->addItem(horizontalSpacer_28);
-
-        cancelDevice = new QPushButton(groupBox_7);
-        cancelDevice->setObjectName(QStringLiteral("cancelDevice"));
-
-        horizontalLayout_10->addWidget(cancelDevice);
-
-
-        verticalLayout_2->addLayout(horizontalLayout_10);
-
-
-        gridLayout_4->addLayout(verticalLayout_2, 1, 1, 1, 1);
-
-        horizontalSpacer_14 = new QSpacerItem(658, 20, QSizePolicy::Expanding, QSizePolicy::Minimum);
-
-        gridLayout_4->addItem(horizontalSpacer_14, 1, 2, 1, 1);
-
-        verticalSpacer_2 = new QSpacerItem(20, 268, QSizePolicy::Minimum, QSizePolicy::Expanding);
-
-        gridLayout_4->addItem(verticalSpacer_2, 2, 1, 1, 1);
-
-
-        gridLayout_5->addLayout(gridLayout_4, 0, 0, 1, 1);
-
-
-        gridLayout_11->addWidget(groupBox_7, 0, 0, 1, 1);
-
-        tabWidget->addTab(Device, QString());
         Systemset = new QWidget();
         Systemset->setObjectName(QStringLiteral("Systemset"));
         gridLayout_3 = new QGridLayout(Systemset);
@@ -815,22 +592,12 @@ public:
         pushButton_8->setText(QString());
         pushButton_21->setText(QString());
         tabWidget->setTabText(tabWidget->indexOf(Voplay), QApplication::translate("mediaoptionClass", "\347\202\271\346\222\255", Q_NULLPTR));
-        addServer->setText(QApplication::translate("mediaoptionClass", "\346\267\273\345\212\240\346\265\201\345\252\222\344\275\223\346\234\215\345\212\241\345\231\250", Q_NULLPTR));
+        addServer->setText(QApplication::translate("mediaoptionClass", "\346\267\273\345\212\240\346\234\215\345\212\241\345\231\250", Q_NULLPTR));
+        addStream->setText(QApplication::translate("mediaoptionClass", "\346\267\273\345\212\240\350\247\206\351\242\221", Q_NULLPTR));
         pushAll->setText(QApplication::translate("mediaoptionClass", "\346\211\271\351\207\217\346\216\250\346\265\201or\346\232\202\345\201\234", Q_NULLPTR));
-        lineEdit->setText(QApplication::translate("mediaoptionClass", "\351\200\211\346\213\251\346\234\215\345\212\241\345\231\250:", Q_NULLPTR));
+        lineEdit->setText(QApplication::translate("mediaoptionClass", "\351\200\211\346\213\251\346\234\215\345\212\241\345\231\250\357\274\232", Q_NULLPTR));
         startServer->setText(QApplication::translate("mediaoptionClass", "RtspServer", Q_NULLPTR));
         tabWidget->setTabText(tabWidget->indexOf(Pusher), QApplication::translate("mediaoptionClass", "\346\216\250\346\265\201\350\256\276\347\275\256", Q_NULLPTR));
-        groupBox_7->setTitle(QApplication::translate("mediaoptionClass", "\346\267\273\345\212\240\350\256\276\345\244\207", Q_NULLPTR));
-        lineEdit_8->setText(QApplication::translate("mediaoptionClass", "\350\256\276\345\244\207\345\220\215\347\247\260\357\274\232", Q_NULLPTR));
-        lineEdit_9->setText(QApplication::translate("mediaoptionClass", "\350\256\276\345\244\207\347\261\273\345\236\213\357\274\232", Q_NULLPTR));
-        lineEdit_14->setText(QApplication::translate("mediaoptionClass", "\350\256\276\345\244\207\347\274\226\345\217\267\357\274\232", Q_NULLPTR));
-        lineEdit_10->setText(QApplication::translate("mediaoptionClass", "\347\224\250\346\210\267\345\220\215\357\274\232", Q_NULLPTR));
-        lineEdit_11->setText(QApplication::translate("mediaoptionClass", "\345\257\206\347\240\201\357\274\232", Q_NULLPTR));
-        lineEdit_12->setText(QApplication::translate("mediaoptionClass", "IP\345\234\260\345\235\200\357\274\232", Q_NULLPTR));
-        lineEdit_13->setText(QApplication::translate("mediaoptionClass", "\347\253\257\345\217\243\345\217\267\357\274\232", Q_NULLPTR));
-        submitDevice->setText(QApplication::translate("mediaoptionClass", "\347\241\256\345\256\232", Q_NULLPTR));
-        cancelDevice->setText(QApplication::translate("mediaoptionClass", "\345\217\226\346\266\210", Q_NULLPTR));
-        tabWidget->setTabText(tabWidget->indexOf(Device), QApplication::translate("mediaoptionClass", "\350\256\276\345\244\207\347\256\241\347\220\206", Q_NULLPTR));
         groupBox->setTitle(QApplication::translate("mediaoptionClass", "\345\233\275\346\240\207", Q_NULLPTR));
         groupBox_2->setTitle(QApplication::translate("mediaoptionClass", "\345\271\263\345\217\260", Q_NULLPTR));
         groupBox_3->setTitle(QApplication::translate("mediaoptionClass", "onvif", Q_NULLPTR));

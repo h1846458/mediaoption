@@ -36,6 +36,9 @@
     <QtUic Include="addserver.ui">
       <Filter>Form Files</Filter>
     </QtUic>
+    <QtUic Include="addstream.ui">
+      <Filter>Form Files</Filter>
+    </QtUic>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
@@ -113,6 +116,9 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="Logs.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="ui_addstream.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

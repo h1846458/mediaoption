@@ -17,11 +17,13 @@ public:
 	void set_table();
 	void getobject(QList<QPushButton*>& bts) { bts = btlist; }
 	void getobject(QList<QCheckBox*>& checks) { checks = checkblist; }
+	bool getchkflag() { return chkflag; }
 
 private:
 	QStandardItemModel* tb_item;
 	QList<QCheckBox*> checkblist;
 	QList<QPushButton*> btlist;
 	HeaderView* tabHeader;
+	bool chkflag;
 	QString getTime();
 };

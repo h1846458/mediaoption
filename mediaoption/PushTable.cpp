@@ -1,6 +1,6 @@
 #include "PushTable.h"
 
-PushTable::PushTable(QObject *parent): QTableView()
+PushTable::PushTable(QObject *parent): QTableView(), chkflag(false)
 {
 	set_table();
 }
@@ -25,7 +25,8 @@ void PushTable::set_table()
     //row << "row 1" << "row 2" << "row 3" << "row 4";
     tb_item->setHorizontalHeaderLabels(column);                  // 设置水平表头标签
     //tb_item->setVerticalHeaderLabels(row);                     // 设置垂直表头标签
-    // 添加item到model
+
+
     for (int i = 0; i < 4; ++i)
     {
         for (int j = 0; j < 6; ++j)
@@ -76,6 +77,8 @@ void PushTable::set_table()
     QList<QPushButton*> bls = this->findChildren<QPushButton*>();
     for (auto i = 0; i < bls.size(); i++)
     {
+        QStandardItem* it = new QStandardItem();
+        it->setTextAlignment(Qt::AlignHCenter | Qt::AlignVCenter);
         void(QCheckBox:: * pcheck)(int) = &QCheckBox::stateChanged;
         QObject::connect(ls.at(i), pcheck, this, [=](int state) {
             if (state == Qt::Checked) // "选中"
@@ -84,14 +87,18 @@ void PushTable::set_table()
             }
             });
         QObject::connect(bls.at(i), &QPushButton::clicked, this, [=]() {
+
             int rwi = bls.at(i)->property("rowid").toInt();
-            QStandardItem* it = new QStandardItem(rwi, 4);
-            it->setTextAlignment(Qt::AlignHCenter | Qt::AlignVCenter);
+            if (tb_item->item(rwi, 4) != NULL)
+            {
+                tb_item->takeItem(0, 0);
+            }
+            
             tb_item->setItem(rwi, 4, it);
             it->setText(getTime());
             btlist.append(bls.at(i));
-            ls.at(i)->setChecked(true);
-            checkblist.append(ls.at(i));
+            //ls.at(i)->setChecked(true);
+            //checkblist.append(ls.at(i));
             //tb_item->setItem(rwi, 4, it);
             //tb_item->setData(tb_item->index(rwi, 4), getTime())
             });
@@ -106,7 +113,7 @@ void PushTable::set_table()
                 QCheckBox* ch = *ct;
                 ch->setChecked(true);
             }
-            qDebug() << "dfasdfasdfasd" << ison;
+            chkflag = true;
         }
         else
         {
@@ -115,6 +122,12 @@ void PushTable::set_table()
                 QCheckBox* ch = *ct;
                 ch->setChecked(false);
             }
+            chkflag = false;
+            if (!checkblist.isEmpty())
+            {
+                checkblist.clear();
+            }
+            
             qDebug() << "dfasdfasdfasd" << ison;
         }
         

@@ -8,6 +8,7 @@
 #include "SqliteOperate.h"
 #include <qmessagebox.h>
 #include "ui_addserver.h"
+#include "ui_addstream.h"
 
 
 class mediaoption : public QMainWindow
@@ -21,7 +22,9 @@ public:
 private:
     Ui::mediaoptionClass ui;
     Ui::addserverdialog addsr;
+    Ui::addstream addstr;
     QDialog* addser;
+    QDialog* addstrm;
     void initWindow(void);
     void initDb();
     void setScreen(int check);
