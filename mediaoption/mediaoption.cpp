@@ -1,6 +1,6 @@
 #include "mediaoption.h"
 
-mediaoption::mediaoption(QWidget* parent) :QMainWindow(parent), scrindex(0)
+mediaoption::mediaoption(QWidget* parent) :QMainWindow(parent), scrindex(0), sr(NULL)
 {
 	QImage img;
 	for (int i = 0; i < MAXSCREEN; i++)
@@ -35,7 +35,13 @@ void mediaoption::initWindow(void)
 	timer = new QTimer(this);
 	scr = new SplitScreen();
 	addser = new QDialog();
+<<<<<<< HEAD
 	addsr.setupUi(addser);
+=======
+	addstrm = new QDialog();
+	addsr.setupUi(addser);
+	addstr.setupUi(addstrm);
+>>>>>>> dev1.0
 	QString ind = ui.comboBox->currentText();
 	int index = ind.mid(0, ind.length() - 2).toInt();
 	scr->setScrnum(index);
@@ -44,6 +50,7 @@ void mediaoption::initWindow(void)
 	initplay(index);
 
 	void(QComboBox:: * pcomboBox)(int) = &QComboBox::currentIndexChanged;
+
 	QObject::connect(ui.comboBox, pcomboBox, this, &mediaoption::setScreen);
 
 	QObject::connect(this, &QMainWindow::destroyed, this, [=]() {
@@ -56,6 +63,15 @@ void mediaoption::initWindow(void)
 				delete decoderthread[i];
 			}
 		}
+		if (sr != NULL)
+		{
+			if (sr->isRunning())
+			{
+				sr->stopser();
+				sr->wait();
+			}
+		}
+		
 		});
 
 	timer->start(0);
@@ -72,29 +88,31 @@ void mediaoption::initWindow(void)
 		}
 		});
 
-	QObject::connect(ui.submitDevice, &QPushButton::clicked, this, [=]() {
-		QString devicename = ui.deviceName->text();
-		QString devicetype = ui.deviceType->currentText();
-		QString deviceid = ui.deviceId->text();
-		QString username = ui.userName->text();
-		QString passwd = ui.passWd->text();
-		QString ipaddr = ui.ipAddr->text();
-		QString port = ui.devicePort->text();
-		QString sql = QString(QString::fromLocal8Bit("INSERT INTO  devicetab (name, devicetype, deviceid, username, passwd, ipaddr, port) VALUES ('%1', '%2', '%3', '%4', '%5', '%6', '%7')"))
+	QObject::connect(addstr.submitDevice, &QPushButton::clicked, this, [=]() {
+		QString devicename = addstr.deviceName->text();
+		QString devicetype = addstr.deviceType->currentText();
+		QString	streamtype = addstr.streamType->currentText();
+		QString deviceid = addstr.deviceId->text();
+		QString username = addstr.userName->text();
+		QString passwd = addstr.passWd->text();
+		QString ipaddr = addstr.ipAddr->text();
+		QString port = addstr.devicePort->text();
+		QString sql = QString(QString::fromLocal8Bit("INSERT INTO  devicetab (name, devicetype,streamtype, deviceid, username, passwd, ipaddr, port) VALUES ('%1', '%2', '%3', '%4', '%5', '%6', '%7','%8')"))
 			.arg(devicename)
 			.arg(devicetype)
+			.arg(streamtype)
 			.arg(deviceid)
 			.arg(username)
 			.arg(passwd)
 			.arg(ipaddr)
 			.arg(port);
 		DB->singleinsertdata(sql);
-		ui.deviceName->clear();
-		ui.deviceId->clear();
-		ui.devicePort->clear();
-		ui.userName->clear();
-		ui.passWd->clear();
-		ui.ipAddr->clear();
+		addstr.deviceName->clear();
+		addstr.deviceId->clear();
+		addstr.devicePort->clear();
+		addstr.userName->clear();
+		addstr.passWd->clear();
+		addstr.ipAddr->clear();
 		QMessageBox msgBox(this);
 		msgBox.setWindowFlags(Qt::Widget);
 		//msgBox.setStyleSheet("background-color:white");
@@ -108,13 +126,56 @@ void mediaoption::initWindow(void)
 		msgBox.exec();
 		});
 
-	QObject::connect(ui.cancelDevice, &QPushButton::clicked, this, [=]() {
-		ui.deviceName->clear();
-		ui.deviceId->clear();
-		ui.devicePort->clear();
-		ui.userName->clear();
-		ui.passWd->clear();
-		ui.ipAddr->clear();
+	QObject::connect(addstr.cancelDevice, &QPushButton::clicked, this, [=]() {
+		addstr.deviceName->clear();
+		addstr.deviceId->clear();
+		addstr.devicePort->clear();
+		addstr.userName->clear();
+		addstr.passWd->clear();
+		addstr.ipAddr->clear();
+		addstrm->close();
+		});
+
+	QObject::connect(ui.addServer, &QPushButton::clicked, this, [=](){
+		addser->setFixedSize(430,280);
+		Qt::WindowFlags flags = Qt::Dialog; 
+		flags |= Qt::WindowCloseButtonHint;
+		addser->setWindowFlags(flags);
+		addser->show();
+		});
+
+	QObject::connect(ui.addStream, &QPushButton::clicked, this, [=]() {
+		addstrm->setFixedSize(400, 300);
+		Qt::WindowFlags flags = Qt::Dialog;
+		flags |= Qt::WindowCloseButtonHint;
+		addstrm->setWindowFlags(flags);
+		addstrm->show();
+		});
+
+	QObject::connect(addsr.cancelpushButton, &QPushButton::clicked, addser, [=](){
+		addser->close();
+		});
+
+	QObject::connect(ui.startServer, &QPushButton::clicked, this, [=]() {
+		
+		sr = new PushThread(this);
+		sr->start();
+		QList<QPushButton*> bts;
+		QList<QCheckBox*> checks;
+		ui.pushTableView->getobject(bts);
+		ui.pushTableView->getobject(checks);
+		});
+
+	QObject::connect(ui.pushAll, &QPushButton::clicked, this, [=]() {
+		QList<QCheckBox*> checks;
+		ui.pushTableView->getobject(checks);
+		for (auto ck = checks.begin(); ck != checks.end(); ck++)
+		{
+			QCheckBox* chk = *ck;
+			qDebug() << chk->isChecked();
+		}
+		
+		
 		});
 
 	QObject::connect(ui.addServer, &QPushButton::clicked, this, [=](){
@@ -212,7 +273,7 @@ void mediaoption::setdevicetype()
 	DB->queryTable(sql, typelist);
 	for (auto i = 0; i < typelist.size(); i++)
 	{
-		ui.deviceType->addItem(typelist.at(i));
+		addstr.deviceType->addItem(typelist.at(i));
 	}
 }
 

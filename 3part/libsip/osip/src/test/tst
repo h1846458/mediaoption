@@ -1,0 +1,84 @@
+#!/bin/sh
+
+# This is a short-cut to execute tests on the parser.
+# ./conf/torture_msgs{,2} contain various kind of messages.
+
+#echo "=="
+#echo "== Testing the parser contained in libosip."
+#echo "== You can use the verbose mode (-v) to see the full message."
+#echo "=="
+
+ok=0
+nok=0
+vok=0
+vnok=0
+total=0
+
+
+i=0
+while [ -e $1/sip$i ]
+do
+    filename=$1/sip$i
+    ./torture_test $filename $2
+
+    code=$?
+    if [ "$code" -eq 0 ]; then
+	ok=`expr $ok + 1`;
+    else
+	nok=`expr $nok + 1`
+    fi;
+
+    if type "valgrind" > /dev/null; then
+        valgrind --tool=memcheck --leak-check=yes --leak-resolution=high --show-reachable=yes -q --error-exitcode=1 ./torture_test $filename $2 2>&1 
+
+	code=$?
+	if [ "$code" -eq 0 ]; then
+	    vok=`expr $vok + 1`;
+	else
+	    vnok=`expr $vnok + 1`
+	fi;
+    fi
+
+    i=`expr $i + 1`
+    total=`expr $total + 1`
+done
+
+i=0
+while [ -e $1/sip-malformed$i ]
+do
+    filename=$1/sip-malformed$i
+    ./torture_test $filename $2
+
+    code=$?
+    if [ "$code" -eq 0 ]; then
+	ok=`expr $ok + 1`;
+    else
+	nok=`expr $nok + 1`
+    fi;
+
+    if type "valgrind" > /dev/null; then
+        valgrind --tool=memcheck --leak-check=yes --leak-resolution=high --show-reachable=yes -q --error-exitcode=1 ./torture_test $filename $2 2>&1 
+
+	code=$?
+	if [ "$code" -eq 0 ]; then
+	    vok=`expr $vok + 1`;
+	else
+	    vnok=`expr $vnok + 1`
+	fi;
+    fi
+
+    i=`expr $i + 1`
+    total=`expr $total + 1`
+done
+#
+
+echo "unit testing total :   $total"
+echo "unit testing passed:   $ok"
+echo "unit testing failed:   $nok"
+
+if [ ! "$vnok" -eq 0 ]; then
+    echo "valgrind unit testing passed:   $vok"
+    echo "valgrind unit testing failed:   $vnok (valgrind + standard errors combined)"
+fi;
+
+

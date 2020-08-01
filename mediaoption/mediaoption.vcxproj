@@ -41,6 +41,7 @@
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <IncludePath>..\3part\liveserver\include;..\3part\ffmpeg\include;..\3part\opencv\include\opencv2;..\3part\opencv\include;$(IncludePath)</IncludePath>
+<<<<<<< HEAD
     <LibraryPath>..\3part\lib;..\3part\opencv\lib;..\3part\ffmpeg\lib;$(LibraryPath)</LibraryPath>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
@@ -49,6 +50,17 @@
     </Link>
     <ClCompile>
       <AdditionalIncludeDirectories>..\3part\liveserver\include;.\;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+=======
+    <LibraryPath>..\x64\lib;..\3part\lib;..\3part\opencv\lib;..\3part\ffmpeg\lib;$(LibraryPath)</LibraryPath>
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <Link>
+      <AdditionalDependencies>avcodec.lib;avutil.lib;swscale.lib;avformat.lib;avfilter.lib;opencv_core411.lib;opencv_highgui411.lib;opencv_imgcodecs411.lib;opencv_videoio411.lib;opencv_imgproc411.lib;Qt5Sql.lib;BasicUsageEnvironment.lib;groupsock.lib;liveMedia.lib;UsageEnvironment.lib;ws2_32.lib;%(AdditionalDependencies)</AdditionalDependencies>
+    </Link>
+    <ClCompile>
+      <AdditionalIncludeDirectories>..\3part\liveserver\include;.\;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <PreprocessorDefinitions>WIN32_LEAN_AND_MEAN;VC_EXTRALEAN;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+>>>>>>> dev1.0
     </ClCompile>
   </ItemDefinitionGroup>
   <ImportGroup Condition="Exists('$(QtMsBuild)\qt_defaults.props')">
@@ -96,13 +108,26 @@
   <ItemGroup>
     <ClCompile Include="DecoderThread.cpp" />
     <ClCompile Include="DynamicRTSPServer.cpp" />
+<<<<<<< HEAD
     <ClCompile Include="PlayQlabel.cpp" />
     <ClCompile Include="PushTable.cpp" />
+=======
+    <ClCompile Include="FFmpegPushThread.cpp" />
+    <ClCompile Include="HeaderView.cpp" />
+    <ClCompile Include="Logs.cpp" />
+    <ClCompile Include="PlayQlabel.cpp" />
+    <ClCompile Include="PushTable.cpp" />
+    <ClCompile Include="PushThread.cpp" />
+>>>>>>> dev1.0
     <ClCompile Include="SplitScreen.cpp" />
     <ClCompile Include="SqliteOperate.cpp" />
     <ClCompile Include="TreeView.cpp" />
     <QtRcc Include="mediaoption.qrc" />
     <QtUic Include="addserver.ui" />
+<<<<<<< HEAD
+=======
+    <QtUic Include="addstream.ui" />
+>>>>>>> dev1.0
     <QtUic Include="mediaoption.ui" />
     <QtMoc Include="mediaoption.h" />
     <ClCompile Include="ffmpegDecode.cpp" />
@@ -111,7 +136,16 @@
   </ItemGroup>
   <ItemGroup>
     <QtMoc Include="PushTable.h" />
+<<<<<<< HEAD
     <ClInclude Include="ui_addserver.h" />
+=======
+    <QtMoc Include="FFmpegPushThread.h" />
+    <QtMoc Include="HeaderView.h" />
+    <ClInclude Include="Logs.h" />
+    <QtMoc Include="PushThread.h" />
+    <ClInclude Include="ui_addserver.h" />
+    <ClInclude Include="ui_addstream.h" />
+>>>>>>> dev1.0
     <ClInclude Include="version.hh" />
     <QtMoc Include="DecoderThread.h" />
     <ClInclude Include="CommonStructHeader.h" />
@@ -127,6 +161,9 @@
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="mediaoption.rc" />
+  </ItemGroup>
+  <ItemGroup>
+    <Image Include="media.ico" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Condition="Exists('$(QtMsBuild)\qt.targets')">

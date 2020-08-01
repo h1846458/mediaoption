@@ -6,8 +6,13 @@
    <rect>
     <x>0</x>
     <y>0</y>
+<<<<<<< HEAD
     <width>1671</width>
     <height>853</height>
+=======
+    <width>1627</width>
+    <height>1006</height>
+>>>>>>> dev1.0
    </rect>
   </property>
   <property name="font">
@@ -23,6 +28,10 @@
   </property>
   <property name="windowTitle">
    <string>VMS平台</string>
+  </property>
+  <property name="windowIcon">
+   <iconset>
+    <normaloff>res/multimedia.png</normaloff>res/multimedia.png</iconset>
   </property>
   <property name="autoFillBackground">
    <bool>true</bool>
@@ -594,7 +603,11 @@ border-radius: 4px;
        <attribute name="title">
         <string>推流设置</string>
        </attribute>
+<<<<<<< HEAD
        <layout class="QGridLayout" name="pushlayout">
+=======
+       <layout class="QGridLayout" name="gridLayout_7">
+>>>>>>> dev1.0
         <property name="leftMargin">
          <number>0</number>
         </property>
@@ -611,15 +624,25 @@ border-radius: 4px;
          <number>0</number>
         </property>
         <item row="0" column="0">
+<<<<<<< HEAD
          <layout class="QHBoxLayout" name="pushHlayout" stretch="0,0,5,1,7,2,0,2">
           <item>
            <spacer name="horizontalSpacer_3">
+=======
+         <layout class="QHBoxLayout" name="horizontalLayout_12" stretch="0,0,0,0,0,0,1,1,0,0,0">
+          <item>
+           <spacer name="horizontalSpacer_17">
+>>>>>>> dev1.0
             <property name="orientation">
              <enum>Qt::Horizontal</enum>
             </property>
             <property name="sizeHint" stdset="0">
              <size>
+<<<<<<< HEAD
               <width>118</width>
+=======
+              <width>40</width>
+>>>>>>> dev1.0
               <height>20</height>
              </size>
             </property>
@@ -627,12 +650,37 @@ border-radius: 4px;
           </item>
           <item>
            <widget class="QPushButton" name="addServer">
+<<<<<<< HEAD
             <property name="styleSheet">
              <string notr="true">
 </string>
             </property>
             <property name="text">
              <string>添加流媒体服务器</string>
+=======
+            <property name="text">
+             <string>添加服务器</string>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <spacer name="horizontalSpacer_3">
+            <property name="orientation">
+             <enum>Qt::Horizontal</enum>
+            </property>
+            <property name="sizeHint" stdset="0">
+             <size>
+              <width>40</width>
+              <height>20</height>
+             </size>
+            </property>
+           </spacer>
+          </item>
+          <item>
+           <widget class="QPushButton" name="addStream">
+            <property name="text">
+             <string>添加视频</string>
+>>>>>>> dev1.0
             </property>
            </widget>
           </item>
@@ -643,13 +691,18 @@ border-radius: 4px;
             </property>
             <property name="sizeHint" stdset="0">
              <size>
+<<<<<<< HEAD
               <width>328</width>
+=======
+              <width>40</width>
+>>>>>>> dev1.0
               <height>20</height>
              </size>
             </property>
            </spacer>
           </item>
           <item>
+<<<<<<< HEAD
            <widget class="QLineEdit" name="lineEdit">
             <property name="styleSheet">
              <string notr="true">QLineEdit{background-color:transparent}
@@ -671,6 +724,56 @@ QLineEdit{border-width:0;border-style:outset}</string>
           </item>
           <item>
            <spacer name="horizontalSpacer_11">
+=======
+           <widget class="QPushButton" name="pushAll">
+            <property name="text">
+             <string>批量推流or暂停</string>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <spacer name="horizontalSpacer_11">
+            <property name="orientation">
+             <enum>Qt::Horizontal</enum>
+            </property>
+            <property name="sizeHint" stdset="0">
+             <size>
+              <width>40</width>
+              <height>20</height>
+             </size>
+            </property>
+           </spacer>
+          </item>
+          <item>
+           <layout class="QHBoxLayout" name="horizontalLayout_11" stretch="1,4">
+            <property name="spacing">
+             <number>0</number>
+            </property>
+            <item>
+             <widget class="QLineEdit" name="lineEdit">
+              <property name="styleSheet">
+               <string notr="true">QLineEdit{background-color:transparent}
+QLineEdit{border-width:0;border-style:outset}</string>
+              </property>
+              <property name="text">
+               <string>选择服务器：</string>
+              </property>
+              <property name="alignment">
+               <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
+              </property>
+              <property name="readOnly">
+               <bool>true</bool>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="QComboBox" name="selectserver"/>
+            </item>
+           </layout>
+          </item>
+          <item>
+           <spacer name="horizontalSpacer_15">
+>>>>>>> dev1.0
             <property name="orientation">
              <enum>Qt::Horizontal</enum>
             </property>
@@ -684,22 +787,35 @@ QLineEdit{border-width:0;border-style:outset}</string>
           </item>
           <item>
            <widget class="QPushButton" name="startServer">
+<<<<<<< HEAD
             <property name="styleSheet">
              <string notr="true"/>
             </property>
             <property name="text">
              <string>打开流媒体服务器</string>
+=======
+            <property name="text">
+             <string>RtspServer</string>
+>>>>>>> dev1.0
             </property>
            </widget>
           </item>
           <item>
+<<<<<<< HEAD
            <spacer name="horizontalSpacer_15">
+=======
+           <spacer name="horizontalSpacer_18">
+>>>>>>> dev1.0
             <property name="orientation">
              <enum>Qt::Horizontal</enum>
             </property>
             <property name="sizeHint" stdset="0">
              <size>
+<<<<<<< HEAD
               <width>118</width>
+=======
+              <width>40</width>
+>>>>>>> dev1.0
               <height>20</height>
              </size>
             </property>
@@ -709,6 +825,7 @@ QLineEdit{border-width:0;border-style:outset}</string>
         </item>
         <item row="1" column="0">
          <widget class="PushTable" name="pushTableView">
+<<<<<<< HEAD
           <property name="selectionMode">
            <enum>QAbstractItemView::NoSelection</enum>
           </property>
@@ -980,6 +1097,20 @@ QLineEdit{border-width:0;border-style:outset}</string>
             </spacer>
            </item>
           </layout>
+=======
+          <property name="editTriggers">
+           <set>QAbstractItemView::NoEditTriggers</set>
+          </property>
+          <property name="defaultDropAction">
+           <enum>Qt::LinkAction</enum>
+          </property>
+          <property name="selectionMode">
+           <enum>QAbstractItemView::NoSelection</enum>
+          </property>
+          <attribute name="horizontalHeaderStretchLastSection">
+           <bool>true</bool>
+          </attribute>
+>>>>>>> dev1.0
          </widget>
         </item>
        </layout>
